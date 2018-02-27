@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
   
 import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
@@ -13,6 +12,7 @@ import { TaskService } from './task.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { TaskSummaryComponent } from './task-summary/task-summary.component';
+import { TaskAddComponent } from './task-add/task-add.component';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import { TaskSummaryComponent } from './task-summary/task-summary.component';
     TaskComponent,
     TaskListComponent,
     InstructionsComponent,
-    TaskSummaryComponent
+    TaskSummaryComponent,
+    TaskAddComponent
   ],
   imports: [
     BrowserModule,

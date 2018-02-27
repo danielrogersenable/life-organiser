@@ -3,7 +3,7 @@
   <li *ngFor="let task of tasks"
       [class.selected]="task === selectedTask"
       (click)="onSelect(task)">
-    {{task.name}} <span> is due by </span> {{task.dueDate | date }} and is <span *ngIf="task.completed"> not</span> due.
+    {{task.name}} <span> is due by </span> {{task.dateDue | date }} and is <span *ngIf="task.completed"> not</span> due.
   </li>
 </ul>-->
 <table>
@@ -17,7 +17,7 @@
       [class.selected]="task === selectedTask"
       (click)="onSelect(task)">
     <td>{{task.name}}</td>
-    <td>{{task.dueDate | date}} </td>
+    <td>{{task.dateDue | date}} </td>
     <td>{{task.completed}}</td>
     <td><a routerLink="/task/{{task.id}}">Edit</a></td>
   </tr>

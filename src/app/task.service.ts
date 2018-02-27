@@ -5,7 +5,6 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 import { Task } from './task';
-import { TASKS } from './temp-data-source';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -30,6 +29,10 @@ export class TaskService {
 
   updateTask(task: Task): Observable<any> {
     return this.http.put(this.tasksUrl, task, httpOptions);
+  }
+
+  addTask(task: Task): Observable<any> {
+    return this.http.post(this.tasksUrl, task, httpOptions);
   }
 
 }

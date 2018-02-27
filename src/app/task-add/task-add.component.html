@@ -1,0 +1,11 @@
+<div>
+  <label>
+    Name:
+    <input [(ngModel)]="task.name" placeholder="name" />
+  </label>
+  <label>
+    Completed:
+    <input [(ngModel)]="task.completed" type="checkbox" />
+  </label>
+</div>
+<button (click)="add()"> Add </button>
