@@ -1,0 +1,27 @@
+<h2>List of tasks</h2>
+<!--<ul class="tasks">
+  <li *ngFor="let task of tasks"
+      [class.selected]="task === selectedTask"
+      (click)="onSelect(task)">
+    {{task.name}} <span> is due by </span> {{task.dueDate | date }} and is <span *ngIf="task.completed"> not</span> due.
+  </li>
+</ul>-->
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date due</th>
+    <th>Completed?</th>
+    <th>Edit link</th>
+  </tr>
+  <tr *ngFor="let task of tasks"
+      [class.selected]="task === selectedTask"
+      (click)="onSelect(task)">
+    <td>{{task.name}}</td>
+    <td>{{task.dueDate | date}} </td>
+    <td>{{task.completed}}</td>
+    <td><a routerLink="/task/{{task.id}}">Edit</a></td>
+  </tr>
+</table>
+<div *ngIf="selectedTask">
+  <app-task-summary [task]="selectedTask"></app-task-summary>
+</div>

@@ -1,0 +1,32 @@
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\bin\Debug\netcoreapp2.0\Enable.ServiceMonitoring.Web.Api.dll
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\bin\Debug\netcoreapp2.0\Enable.ServiceMonitoring.EntityModel.dll
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\bin\Debug\netcoreapp2.0\Enable.ServiceMonitoring.ServiceStatus.dll
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\bin\Debug\netcoreapp2.0\IISUrlRewrite.prod.xml
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\bin\Debug\netcoreapp2.0\IISUrlRewrite.xml
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\bin\Debug\netcoreapp2.0\Enable.ServiceMonitoring.Web.Api.deps.json
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\bin\Debug\netcoreapp2.0\Enable.ServiceMonitoring.Web.Api.runtimeconfig.json
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\bin\Debug\netcoreapp2.0\Enable.ServiceMonitoring.Web.Api.runtimeconfig.dev.json
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\bin\Debug\netcoreapp2.0\Enable.ServiceMonitoring.Web.Api.pdb
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\bin\Debug\netcoreapp2.0\Enable.ServiceMonitoring.EntityModel.pdb
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\bin\Debug\netcoreapp2.0\Enable.ServiceMonitoring.ServiceStatus.pdb
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\obj\Debug\netcoreapp2.0\Web.Api.csprojResolveAssemblyReference.cache
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\obj\Debug\netcoreapp2.0\Web.Api.csproj.CoreCompileInputs.cache
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\obj\Debug\netcoreapp2.0\Web.Api.AssemblyInfoInputs.cache
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\obj\Debug\netcoreapp2.0\Web.Api.AssemblyInfo.cs
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\obj\Debug\netcoreapp2.0\Enable.ServiceMonitoring.Web.Api.dll
+C:\Projects\Business Improvement\Service Monitoring\src\Web.Api\obj\Debug\netcoreapp2.0\Enable.ServiceMonitoring.Web.Api.pdb
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\bin\Debug\netcoreapp2.0\IISUrlRewrite.prod.xml
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\bin\Debug\netcoreapp2.0\IISUrlRewrite.xml
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\bin\Debug\netcoreapp2.0\LifeOrganiserCore.Web.Api.deps.json
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\bin\Debug\netcoreapp2.0\LifeOrganiserCore.Web.Api.runtimeconfig.json
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\bin\Debug\netcoreapp2.0\LifeOrganiserCore.Web.Api.runtimeconfig.dev.json
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\bin\Debug\netcoreapp2.0\LifeOrganiserCore.Web.Api.dll
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\bin\Debug\netcoreapp2.0\LifeOrganiserCore.Web.Api.pdb
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\bin\Debug\netcoreapp2.0\DataModel.dll
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\bin\Debug\netcoreapp2.0\DataModel.pdb
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\obj\Debug\netcoreapp2.0\Web.Api.csprojResolveAssemblyReference.cache
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\obj\Debug\netcoreapp2.0\Web.Api.csproj.CoreCompileInputs.cache
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\obj\Debug\netcoreapp2.0\Web.Api.AssemblyInfoInputs.cache
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\obj\Debug\netcoreapp2.0\Web.Api.AssemblyInfo.cs
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\obj\Debug\netcoreapp2.0\LifeOrganiserCore.Web.Api.dll
+C:\Projects\Training\Angular\LifeOrganiserCore\Web.Api\obj\Debug\netcoreapp2.0\LifeOrganiserCore.Web.Api.pdb

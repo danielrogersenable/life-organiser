@@ -1,0 +1,21 @@
+<h2>Task details</h2>
+<div *ngIf="isLoaded">
+  <div><span>Id: </span>{{task.id}}</div>
+  <div><span>Name: </span>{{task.name}}</div>
+  <div><span>Due date: </span>{{task.dueDate | date}}</div>
+  <div><span>Completed: </span>{{task.completed}}</div>
+  <div>
+    <label>
+      Name:
+      <input [(ngModel)]="task.name" placeholder="name" />
+    </label>
+    <label>
+      Completed:
+      <input [(ngModel)]="task.completed" type="checkbox" />
+    </label>
+  </div>
+  <div *ngIf="id">
+    <button (click)="goBack()"> Go back</button>
+    <button (click)="save()"> Save </button>
+  </div>
+</div>

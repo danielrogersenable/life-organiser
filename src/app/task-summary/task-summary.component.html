@@ -1,0 +1,4 @@
+<h2> Summary of task: {{task.name}}</h2>
+<div>
+  {{task.name}} <span> has a due date of </span> {{task.dueDate | date }} and <span *ngIf="task.completed">has already been completed.</span><span *ngIf="!task.completed">is still to be completed.</span>
+</div>

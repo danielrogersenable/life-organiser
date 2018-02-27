@@ -1,0 +1,13 @@
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\bin\Debug\netcoreapp2.0\TestApi.deps.json
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\bin\Debug\netcoreapp2.0\TestApi.runtimeconfig.json
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\bin\Debug\netcoreapp2.0\TestApi.runtimeconfig.dev.json
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\bin\Debug\netcoreapp2.0\TestApi.dll
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\bin\Debug\netcoreapp2.0\TestApi.pdb
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\obj\Debug\netcoreapp2.0\TestApi.csprojResolveAssemblyReference.cache
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\obj\Debug\netcoreapp2.0\TestApi.csproj.CoreCompileInputs.cache
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\obj\Debug\netcoreapp2.0\TestApi.AssemblyInfoInputs.cache
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\obj\Debug\netcoreapp2.0\TestApi.AssemblyInfo.cs
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\obj\Debug\netcoreapp2.0\TestApi.dll
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\obj\Debug\netcoreapp2.0\TestApi.pdb
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\bin\Debug\netcoreapp2.0\DataModel.dll
+C:\Projects\Training\Angular\LifeOrganiserCore\TestApi\bin\Debug\netcoreapp2.0\DataModel.pdb

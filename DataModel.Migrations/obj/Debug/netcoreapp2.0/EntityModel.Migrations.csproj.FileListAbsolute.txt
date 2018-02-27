@@ -1,0 +1,13 @@
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\bin\Debug\netcoreapp2.0\EntityModel.Migrations.deps.json
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\bin\Debug\netcoreapp2.0\EntityModel.Migrations.dll
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\obj\Debug\netcoreapp2.0\EntityModel.Migrations.csprojResolveAssemblyReference.cache
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\obj\Debug\netcoreapp2.0\EntityModel.Migrations.csproj.CoreCompileInputs.cache
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\obj\Debug\netcoreapp2.0\EntityModel.Migrations.AssemblyInfoInputs.cache
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\obj\Debug\netcoreapp2.0\EntityModel.Migrations.AssemblyInfo.cs
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\bin\Debug\netcoreapp2.0\DataModel.dll
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\bin\Debug\netcoreapp2.0\EntityModel.Migrations.pdb
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\bin\Debug\netcoreapp2.0\DataModel.pdb
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\obj\Debug\netcoreapp2.0\EntityModel.Migrations.dll
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\obj\Debug\netcoreapp2.0\EntityModel.Migrations.pdb
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\bin\Debug\netcoreapp2.0\EntityModel.Migrations.runtimeconfig.json
+C:\Projects\Training\Angular\LifeOrganiserCore\EntityModel.Migrations\bin\Debug\netcoreapp2.0\EntityModel.Migrations.runtimeconfig.dev.json
