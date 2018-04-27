@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModel", "DataModel\DataModel.csproj", "{292FFB53-46D9-473B-96C1-B6D06175F2C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModel", "src\DataModel\DataModel.csproj", "{292FFB53-46D9-473B-96C1-B6D06175F2C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModel.Migrations", "DataModel.Migrations\DataModel.Migrations.csproj", "{B07B30D2-C711-4EB0-884A-9B6577262F15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModel.Migrations", "src\DataModel.Migrations\DataModel.Migrations.csproj", "{B07B30D2-C711-4EB0-884A-9B6577262F15}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api", "Web.Api\Web.Api.csproj", "{92B5ABA3-9325-443C-B735-0EB4774E6350}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api", "src\Web.Api\Web.Api.csproj", "{92B5ABA3-9325-443C-B735-0EB4774E6350}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApi", "TestApi\TestApi.csproj", "{07CEB2B0-7DD7-4BCF-A669-591E377E8E21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApi", "src\TestApi\TestApi.csproj", "{07CEB2B0-7DD7-4BCF-A669-591E377E8E21}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6C3BAE57-46DA-4C8E-B852-CC101C5CB620}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{292FFB53-46D9-473B-96C1-B6D06175F2C2} = {6C3BAE57-46DA-4C8E-B852-CC101C5CB620}
+		{B07B30D2-C711-4EB0-884A-9B6577262F15} = {6C3BAE57-46DA-4C8E-B852-CC101C5CB620}
+		{92B5ABA3-9325-443C-B735-0EB4774E6350} = {6C3BAE57-46DA-4C8E-B852-CC101C5CB620}
+		{07CEB2B0-7DD7-4BCF-A669-591E377E8E21} = {6C3BAE57-46DA-4C8E-B852-CC101C5CB620}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AD774ACC-4F2D-4FB2-A431-2E411F184157}
