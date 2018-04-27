@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
-import { Task } from './../task';
+import { TaskDto } from '../task.dto';
 
 @Component({
   selector: 'app-task-list',
@@ -15,10 +15,10 @@ export class TaskListComponent implements OnInit {
     this.getTasks();
   }
 
-  tasks: Task[];
-  selectedTask: Task;
+  tasks: TaskDto[];
+  selectedTask: TaskDto;
 
-  onSelect(task: Task): void {
+  onSelect(task: TaskDto): void {
     this.selectedTask = task;
   }
 

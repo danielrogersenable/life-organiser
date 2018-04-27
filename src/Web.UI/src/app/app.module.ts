@@ -6,28 +6,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
   
 import { AppComponent } from './app.component';
-import { TaskComponent } from './task/task.component';
-import { TaskListComponent } from './task-list/task-list.component';
-import { TaskService } from './task.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { TaskSummaryComponent } from './task-summary/task-summary.component';
-import { TaskAddComponent } from './task-add/task-add.component';
+import { TaskAddComponent } from './features/task/task-add/task-add.component';
 import { NgbModule, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateNativeAdapter } from './shared/datepicker-adapter';
-import { TaskDetailComponent } from './app/task/task-detail/task-detail.component';
-
+import { TaskDetailComponent } from './features/task/task-detail/task-detail.component';
+import { TaskListComponent } from './features/task/task-list/task-list.component';
+import { TaskService } from './features/task/task.service';
+import { TaskEditComponent } from './features/task/task-edit/task-edit.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent,
     TaskListComponent,
     InstructionsComponent,
     TaskSummaryComponent,
     TaskAddComponent,
-    TaskDetailComponent
+    TaskDetailComponent,
+    TaskEditComponent
   ],
   imports: [
     NgbModule.forRoot(),

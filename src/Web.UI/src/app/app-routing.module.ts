@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TaskListComponent } from './task-list/task-list.component';
 import { InstructionsComponent } from './instructions/instructions.component';
-import { TaskAddComponent } from './task-add/task-add.component';
-import { TaskComponent } from './task/task.component';
+import { TaskAddComponent } from './features/task/task-add/task-add.component';
+import { TaskListComponent } from './features/task/task-list/task-list.component';
+import { TaskEditComponent } from './features/task/task-edit/task-edit.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/tasks'},
   { path: 'tasks', component: TaskListComponent },
   { path: 'instructions', component: InstructionsComponent },
   { path: 'add-task', component: TaskAddComponent },
-  { path: 'task/:id', component: TaskComponent }
+  { path: 'task/:id', component: TaskEditComponent }
 ]
 
 @NgModule({

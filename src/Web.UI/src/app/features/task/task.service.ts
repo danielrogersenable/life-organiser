@@ -4,8 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
-import { Task } from './task';
-import { environment } from '../environments/environment';
+import { environment } from '../../../environments/environment';
+import { TaskDto } from './task.dto';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,21 +18,21 @@ export class TaskService {
 
   private tasksUrl = `${environment.apiRootUri}/tasks`;
 
-  getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.tasksUrl);
+  getTasks(): Observable<TaskDto[]> {
+    return this.http.get<TaskDto[]>(this.tasksUrl);
   }
 
-  getTask(id: number): Observable<Task> {
+  getTask(id: number): Observable<TaskDto> {
     //return of(TASKS.find(task => task.id === id));
     const url = `${this.tasksUrl}/${id}`;
-    return this.http.get<Task>(url);
+    return this.http.get<TaskDto>(url);
   }
 
-  updateTask(task: Task): Observable<any> {
+  updateTask(task: TaskDto): Observable<any> {
     return this.http.put(this.tasksUrl, task, httpOptions);
   }
 
-  addTask(task: Task): Observable<any> {
+  addTask(task: TaskDto): Observable<any> {
     return this.http.post(this.tasksUrl, task, httpOptions);
   }
 

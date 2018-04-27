@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TaskDto } from '../task.dto';
-import { TaskService } from '../../../task.service';
 import { Router } from '@angular/router';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-task-detail',
@@ -25,8 +25,9 @@ export class TaskDetailComponent implements OnInit {
       this.task.name = 'sample';
       this.task.completed = false;
       this.task.completedDate = null;
-      this.task.dateDue = '01/01/2018';
+      this.task.dateDue = new Date().toString();
     }
+    console.log(this.task);
   }
 
   save(){
@@ -50,6 +51,10 @@ export class TaskDetailComponent implements OnInit {
     .first()
     .do(() => this.router.navigateByUrl('/tasks'))
     .subscribe();
+  }
+
+  logDateValue(): void{
+    console.log(this.task.dateDue);
   }
 
 }
