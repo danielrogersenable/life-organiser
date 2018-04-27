@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 import { Task } from './task';
+import { environment } from '../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,7 +16,7 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  private tasksUrl = 'http://localhost:52965/api/tasks';
+  private tasksUrl = `${environment.apiRootUri}/tasks`;
 
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.tasksUrl);
