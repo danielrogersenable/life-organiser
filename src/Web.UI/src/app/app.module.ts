@@ -15,6 +15,7 @@ import { TaskSummaryComponent } from './task-summary/task-summary.component';
 import { TaskAddComponent } from './task-add/task-add.component';
 import { NgbModule, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateNativeAdapter } from './shared/datepicker-adapter';
+import { TaskDetailComponent } from './app/task/task-detail/task-detail.component';
 
 
 
@@ -25,7 +26,8 @@ import { NgbDateNativeAdapter } from './shared/datepicker-adapter';
     TaskListComponent,
     InstructionsComponent,
     TaskSummaryComponent,
-    TaskAddComponent
+    TaskAddComponent,
+    TaskDetailComponent
   ],
   imports: [
     NgbModule.forRoot(),
