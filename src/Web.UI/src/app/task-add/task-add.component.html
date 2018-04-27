@@ -7,5 +7,11 @@
     Completed:
     <input [(ngModel)]="task.completed" type="checkbox" />
   </label>
+  <input placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="task.dateDue" ngbDatepicker #d="ngbDatepicker">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+          Select
+        </button>
 </div>
 <button (click)="add()"> Add </button>

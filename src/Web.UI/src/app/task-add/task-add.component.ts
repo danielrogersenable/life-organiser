@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../task';
 import { Location } from '@angular/common';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 import { TaskService } from '../task.service';
 
@@ -12,6 +13,7 @@ import { TaskService } from '../task.service';
 export class TaskAddComponent implements OnInit {
 
   task: Task;
+  model: NgbDateStruct;
 
   constructor(
     private taskService: TaskService,
@@ -32,6 +34,7 @@ export class TaskAddComponent implements OnInit {
   }
 
   add(): void {
+    console.log(this.model);
     this.taskService.addTask(this.task)
       .subscribe(() => this.goBack());
   }

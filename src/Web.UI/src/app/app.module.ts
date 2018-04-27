@@ -13,6 +13,9 @@ import { AppRoutingModule } from './/app-routing.module';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { TaskSummaryComponent } from './task-summary/task-summary.component';
 import { TaskAddComponent } from './task-add/task-add.component';
+import { NgbModule, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateNativeAdapter } from './shared/datepicker-adapter';
+
 
 
 @NgModule({
@@ -25,13 +28,15 @@ import { TaskAddComponent } from './task-add/task-add.component';
     TaskAddComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
   providers: [
-    TaskService
+    TaskService,
+    {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}
   ],
   bootstrap: [AppComponent]
 })
