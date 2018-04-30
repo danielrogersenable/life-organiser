@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using DataModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Web.Api.Models;
+using TaskApi.Models;
 
-namespace Web.Api.Controllers
+namespace TaskApi.Controllers
 {
     [Route("api/[controller]")]
     public class TasksController : Controller

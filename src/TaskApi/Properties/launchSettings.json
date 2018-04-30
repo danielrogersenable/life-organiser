@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "TestApi": {
+    "TaskApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",

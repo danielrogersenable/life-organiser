@@ -8,7 +8,7 @@
 - [ ] CSS styling on listings
 	- Perhaps use bootstrap?
 - [ ] Work out how to display pre-formatted date on form
-- [ ] Make use of material forms to get a better pre-fab form.
+- [ ] Make use of material forms to get a better pre-fabricated form.
 
 
 # Feature wishlist
