@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rewrite xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-    <rules>
-        <rule name="EnforceSecureUrl"
-              enabled="#{EnforceSecureUrl}"
-              xdt:Locator="Match(name)"
-              xdt:Transform="SetAttributes(enabled)" />
-    </rules>
-</rewrite>
