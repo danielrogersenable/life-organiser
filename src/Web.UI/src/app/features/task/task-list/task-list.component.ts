@@ -15,6 +15,8 @@ export class TaskListComponent implements OnInit {
     this.getTasks();
   }
 
+  displayedColumns = ["name", "dateDue"]; 
+
   tasks: TaskDto[];
   selectedTask: TaskDto;
 

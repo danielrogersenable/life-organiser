@@ -21,3 +21,10 @@
 <div *ngIf="selectedTask">
   <app-task-summary [task]="selectedTask"></app-task-summary>
 </div>
+
+<!-- <div *ngIf="tasks">
+  <mat-table [dataSource]=tasks>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div> -->
