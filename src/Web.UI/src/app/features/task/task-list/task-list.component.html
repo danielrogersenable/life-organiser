@@ -1,30 +1,23 @@
 <h2>List of tasks</h2>
-<div>
-  
-</div>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Date due</th>
-    <th>Completed?</th>
-    <th>Edit link</th>
-  </tr>
-  <tr *ngFor="let task of tasks"
-      [class.selected]="task === selectedTask"
-      (click)="onSelect(task)">
-    <td>{{task.name}}</td>
-    <td>{{task.dateDue | date}} </td>
-    <td>{{task.completed}}</td>
-    <td><a routerLink="/task/{{task.id}}">Edit</a></td>
-  </tr>
-</table>
-<div *ngIf="selectedTask">
-  <app-task-summary [task]="selectedTask"></app-task-summary>
-</div>
-
-<!-- <div *ngIf="tasks">
+<div *ngIf="tasks">
   <mat-table [dataSource]=tasks>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-</div> -->
+    <mat-row *matRowDef="let tasks; columns: displayedColumns;"></mat-row>
+    <ng-container matColumnDef="name" >
+      <mat-header-cell *matHeaderCellDef>Task name</mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dateDue" >
+      <mat-header-cell *matHeaderCellDef>Date due</mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.dateDue | date:'fullDate'}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="completed" >
+      <mat-header-cell *matHeaderCellDef>Completed</mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.completed }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="editLink" >
+      <mat-header-cell *matHeaderCellDef>EditLink</mat-header-cell>
+      <mat-cell *matCellDef="let task"> <a routerLink="/task/{{task.id}}">Edit</a></mat-cell>
+    </ng-container>
+</mat-table>
+</div>
