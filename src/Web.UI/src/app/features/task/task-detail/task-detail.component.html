@@ -1,20 +1,25 @@
-<div>
-  <label>
-    Name:
-    <input [(ngModel)]="task.name" placeholder="name" />
-  </label>
-  <label>
-    Completed:
-    <input [(ngModel)]="task.completed" type="checkbox" />
-  </label>
-  <input name="dp" [(ngModel)]="task.dateDue" ngbDatepicker #d="ngbDatepicker">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
-          Select
-        </button>
-    </div>
-</div>
-<pre>Model: {{ task.dateDue }}</pre>
-<button (click)="save()"> Save </button>
-<button (click)="logDateValue()"> Log </button>
+<form [formGroup]="form" (submit)="save()">
+  <section class="row">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input type="text" formControlName="name" matInput placeholder="Task name">
+  </mat-form-field>
+</section>
+<section class="row">
+  <mat-checkbox formControlName="completed">
+      <mat-label>Completed?</mat-label>
+  </mat-checkbox>
+</section>
+<section class="row">
+  <mat-form-field>
+      <mat-label>Date due</mat-label>
+      <input matInput formControlName="dateDue" [matDatepicker]="myDatepicker">
+      <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #myDatepicker></mat-datepicker>  
+    </mat-form-field>
+  </section>
+  <section class="row">
+      <button type="submit">Save</button>
+    </section>
+  </form>
 
