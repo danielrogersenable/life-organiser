@@ -17,7 +17,7 @@
 
 ## Technical functionality
 
-- [ ] Fix web host to set url on `dotnet watch`.
+- [X] Fix web host to set url on `dotnet watch`.
 - [ ] What happens when this gets deployed to Azure?
 - [ ] More sensible CORS setup.
 
