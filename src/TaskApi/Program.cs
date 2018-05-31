@@ -20,6 +20,7 @@ namespace TaskApi
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseUrls("http://localhost:52965") // TODO - this is a temporary fix - perhaps use appsettings here?
                 .Build();
     }
 }
