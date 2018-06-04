@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TaskApi.Extensions;
 using TaskApi.Models;
+using TaskApi.Services.Interfaces;
 
 namespace TaskApi.Controllers
 {
@@ -15,10 +16,14 @@ namespace TaskApi.Controllers
     public class TasksController : Controller
     {
         private readonly IAppDbContextFactory _dbContextFactory;
+        private readonly ITasksService _tasksService;
 
-        public TasksController(IAppDbContextFactory dbContextFactory)
+        public TasksController(
+            IAppDbContextFactory dbContextFactory,
+            ITasksService tasksService)
         {
             _dbContextFactory = dbContextFactory;
+            _tasksService = tasksService;
         }
 
         [HttpGet]
@@ -75,24 +80,27 @@ namespace TaskApi.Controllers
 
         [HttpPut]
         [Route("")]
-        public async Task<IActionResult> Put([FromBody] TaskModel task)
+        public async Task<IActionResult> Put([FromBody] TaskModel model)
         {
-            using (var dbContext = _dbContextFactory.Create())
-            {
-                var dbTask = await dbContext.LifeTasks.FindAsync(task.Id);
-                if (dbTask == null)
-                {
-                    return new NotFoundResult();
-                }
+            // TODO - add validation
+            await _tasksService.UpdateTask(model);
+
+            ////using (var dbContext = _dbContextFactory.Create())
+            ////{
+            ////    var dbTask = await dbContext.LifeTasks.FindAsync(model.Id);
+            ////    if (dbTask == null)
+            ////    {
+            ////        return new NotFoundResult();
+            ////    }
 
 
-                // TODO  - add validation
-                dbTask.Name = task.Name;
-                dbTask.DateDue = CustomFormatExtensions.DateFormatter(task.DateDue);
-                dbTask.Completed = task.Completed;
+            ////    // TODO  - add validation
+            ////    dbTask.Name = model.Name;
+            ////    dbTask.DateDue = CustomFormatExtensions.DateFormatter(model.DateDue);
+            ////    dbTask.Completed = model.Completed;
 
-                await dbContext.SaveChangesAsync();
-            }
+            ////    await dbContext.SaveChangesAsync();
+            ////}
 
             return new NoContentResult();
         }

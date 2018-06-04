@@ -6,6 +6,7 @@
 - [ ] Enhance the form for adding/editing tasks to include additional fields.
 - [ ] Add the ability to delete a task.
 - [ ] Add back buttons to add/edit pages.
+- [ ] Add validation (back-end)
 
 ## Design and styling
 
@@ -20,6 +21,7 @@
 - [X] Fix web host to set url on `dotnet watch`.
 - [ ] What happens when this gets deployed to Azure?
 - [ ] More sensible CORS setup.
+- [ ] Make use of services, query classes etc.
 
 
 # Feature wishlist
