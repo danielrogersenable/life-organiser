@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DataModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using TaskApi.Extensions;
 using TaskApi.Models;
 
 namespace TaskApi.Controllers
@@ -83,15 +84,14 @@ namespace TaskApi.Controllers
                 {
                     return new NotFoundResult();
                 }
-                else
-                {
-                    // TODO  - add validation
-                    dbTask.Name = task.Name;
-                    dbTask.DateDue = DateTime.Parse(task.DateDue, null, System.Globalization.DateTimeStyles.RoundtripKind);
-                    dbTask.Completed = task.Completed;
 
-                    await dbContext.SaveChangesAsync();
-                }
+
+                // TODO  - add validation
+                dbTask.Name = task.Name;
+                dbTask.DateDue = CustomFormatExtensions.DateFormatter(task.DateDue);
+                dbTask.Completed = task.Completed;
+
+                await dbContext.SaveChangesAsync();
             }
 
             return new NoContentResult();
