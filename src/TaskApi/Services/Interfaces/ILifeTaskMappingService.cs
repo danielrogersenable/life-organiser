@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataModel;
 using TaskApi.Models;
 
 namespace TaskApi.Services.Interfaces
 {
-    public interface ITasksService
+    public interface ILifeTaskMappingService
     {
-        Task UpdateTask(TaskModel model);
-        Task AddTask(TaskModel model);
+        LifeTask PopulateLifeTaskFromModel(TaskModel model, LifeTask dbTask);
     }
 }

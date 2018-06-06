@@ -24,6 +24,11 @@ namespace TaskApi.Services
             _queries = queries;
         }
 
+        public async Task AddTask(TaskModel model)
+        {
+            await _commands.AddTask(model);
+        }
+
         public async Task UpdateTask(TaskModel model)
         {
             var task = await _queries.GetTask(model.Id);

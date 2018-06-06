@@ -15,6 +15,7 @@
 - [ ] Add styling to the header.
 - [ ] Find a better method for the edit link on the list of tasks 
 	- Possibly highlighting the selected row and a redirect on click?
+- [ ] Date formatting in datepickers - currently US formatting.
 
 ## Technical functionality
 

@@ -19,6 +19,8 @@ namespace TaskApi.StartupExtensions
             }
 
             services.AddScoped<ITasksService, TasksService>();
+            services.AddScoped<IDateTimeService, DateTimeService>();
+            services.AddScoped<ILifeTaskMappingService, LifeTaskMappingService>();
         }
     }
 }

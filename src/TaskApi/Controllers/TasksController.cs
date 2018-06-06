@@ -85,47 +85,15 @@ namespace TaskApi.Controllers
             // TODO - add validation
             await _tasksService.UpdateTask(model);
 
-            ////using (var dbContext = _dbContextFactory.Create())
-            ////{
-            ////    var dbTask = await dbContext.LifeTasks.FindAsync(model.Id);
-            ////    if (dbTask == null)
-            ////    {
-            ////        return new NotFoundResult();
-            ////    }
-
-
-            ////    // TODO  - add validation
-            ////    dbTask.Name = model.Name;
-            ////    dbTask.DateDue = CustomFormatExtensions.DateFormatter(model.DateDue);
-            ////    dbTask.Completed = model.Completed;
-
-            ////    await dbContext.SaveChangesAsync();
-            ////}
-
             return new NoContentResult();
         }
 
         [HttpPost]
         [Route("")]
-        public async Task<IActionResult> Post([FromBody] TaskModel task)
+        public async Task<IActionResult> Post([FromBody] TaskModel model)
         {
-            using (var dbContext = _dbContextFactory.Create())
-            {
-                // TODO  - add validation
-                var dbTask = new LifeTask
-                {
-                    Name = task.Name,
-                    DateDue = DateTimeOffset.Parse(task.DateDue, null, System.Globalization.DateTimeStyles.RoundtripKind),
-                    Completed = task.Completed,
-                    CompletedDate = string.IsNullOrWhiteSpace(task.CompletedDate)
-                  ? (DateTimeOffset?)null
-                  : DateTimeOffset.Parse(task.CompletedDate, null, System.Globalization.DateTimeStyles.RoundtripKind)
-                };
-
-                dbContext.LifeTasks.Add(dbTask);
-
-                await dbContext.SaveChangesAsync();
-            }
+            // TODO - add validation
+            await _tasksService.AddTask(model);
 
             return new NoContentResult();
         }
