@@ -18,7 +18,6 @@ namespace TaskApi.StartupExtensions
                 throw new ArgumentNullException(nameof(services));
             }
 
-            services.AddScoped<ITaskUpdaterService, TaskUpdaterService>();
             services.AddScoped<ITasksService, TasksService>();
         }
     }

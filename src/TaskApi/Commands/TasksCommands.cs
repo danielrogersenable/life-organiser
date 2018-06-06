@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DataModel;
 using TaskApi.Commands.Interfaces;
+using TaskApi.Extensions;
+using TaskApi.Models;
 
 namespace TaskApi.Commands
 {
@@ -17,13 +19,15 @@ namespace TaskApi.Commands
             _dbContextFactory = dbContextFactory;
         }
 
-        public async Task UpdateTask(LifeTask task)
+        public async Task UpdateTask(TaskModel model)
         {
             using (var db = _dbContextFactory.Create())
             {
-                var dbTask = await db.LifeTasks.FindAsync(task.Id);
+                var dbTask = await db.LifeTasks.FindAsync(model.Id);
 
-                dbTask = task;
+                dbTask.Name = model.Name;
+                dbTask.DateDue = CustomFormatExtensions.DateFormatter(model.DateDue);
+                dbTask.Completed = model.Completed;
 
                 await db.SaveChangesAsync();
             }

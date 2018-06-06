@@ -15,16 +15,13 @@ namespace TaskApi.Services
     {
         private readonly ITasksCommands _commands;
         private readonly ITasksQueries _queries;
-        private readonly ITaskUpdaterService _taskUpdaterService;
 
         public TasksService(
             ITasksCommands commands,
-            ITasksQueries queries,
-            ITaskUpdaterService taskUpdaterService)
+            ITasksQueries queries)
         {
             _commands = commands;
             _queries = queries;
-            _taskUpdaterService = taskUpdaterService;
         }
 
         public async Task UpdateTask(TaskModel model)
@@ -37,9 +34,7 @@ namespace TaskApi.Services
                 return;
             }
 
-            task = _taskUpdaterService.UpdateTask(task, model);
-
-            await _commands.UpdateTask(task);
+            await _commands.UpdateTask(model);
         }
     }
 }
