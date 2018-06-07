@@ -19,7 +19,8 @@
     </mat-form-field>
   </section>
   <section class="row">
-      <button type="submit">Save</button>
-    </section>
+    <button type="submit">Save</button>
+      <button type="button" *ngIf="!isNew" (click)="delete()"> Delete</button>
+  </section>
   </form>
-
+ 

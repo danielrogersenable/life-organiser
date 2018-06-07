@@ -23,7 +23,6 @@ export class TaskService {
   }
 
   getTask(id: number): Observable<TaskDto> {
-    //return of(TASKS.find(task => task.id === id));
     const url = `${this.tasksUrl}/${id}`;
     return this.http.get<TaskDto>(url);
   }
@@ -36,4 +35,8 @@ export class TaskService {
     return this.http.post(this.tasksUrl, task, httpOptions);
   }
 
+  deleteTask(id: number): Observable<any> {
+    const url = `${this.tasksUrl}/${id}`;
+    return this.http.delete(url);
+  }
 }

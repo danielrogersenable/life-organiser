@@ -12,5 +12,6 @@ namespace TaskApi.Commands.Interfaces
     {
         Task UpdateTask(TaskModel model);
         Task AddTask(TaskModel model);
+        Task DeleteTask(LifeTask id);
     }
 }

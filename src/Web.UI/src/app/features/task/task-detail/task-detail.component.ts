@@ -25,7 +25,7 @@ export class TaskDetailComponent implements OnInit {
 
   ngOnInit() {
     this.isNew = !this.task;
-    if (this.isNew){
+    if (this.isNew) {
       this.task = new TaskDto();
       this.task.id = 0;
       this.task.name = 'sample';
@@ -37,18 +37,17 @@ export class TaskDetailComponent implements OnInit {
     console.log(this.task);
   }
 
-  save(){
-    if (this.form.invalid){
+  save() {
+    if (this.form.invalid) {
       return;
     }
 
     this.task = this.form.getValue();
 
-    if (this.isNew){
-      this.add()
-    }
-    else {
-      this.update()
+    if (this.isNew) {
+      this.add();
+    } else {
+      this.update();
     }
   }
 
@@ -63,6 +62,15 @@ export class TaskDetailComponent implements OnInit {
     this.taskService.updateTask(this.task)
     .first()
     .do(() => this.router.navigateByUrl('/tasks'))
+    .subscribe();
+  }
+
+  delete(): void {
+    this.taskService.deleteTask(this.task.id)
+    .first()
+    .do(() => {
+      this.router.navigateByUrl('/tasks');
+    })
     .subscribe();
   }
 

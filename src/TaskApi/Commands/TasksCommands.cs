@@ -49,5 +49,15 @@ namespace TaskApi.Commands
                 await db.SaveChangesAsync();
             }
         }
+
+        public async Task DeleteTask(LifeTask dbTask)
+        {
+            using (var db = _dbContextFactory.Create())
+            {
+                db.LifeTasks.Remove(dbTask);
+
+                await db.SaveChangesAsync();
+            }
+        }
     }
 }

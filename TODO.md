@@ -2,9 +2,10 @@
 
 ## Usability functionality
 
+- [X] Add the ability to delete a task.
+- [ ] Add "are you sure" warning to task deletion.
 - [ ] Add sorting to the task lists
 - [ ] Enhance the form for adding/editing tasks to include additional fields.
-- [ ] Add the ability to delete a task.
 - [ ] Add back buttons to add/edit pages.
 - [ ] Add validation (back-end)
 
@@ -13,8 +14,10 @@
 - [ ] Make further use of bootstrap styles, including setting a proper style.
 - [ ] Produce a proper navigation bar.
 - [ ] Add styling to the header.
+- [ ] Button styling
 - [ ] Find a better method for the edit link on the list of tasks 
 	- Possibly highlighting the selected row and a redirect on click?
+	- Also consider hooking up the deletion functionality here.
 - [ ] Date formatting in datepickers - currently US formatting.
 
 ## Technical functionality

@@ -41,5 +41,17 @@ namespace TaskApi.Services
 
             await _commands.UpdateTask(model);
         }
+
+        public async Task DeleteTask(int id)
+        {
+            var task = await _queries.GetTask(id);
+            if (task == null)
+            {
+                // TODO - determine what the service should do here
+                return;
+            }
+
+            await _commands.DeleteTask(task);
+        }
     }
 }

@@ -97,5 +97,14 @@ namespace TaskApi.Controllers
 
             return new NoContentResult();
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _tasksService.DeleteTask(id);
+
+            return new NoContentResult();
+        }
     }
 }

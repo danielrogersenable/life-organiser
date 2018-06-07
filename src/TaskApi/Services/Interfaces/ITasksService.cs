@@ -11,5 +11,6 @@ namespace TaskApi.Services.Interfaces
     {
         Task UpdateTask(TaskModel model);
         Task AddTask(TaskModel model);
+        Task DeleteTask(int id);
     }
 }
