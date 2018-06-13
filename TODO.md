@@ -2,6 +2,8 @@
 
 ## Usability functionality
 
+- [ ] Add a "authorization" layer (currently, probably just a single password).
+	- This might be trickier than I expected. Perhaps better to just add a whole proper auth layer.
 - [X] Add the ability to delete a task.
 - [ ] Add "are you sure" warning to task deletion.
 - [ ] Add sorting to the task lists
@@ -30,6 +32,7 @@
 
 # Feature wishlist
 
+- [ ] Add the ability to sign-in as a user (big job).
 - [ ] Add dashboard-style view for tasks assigned to a particular day.
 - [ ] Consider expanding schema - expected duration of task in hours, etc.
 - [ ] Add notion of a recurring task, which gets rescheduled following completion of the previous task (similar to Toodledo).
