@@ -40,11 +40,33 @@ namespace TaskApi.Controllers
                     // TODO - get the right principal
                     //var result = GetAuthResult(principal);
 
-                    return Ok(principal);
+                    return Ok();
                 }
             }
 
             return BadRequest("The email and password combination you supplied was incorrect. Please try again.");
         }
+
+        // This method should only be uncommented for the purposes of setting passwords locally and should not be deployed.
+
+        ////[HttpPost("set-password")]
+        ////public async Task<IActionResult> SetPassword([FromBody] SignInModel model)
+        ////{
+        ////    var user = await _userManager.FindByNameAsync(model.UserName);
+
+        ////    if (user != null)
+        ////    {
+        ////        var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+        ////        var resetPasswordResult = await _userManager.ResetPasswordAsync(user, code, model.Password);
+
+        ////        if (resetPasswordResult.Succeeded)
+        ////        {
+        ////            return Ok();
+        ////        }
+        ////    }
+
+        ////    return BadRequest("Something failed. Sad times");
+        ////}
     }
 }

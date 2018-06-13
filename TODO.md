@@ -2,12 +2,17 @@
 
 ## Usability functionality
 
-- [ ] Add a "authorization" layer (currently, probably just a single password).
-	- This might be trickier than I expected. Perhaps better to just add a whole proper auth layer.
-- [X] Add the ability to delete a task.
+- [ ] Add a "authorization" layer (currently just username and password, no reset password functionality).
+	- [X] Back-end - user managers etc.
+	- [ ] Back-end - token refresh and correct AuthPrincipal.
+	- [ ] Front-end - token refresh, auth manager etc.
+	- [ ] Front-end - build sign-in page
+- [ ] Add user id to Task and load
 - [ ] Add "are you sure" warning to task deletion.
 - [ ] Add sorting to the task lists
 - [ ] Enhance the form for adding/editing tasks to include additional fields.
+	- [ ] Task duration
+	- [ ] Date scheduled
 - [ ] Add back buttons to add/edit pages.
 - [ ] Add validation (back-end)
 
@@ -24,7 +29,6 @@
 
 ## Technical functionality
 
-- [X] Fix web host to set url on `dotnet watch`.
 - [ ] What happens when this gets deployed to Azure?
 - [ ] More sensible CORS setup.
 - [ ] Make use of services, query classes etc.
@@ -32,8 +36,10 @@
 
 # Feature wishlist
 
-- [ ] Add the ability to sign-in as a user (big job).
+- [ ] Add the ability to sign-in as a user.
+- [ ] Add the ability to change passwords.
 - [ ] Add dashboard-style view for tasks assigned to a particular day.
 - [ ] Consider expanding schema - expected duration of task in hours, etc.
 - [ ] Add notion of a recurring task, which gets rescheduled following completion of the previous task (similar to Toodledo).
+- [ ] Task type - perhaps including colour picker to be used when rendering tasks of that type.
 - [ ] Background processing to trigger scheduling?

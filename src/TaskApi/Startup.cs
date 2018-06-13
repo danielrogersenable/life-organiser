@@ -30,13 +30,9 @@ namespace TaskApi
             services.AddMvc();
             services.AddCors();
 
-            services
-                .AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppDatabase")))
-                .AddScoped<IAppDbContextFactory, AppDbContextFactory>();
+            services.AddDatabase(Configuration);
 
-            services.AddIdentity<AppUser, AppRole>()
-                .AddEntityFrameworkStores<AppDbContext>()
-                .AddDefaultTokenProviders();
+            services.AddUserAuthentication();
 
             services.AddCommands();
             services.AddQueries();
