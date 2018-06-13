@@ -8,7 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-  
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { InstructionsComponent } from './instructions/instructions.component';
@@ -20,6 +20,8 @@ import { TaskDetailComponent } from './features/task/task-detail/task-detail.com
 import { TaskListComponent } from './features/task/task-list/task-list.component';
 import { TaskService } from './features/task/task.service';
 import { TaskEditComponent } from './features/task/task-edit/task-edit.component';
+import { SignInComponent } from './features/sign-in/sign-in.component';
+import { SignInService } from './features/sign-in/sign-in.service';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { TaskEditComponent } from './features/task/task-edit/task-edit.component
     TaskSummaryComponent,
     TaskAddComponent,
     TaskDetailComponent,
-    TaskEditComponent
+    TaskEditComponent,
+    SignInComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -49,6 +52,7 @@ import { TaskEditComponent } from './features/task/task-edit/task-edit.component
   ],
   providers: [
     TaskService,
+    SignInService,
     {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}
   ],
   bootstrap: [AppComponent]

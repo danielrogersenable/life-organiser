@@ -1,0 +1,18 @@
+<form [formGroup]="form" (submit)="signIn()">
+  <section class="row">
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input type="text" formControlName="username" matInput placeholder="Username">
+  </mat-form-field>
+</section>
+<section class="row">
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input type="password" formControlName="password" matInput placeholder="Password">
+  </mat-form-field>
+</section>
+  <section class="row">
+    <button type="submit">Sign in</button>
+  </section>
+  </form>
+ 

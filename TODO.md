@@ -6,7 +6,8 @@
 	- [X] Back-end - user managers etc.
 	- [ ] Back-end - token refresh and correct AuthPrincipal.
 	- [ ] Front-end - token refresh, auth manager etc.
-	- [ ] Front-end - build sign-in page
+	- [ ] Front-end - restrict access to pages to authenticated users, redirect to sign-in page if unauthenticated
+	- [X] Front-end - build sign-in page
 - [ ] Add user id to Task and load
 - [ ] Add "are you sure" warning to task deletion.
 - [ ] Add sorting to the task lists
@@ -20,6 +21,7 @@
 
 - [ ] Make further use of bootstrap styles, including setting a proper style.
 - [ ] Produce a proper navigation bar.
+- [ ] Remove header from sign-in page
 - [ ] Add styling to the header.
 - [ ] Button styling
 - [ ] Find a better method for the edit link on the list of tasks 
