@@ -10,5 +10,6 @@ namespace TaskApi.Queries.Interfaces
     public interface ITasksQueries
     {
         Task<LifeTask> GetTask(int id);
+        Task<List<LifeTask>> GetTasks();
     }
 }

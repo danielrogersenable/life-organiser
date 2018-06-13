@@ -45,14 +45,15 @@ namespace TaskApi.Controllers
                       ScheduledDate = t.ScheduledDate.HasValue ? t.ScheduledDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
                       DurationInMinutes = t.DurationInMinutes
                   })
-                    .ToListAsync();
+                  .OrderBy(c => c.DateDue)
+                  .ToListAsync();
             }
 
             return Ok(results);
         }
 
         [HttpGet]
-        [Route("completetasks")]
+        [Route("complete-tasks")]
         public async Task<IActionResult> GetCompleteTasks()
         {
             IList<LifeTask> results;
@@ -71,12 +72,7 @@ namespace TaskApi.Controllers
         [Route("{id}")]
         public async Task<IActionResult> GetTask(int id)
         {
-            LifeTask result;
-
-            using (var dbContext = _dbContextFactory.Create())
-            {
-                result = await dbContext.LifeTasks.FindAsync(id);
-            }
+            var result = await _tasksService.GetTask(id);
 
             return Ok(result);
         }

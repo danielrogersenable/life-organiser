@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
+using Microsoft.EntityFrameworkCore;
 using TaskApi.Queries.Interfaces;
 
 namespace TaskApi.Queries
@@ -24,6 +25,16 @@ namespace TaskApi.Queries
                 var dbTask = await db.LifeTasks.FindAsync(id);
 
                 return dbTask;
+            }
+        }
+
+        public async Task<List<LifeTask>> GetTasks()
+        {
+            using (var db = _dbContextFactory.Create())
+            {
+                var taskList = await db.LifeTasks.ToListAsync();
+
+                return taskList;
             }
         }
     }

@@ -24,6 +24,11 @@ namespace TaskApi.Services
             _queries = queries;
         }
 
+        public async Task<LifeTask> GetTask(int id)
+        {
+            return await _queries.GetTask(id);
+        }
+
         public async Task AddTask(TaskModel model)
         {
             await _commands.AddTask(model);
