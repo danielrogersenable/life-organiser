@@ -8,15 +8,13 @@
 	- [ ] Front-end - token refresh, auth manager etc.
 	- [ ] Front-end - restrict access to pages to authenticated users, redirect to sign-in page if unauthenticated
 	- [X] Front-end - build sign-in page
-- [ ] Add user id to Task and load
-- [ ] Add "are you sure" warning to task deletion.
+- [ ] Add user id to LifeTask and load only tasks belonging to a specific user.
 - [ ] Add sorting to the task lists
-- [ ] Enhance the form for adding/editing tasks to include additional fields.
-	- [ ] Task duration
-	- [ ] Date scheduled
 - [ ] Add back buttons to add/edit pages.
 - [ ] Add validation (back-end)
 - [ ] Add validation (front-end)
+- [ ] Add "are you sure" warning to task deletion.
+
 
 ## Design and styling
 
@@ -29,14 +27,17 @@
 	- Possibly highlighting the selected row and a redirect on click?
 	- Also consider hooking up the deletion functionality here.
 - [ ] Date formatting in datepickers - currently US formatting.
-- [ ] Resolve ts linting
-- [ ] Sort out VS code formatting
+
 
 ## Technical functionality
 
 - [ ] What happens when this gets deployed to Azure?
 - [ ] More sensible CORS setup.
+- [ ] Update Angular CLI
 - [ ] Make use of services, query classes etc.
+- [ ] Unit testing
+- [ ] Resolve ts linting
+- [ ] Sort out VS code formatting
 
 
 # Feature wishlist
@@ -44,7 +45,6 @@
 - [ ] Add the ability to sign-in as a user.
 - [ ] Add the ability to change passwords.
 - [ ] Add dashboard-style view for tasks assigned to a particular day.
-- [ ] Consider expanding schema - expected duration of task in hours, etc.
-- [ ] Add notion of a recurring task, which gets rescheduled following completion of the previous task (similar to Toodledo).
 - [ ] Task type - perhaps including colour picker to be used when rendering tasks of that type.
+- [ ] Add notion of a recurring task, which gets rescheduled following completion of the previous task (similar to Toodledo).
 - [ ] Background processing to trigger scheduling?
