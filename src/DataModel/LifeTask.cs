@@ -9,5 +9,7 @@ namespace DataModel
         public DateTimeOffset DateDue { get; set; }
         public bool Completed { get; set; }
         public DateTimeOffset? CompletedDate { get; set; }
+        public DateTimeOffset? ScheduledDate { get; set; }
+        public int DurationInMinutes { get; set; }
     }
 }

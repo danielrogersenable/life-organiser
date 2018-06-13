@@ -20,7 +20,7 @@ export class TaskDetailComponent implements OnInit {
     private taskService: TaskService,
     private router: Router) { }
 
-  @Input() public task: TaskDto
+  @Input() public task: TaskDto;
   public isNew = true;
 
   ngOnInit() {
@@ -34,7 +34,6 @@ export class TaskDetailComponent implements OnInit {
       this.task.dateDue = new Date().toString();
     }
     this.form.setValue(this.task);
-    console.log(this.task);
   }
 
   save() {
@@ -77,5 +76,4 @@ export class TaskDetailComponent implements OnInit {
   logDateValue(): void{
     console.log(this.task.dateDue);
   }
-
 }

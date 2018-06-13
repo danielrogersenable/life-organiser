@@ -40,7 +40,10 @@ namespace TaskApi.Controllers
                       Id = t.Id,
                       Name = t.Name,
                       DateDue = t.DateDue.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz"),
-                      Completed = t.Completed
+                      Completed = t.Completed,
+                      CompletedDate = t.CompletedDate.HasValue ? t.CompletedDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
+                      ScheduledDate = t.ScheduledDate.HasValue ? t.ScheduledDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
+                      DurationInMinutes = t.DurationInMinutes
                   })
                     .ToListAsync();
             }

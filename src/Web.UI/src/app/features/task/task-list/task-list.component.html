@@ -15,8 +15,20 @@
       <mat-header-cell *matHeaderCellDef>Completed</mat-header-cell>
       <mat-cell *matCellDef="let task"> {{ task.completed }}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="completedDate" >
+      <mat-header-cell *matHeaderCellDef>Completed date</mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.completedDate | date:'fullDate'}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="scheduledDate" >
+      <mat-header-cell *matHeaderCellDef>Scheduled date</mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.scheduledDate | date:'fullDate'}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="durationInMinutes" >
+      <mat-header-cell *matHeaderCellDef>Duration (minutes)</mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.durationInMinutes }}</mat-cell>
+    </ng-container>
     <ng-container matColumnDef="editLink" >
-      <mat-header-cell *matHeaderCellDef>EditLink</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>Edit link</mat-header-cell>
       <mat-cell *matCellDef="let task"> <a routerLink="/task/{{task.id}}">Edit</a></mat-cell>
     </ng-container>
 </mat-table>

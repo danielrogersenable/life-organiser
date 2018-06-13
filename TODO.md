@@ -16,6 +16,7 @@
 	- [ ] Date scheduled
 - [ ] Add back buttons to add/edit pages.
 - [ ] Add validation (back-end)
+- [ ] Add validation (front-end)
 
 ## Design and styling
 
@@ -28,6 +29,8 @@
 	- Possibly highlighting the selected row and a redirect on click?
 	- Also consider hooking up the deletion functionality here.
 - [ ] Date formatting in datepickers - currently US formatting.
+- [ ] Resolve ts linting
+- [ ] Sort out VS code formatting
 
 ## Technical functionality
 

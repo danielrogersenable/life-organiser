@@ -12,5 +12,10 @@ namespace TaskApi.Extensions
         {
             return DateTimeOffset.Parse(date, null, System.Globalization.DateTimeStyles.RoundtripKind);
         }
+
+        public static TimeSpan TimeFormatter(string time)
+        {
+            return TimeSpan.Parse(time);
+        }
     }
 }

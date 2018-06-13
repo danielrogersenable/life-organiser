@@ -23,7 +23,8 @@ namespace TaskApi.Services
         {
             dbTask.Name = model.Name;
             dbTask.DateDue = CustomFormatExtensions.DateFormatter(model.DateDue);
-            dbTask.Completed = model.Completed;
+            dbTask.ScheduledDate = CustomFormatExtensions.DateFormatter(model.ScheduledDate);
+            dbTask.DurationInMinutes = model.DurationInMinutes;
 
             if (dbTask.Completed && !model.Completed)
             {
@@ -33,6 +34,8 @@ namespace TaskApi.Services
             {
                 dbTask.CompletedDate = _dateTimeService.GetCurrentTime();
             }
+
+            dbTask.Completed = model.Completed;
 
             return dbTask;
         }
