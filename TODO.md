@@ -18,6 +18,7 @@
 
 ## Design and styling
 
+- [ ] Why do all my components generate with css rather than scss?
 - [ ] Make further use of bootstrap styles, including setting a proper style.
 - [ ] Produce a proper navigation bar.
 - [ ] Remove header from sign-in page
