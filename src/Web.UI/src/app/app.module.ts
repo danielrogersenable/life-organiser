@@ -24,6 +24,7 @@ import { SignInService } from './features/sign-in/sign-in.service';
 import { TestComponent } from './test/test.component';
 import { UserManager } from './features/sign-in/user-manager.service';
 import { AuthGuard } from './features/sign-in/auth.guard';
+import { AUTH_HTTP_INTERCEPTOR_PROVIDER } from './features/sign-in/auth-http-interceptor-provider';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { AuthGuard } from './features/sign-in/auth.guard';
     SignInService,
     UserManager,
     AuthGuard,
-    {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}
+    {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter},
+    AUTH_HTTP_INTERCEPTOR_PROVIDER
   ],
   bootstrap: [AppComponent]
 })

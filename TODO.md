@@ -2,12 +2,6 @@
 
 ## Usability functionality
 
-- [ ] Add a "authorization" layer (currently just username and password, no reset password functionality).
-	- [X] Back-end - user managers etc.
-	- [ ] Back-end - token refresh and correct AuthPrincipal.
-	- [ ] Front-end - token refresh, auth manager etc.
-	- [ ] Front-end - restrict access to pages to authenticated users, redirect to sign-in page if unauthenticated
-	- [X] Front-end - build sign-in page
 - [ ] Add user id to LifeTask and load only tasks belonging to a specific user.
 - [ ] Add sorting to the task lists
 - [ ] Add back buttons to add/edit pages.
@@ -28,6 +22,7 @@
 	- Possibly highlighting the selected row and a redirect on click?
 	- Also consider hooking up the deletion functionality here.
 - [ ] Date formatting in datepickers - currently US formatting.
+- [ ] Find/create a favicon.
 
 
 ## Technical functionality
@@ -47,7 +42,11 @@
 - [ ] Add auth guards to routes
 - [ ] Permit users to sign out
 - [ ] Add the ability to change passwords.
+- [ ] Add authentication layer to API endpoints.
 - [ ] Sort out token refresh
+	- This may be because the token isn't being added to the header for the request.
+	- Now it is - I suspect this will help with adding authorisation to API endpoints.
+	- The issue remains that the user is not being detected by the controller, and I've yet to work out exactly how that happens.
 
 # Feature wishlist
 
