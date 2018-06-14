@@ -38,7 +38,7 @@
 - [ ] Unit testing
 - [ ] Resolve ts linting
 - [ ] Sort out VS code formatting
-
+- [X] Write PS script for startup.
 
 # Feature wishlist
 
