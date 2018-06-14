@@ -22,6 +22,8 @@ import { TaskEditComponent } from './features/task/task-edit/task-edit.component
 import { SignInComponent } from './features/sign-in/sign-in.component';
 import { SignInService } from './features/sign-in/sign-in.service';
 import { TestComponent } from './test/test.component';
+import { UserManager } from './features/sign-in/user-manager.service';
+import { AuthGuard } from './features/sign-in/auth.guard';
 
 
 @NgModule({
@@ -53,6 +55,8 @@ import { TestComponent } from './test/test.component';
   providers: [
     TaskService,
     SignInService,
+    UserManager,
+    AuthGuard,
     {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}
   ],
   bootstrap: [AppComponent]

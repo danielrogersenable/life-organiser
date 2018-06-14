@@ -41,10 +41,16 @@
 - [ ] Sort out VS code formatting
 - [X] Write PS script for startup.
 
+## Security functionality
+
+- [X] Add the ability to sign-in as a user.
+- [ ] Add auth guards to routes
+- [ ] Permit users to sign out
+- [ ] Add the ability to change passwords.
+- [ ] Sort out token refresh
+
 # Feature wishlist
 
-- [ ] Add the ability to sign-in as a user.
-- [ ] Add the ability to change passwords.
 - [ ] Add dashboard-style view for tasks assigned to a particular day.
 - [ ] Task type - perhaps including colour picker to be used when rendering tasks of that type.
 - [ ] Add notion of a recurring task, which gets rescheduled following completion of the previous task (similar to Toodledo).

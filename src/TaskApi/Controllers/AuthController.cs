@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using TaskApi.Models;
 
 namespace TaskApi.Controllers
@@ -38,13 +42,55 @@ namespace TaskApi.Controllers
                     var principal = await _signInManager.CreateUserPrincipalAsync(user);
 
                     // TODO - get the right principal
-                    //var result = GetAuthResult(principal);
+                    var result = GetAuthResult(principal);
 
-                    return Ok();
+                    return Ok(result);
                 }
             }
 
             return BadRequest("The email and password combination you supplied was incorrect. Please try again.");
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken()
+        {
+            var userId = _userManager.GetUserId(User);
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            var principal = await _signInManager.CreateUserPrincipalAsync(user);
+            var result = GetAuthResult(principal);
+            return Ok(result);
+        }
+
+        private AuthResult GetAuthResult(ClaimsPrincipal principal)
+        {
+            // TODO - update hardcoded authentication options with appsettings
+            var tokenExpiryInSeconds = 86400;
+            var tokenSigningSecret = "life-organiser-secret-tbc";
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenSigningSecret));
+
+            var expiry = DateTimeOffset.Now.AddSeconds(tokenExpiryInSeconds);
+
+            var signingCredentials = new SigningCredentials(
+                securityKey,
+                SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                claims: principal.Claims,
+                expires: expiry.UtcDateTime,
+                signingCredentials: signingCredentials);
+
+            return new AuthResult
+            {
+                Name = principal.Identity.Name,
+                SecurityToken = new JwtSecurityTokenHandler().WriteToken(token),
+                TokenType = JwtBearerDefaults.AuthenticationScheme
+            };
         }
 
         // This method should only be uncommented for the purposes of setting passwords locally and should not be deployed.
