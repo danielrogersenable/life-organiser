@@ -8,7 +8,7 @@ import { TaskForm } from './task-form';
 @Component({
   selector: 'app-task-detail',
   templateUrl: './task-detail.component.html',
-  styleUrls: ['./task-detail.component.css'],
+  styleUrls: ['./task-detail.component.scss'],
   providers: [
     { provide: TaskForm, useFactory: () => new TaskForm() }
   ]
