@@ -11,6 +11,7 @@ namespace TaskApi.Queries.Interfaces
     public interface ITasksQueries
     {
         Task<LifeTask> GetTask(int id);
+        Task<TaskModel> GetProjectedTask(int id);
         Task<List<LifeTask>> GetTasks();
         Task<List<TaskModel>> GetProjectedTasks();
     }

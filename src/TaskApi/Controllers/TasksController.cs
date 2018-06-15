@@ -55,7 +55,7 @@ namespace TaskApi.Controllers
         [Route("{id}")]
         public async Task<IActionResult> GetTask(int id)
         {
-            var result = await _tasksService.GetTask(id);
+            var result = await _tasksService.GetProjectedTask(id);
 
             return Ok(result);
         }

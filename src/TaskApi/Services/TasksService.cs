@@ -24,9 +24,9 @@ namespace TaskApi.Services
             _queries = queries;
         }
 
-        public async Task<LifeTask> GetTask(int id)
+        public async Task<TaskModel> GetProjectedTask(int id)
         {
-            return await _queries.GetTask(id);
+            return await _queries.GetProjectedTask(id);
         }
 
         public async Task<List<TaskModel>> GetProjectedTasks()

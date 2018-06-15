@@ -30,6 +30,19 @@ namespace TaskApi.Queries
             }
         }
 
+        public async Task<TaskModel> GetProjectedTask(int id)
+        {
+            using (var db = _dbContextFactory.Create())
+            {
+                var dbTask = await db.LifeTasks
+                    .Where(lt => lt.Id == id)
+                    .ProjectToTaskModel()
+                    .FirstOrDefaultAsync();
+
+                return dbTask;
+            }
+        }
+
         public async Task<List<LifeTask>> GetTasks()
         {
             using (var db = _dbContextFactory.Create())
