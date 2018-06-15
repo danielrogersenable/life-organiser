@@ -11,6 +11,7 @@ namespace TaskApi.Services.Interfaces
     public interface ITasksService
     {
         Task<LifeTask> GetTask(int id);
+        Task<List<TaskModel>> GetProjectedTasks();
         Task UpdateTask(TaskModel model);
         Task AddTask(TaskModel model);
         Task DeleteTask(int id);

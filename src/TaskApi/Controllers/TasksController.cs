@@ -30,24 +30,7 @@ namespace TaskApi.Controllers
         [Route("")]
         public async Task<IActionResult> GetTasks()
         {
-            IList<TaskModel> results;
-
-            using (var dbContext = _dbContextFactory.Create())
-            {
-                results = await dbContext.LifeTasks
-                  .Select(t => new TaskModel
-                  {
-                      Id = t.Id,
-                      Name = t.Name,
-                      DateDue = t.DateDue.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz"),
-                      Completed = t.Completed,
-                      CompletedDate = t.CompletedDate.HasValue ? t.CompletedDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
-                      ScheduledDate = t.ScheduledDate.HasValue ? t.ScheduledDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
-                      DurationInMinutes = t.DurationInMinutes
-                  })
-                  .OrderBy(c => c.DateDue)
-                  .ToListAsync();
-            }
+            var results = await _tasksService.GetProjectedTasks();
 
             return Ok(results);
         }

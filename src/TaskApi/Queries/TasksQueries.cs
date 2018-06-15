@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DataModel;
 using Microsoft.EntityFrameworkCore;
+using TaskApi.Extensions;
+using TaskApi.Models;
 using TaskApi.Queries.Interfaces;
 
 namespace TaskApi.Queries
@@ -35,6 +37,17 @@ namespace TaskApi.Queries
                 var taskList = await db.LifeTasks.ToListAsync();
 
                 return taskList;
+            }
+        }
+
+        public async Task<List<TaskModel>> GetProjectedTasks()
+        {
+            using (var dbContext = _dbContextFactory.Create())
+            {
+                return await dbContext.LifeTasks
+                  .ProjectToTaskModel()
+                  .OrderBy(c => c.DateDue)
+                  .ToListAsync();
             }
         }
     }

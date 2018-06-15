@@ -12,7 +12,7 @@
 
 ## Design and styling
 
-- [ ] Why do all my components generate with css rather than scss?
+- [X] Why do all my components generate with css rather than scss?
 - [ ] Make further use of bootstrap styles, including setting a proper style.
 - [ ] Produce a proper navigation bar.
 - [ ] Remove header from sign-in page
@@ -31,6 +31,7 @@
 - [ ] More sensible CORS setup.
 - [ ] Update Angular CLI
 - [ ] Make use of services, query classes etc.
+- [ ] Project all LifeTasks to TaskModels
 - [ ] Unit testing
 - [ ] Resolve ts linting
 - [ ] Sort out VS code formatting

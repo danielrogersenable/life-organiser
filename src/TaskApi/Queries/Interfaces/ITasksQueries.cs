@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
+using TaskApi.Models;
 
 namespace TaskApi.Queries.Interfaces
 {
@@ -11,5 +12,6 @@ namespace TaskApi.Queries.Interfaces
     {
         Task<LifeTask> GetTask(int id);
         Task<List<LifeTask>> GetTasks();
+        Task<List<TaskModel>> GetProjectedTasks();
     }
 }
