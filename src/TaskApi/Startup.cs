@@ -54,6 +54,7 @@ namespace TaskApi
             .AllowAnyHeader()
             .AllowCredentials());
 
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

@@ -70,7 +70,7 @@ namespace TaskApi.Controllers
         private AuthResult GetAuthResult(ClaimsPrincipal principal)
         {
             // TODO - update hardcoded authentication options with appsettings
-            var tokenExpiryInSeconds = 86400;
+            var tokenExpiryInSeconds = 3600;
             var tokenSigningSecret = "life-organiser-secret-tbc";
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenSigningSecret));
 

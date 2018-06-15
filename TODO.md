@@ -44,10 +44,12 @@
 - [ ] Permit users to sign out
 - [ ] Add the ability to change passwords.
 - [ ] Add authentication layer to API endpoints.
-- [ ] Sort out token refresh
+- [?] Sort out token refresh
 	- This may be because the token isn't being added to the header for the request.
 	- Now it is - I suspect this will help with adding authorisation to API endpoints.
 	- The issue remains that the user is not being detected by the controller, and I've yet to work out exactly how that happens.
+	- Presumably as the authorization header gets passed up this should get decoded to give the user information, and that looks like it's not happening.
+	- I needed App.UseAuthentication() in the startup to read the authentication back. All fixed now. :D
 
 # Feature wishlist
 
