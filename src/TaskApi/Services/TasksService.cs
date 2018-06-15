@@ -34,6 +34,11 @@ namespace TaskApi.Services
             return await _queries.GetProjectedTasks();
         }
 
+        public async Task<List<TaskModel>> GetCompleteProjectedTasks()
+        {
+            return await _queries.GetCompleteProjectedTasks();
+        }
+
         public async Task AddTask(TaskModel model)
         {
             await _commands.AddTask(model);

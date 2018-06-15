@@ -22,7 +22,7 @@ namespace TaskApi.Queries
 
         public async Task<LifeTask> GetTask(int id)
         {
-            using(var db = _dbContextFactory.Create())
+            using (var db = _dbContextFactory.Create())
             {
                 var dbTask = await db.LifeTasks.FindAsync(id);
 
@@ -43,13 +43,15 @@ namespace TaskApi.Queries
             }
         }
 
-        public async Task<List<LifeTask>> GetTasks()
+        public async Task<List<TaskModel>> GetCompleteProjectedTasks()
         {
-            using (var db = _dbContextFactory.Create())
+            using (var dbContext = _dbContextFactory.Create())
             {
-                var taskList = await db.LifeTasks.ToListAsync();
-
-                return taskList;
+                return await dbContext.LifeTasks
+                    .Where(lt => lt.Completed)
+                    .ProjectToTaskModel()
+                    .OrderBy(c => c.DateDue)
+                    .ToListAsync();
             }
         }
 

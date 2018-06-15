@@ -19,10 +19,8 @@ namespace TaskApi.Controllers
         private readonly ITasksService _tasksService;
 
         public TasksController(
-            IAppDbContextFactory dbContextFactory,
             ITasksService tasksService)
         {
-            _dbContextFactory = dbContextFactory;
             _tasksService = tasksService;
         }
 
@@ -39,14 +37,7 @@ namespace TaskApi.Controllers
         [Route("complete-tasks")]
         public async Task<IActionResult> GetCompleteTasks()
         {
-            IList<LifeTask> results;
-
-            using (var dbContext = _dbContextFactory.Create())
-            {
-                results = await dbContext.LifeTasks
-                  .Where(t => t.Completed)
-                    .ToListAsync();
-            }
+            var results = await _tasksService.GetCompleteProjectedTasks();
 
             return Ok(results);
         }
