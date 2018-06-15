@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +22,15 @@ namespace TaskApi.StartupExtensions
                 throw new ArgumentNullException(nameof(services));
             }
 
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
             services.AddIdentity<AppUser, AppRole>(options =>
             {
+                options.ClaimsIdentity.UserIdClaimType = JwtClaimTypes.Subject;
+                options.ClaimsIdentity.UserNameClaimType = JwtClaimTypes.Email;
+                options.ClaimsIdentity.RoleClaimType = JwtClaimTypes.Role;
+                options.ClaimsIdentity.SecurityStampClaimType = JwtClaimTypes.SessionId;
+
                 // TODO - these rules are set low for development. Consider using password rules in appsettings.
                 options.Password.RequireDigit = false;
                 options.Password.RequiredLength = 5;
