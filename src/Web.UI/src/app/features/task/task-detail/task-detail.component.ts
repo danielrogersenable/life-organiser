@@ -74,8 +74,4 @@ export class TaskDetailComponent implements OnInit {
     })
     .subscribe();
   }
-
-  logDateValue(): void{
-    console.log(this.task.dateDue);
-  }
 }
