@@ -1,0 +1,5 @@
+@import 'variables';
+
+@import '~@angular/material/theming';
+$custom-typography: mat-typography-config($font-family: 'Mirza');
+@include mat-core($custom-typography);

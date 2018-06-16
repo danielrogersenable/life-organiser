@@ -22,8 +22,9 @@
 	- Possibly highlighting the selected row and a redirect on click?
 	- Also consider hooking up the deletion functionality here.
 - [ ] Date formatting in datepickers - currently US formatting.
-- [ ] Find/create a favicon.
-- [ ] Get suitable sign in/sign out experience
+- [X] Find/create a favicon.
+- [ ] Get suitable sign in/sign out experience#
+- [ ] WOrk out how to add fonts to table
 
 
 ## Technical functionality
