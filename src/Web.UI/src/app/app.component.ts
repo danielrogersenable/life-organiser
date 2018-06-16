@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserManager } from './features/sign-in/user-manager.service';
 import { SignInService } from './features/sign-in/sign-in.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,11 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.setupUserTokenRefresh();
+  }
+
+  public signOut(): void {
+    console.log('signing out');
+    this._userManager.removeUser();
   }
 
   private setupUserTokenRefresh(): void {

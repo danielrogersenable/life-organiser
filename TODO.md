@@ -23,6 +23,7 @@
 	- Also consider hooking up the deletion functionality here.
 - [ ] Date formatting in datepickers - currently US formatting.
 - [ ] Find/create a favicon.
+- [ ] Get suitable sign in/sign out experience
 
 
 ## Technical functionality
@@ -40,8 +41,8 @@
 ## Security functionality
 
 - [X] Add the ability to sign-in as a user.
-- [ ] Add auth guards to routes
-- [ ] Permit users to sign out
+- [X] Add auth guards to routes
+- [X] Permit users to sign out
 - [ ] Add the ability to change passwords.
 - [ ] Add authentication layer to API endpoints.
 - [?] Sort out token refresh

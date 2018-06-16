@@ -9,12 +9,14 @@ import { SignInComponent } from './features/sign-in/sign-in.component';
 import { AuthGuard } from './features/sign-in/auth.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/tasks'},
+  { path: '', pathMatch: 'full', redirectTo: '/sign-in'},
   { path: 'sign-in', component: SignInComponent },
-  { path: 'tasks', component: TaskListComponent },
-  { path: 'instructions', canActivate: [AuthGuard], component: InstructionsComponent },
-  { path: 'add-task', component: TaskAddComponent },
-  { path: 'task/:id', component: TaskEditComponent }
+  { path: '', canActivate: [AuthGuard], children:[
+    { path: 'tasks', component: TaskListComponent },
+    { path: 'instructions', component: InstructionsComponent },
+    { path: 'add-task', component: TaskAddComponent },
+    { path: 'task/:id', component: TaskEditComponent }
+  ]}
 ];
 
 @NgModule({
