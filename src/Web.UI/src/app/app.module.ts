@@ -13,8 +13,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { TaskAddComponent } from './features/task/task-add/task-add.component';
-import { NgbModule, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
-import { NgbDateNativeAdapter } from './shared/datepicker-adapter';
 import { TaskDetailComponent } from './features/task/task-detail/task-detail.component';
 import { TaskListComponent } from './features/task/task-list/task-list.component';
 import { TaskService } from './features/task/task.service';
@@ -39,7 +37,6 @@ import { AUTH_HTTP_INTERCEPTOR_PROVIDER } from './features/sign-in/auth-http-int
     TestComponent
   ],
   imports: [
-    NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -58,7 +55,6 @@ import { AUTH_HTTP_INTERCEPTOR_PROVIDER } from './features/sign-in/auth-http-int
     SignInService,
     UserManager,
     AuthGuard,
-    {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter},
     AUTH_HTTP_INTERCEPTOR_PROVIDER
   ],
   bootstrap: [AppComponent]
