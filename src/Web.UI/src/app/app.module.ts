@@ -3,7 +3,7 @@ import { BrowserAnimationsModule  } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTableModule, MatInputModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material';
+import { MatTableModule, MatInputModule, MatFormFieldModule, MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
@@ -23,6 +23,8 @@ import { TestComponent } from './test/test.component';
 import { UserManager } from './features/sign-in/user-manager.service';
 import { AuthGuard } from './features/sign-in/auth.guard';
 import { AUTH_HTTP_INTERCEPTOR_PROVIDER } from './features/sign-in/auth-http-interceptor-provider';
+import { AppDateAdapter } from './shared/date/app-date-adapter';
+import { APP_DATE_FORMATS } from './shared/date/app-date-formats';
 
 
 @NgModule({
@@ -55,7 +57,9 @@ import { AUTH_HTTP_INTERCEPTOR_PROVIDER } from './features/sign-in/auth-http-int
     SignInService,
     UserManager,
     AuthGuard,
-    AUTH_HTTP_INTERCEPTOR_PROVIDER
+    AUTH_HTTP_INTERCEPTOR_PROVIDER,
+    { provide: DateAdapter, useClass: AppDateAdapter },
+    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS }
   ],
   bootstrap: [AppComponent]
 })

@@ -38,6 +38,7 @@
 - [ ] Resolve ts linting
 - [ ] Sort out VS code formatting
 - [X] Write PS script for startup.
+- [ ] Separate out modules in Angular
 
 ## Security functionality
 
