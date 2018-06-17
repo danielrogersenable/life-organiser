@@ -11,5 +11,7 @@ namespace DataModel
         public DateTimeOffset? CompletedDate { get; set; }
         public DateTimeOffset? ScheduledDate { get; set; }
         public int DurationInMinutes { get; set; }
+        public int? TaskTypeId { get; set; }
+        public virtual TaskType TaskType { get; set; }
     }
 }
