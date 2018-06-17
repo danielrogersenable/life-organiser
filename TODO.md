@@ -15,7 +15,7 @@
 - [X] Why do all my components generate with css rather than scss?
 - [ ] Make further use of bootstrap styles, including setting a proper style.
 - [X] Produce a proper navigation bar.
-- [ ] Remove header from sign-in page
+- [X] Remove header from sign-in page
 - [ ] Add styling to the header.
 - [ ] Button styling
 - [ ] Find a better method for the edit link on the list of tasks 
@@ -23,7 +23,7 @@
 	- Also consider hooking up the deletion functionality here.
 - [X] Date formatting in datepickers - currently US formatting.
 - [X] Find/create a favicon.
-- [ ] Get suitable sign in/sign out experience
+- [X] Get suitable sign in/sign out experience
 - [ ] Work out how to add fonts to table
 - [ ] Bootstrap stylings for things like spacing
 

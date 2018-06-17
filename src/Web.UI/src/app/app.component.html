@@ -1,4 +1,5 @@
 <h1> Life Organiser</h1>
-<app-nav></app-nav>
+<div *ngIf="isAuthenticated">
+    <app-nav></app-nav>
+</div>
 <router-outlet></router-outlet>
-

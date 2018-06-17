@@ -26,6 +26,7 @@ import { AUTH_HTTP_INTERCEPTOR_PROVIDER } from './features/sign-in/auth-http-int
 import { AppDateAdapter } from './shared/date/app-date-adapter';
 import { APP_DATE_FORMATS } from './shared/date/app-date-formats';
 import { NavComponent } from './shared/nav/nav.component';
+import { SignedInGuard } from './features/sign-in/signed-in.guard';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { NavComponent } from './shared/nav/nav.component';
     SignInService,
     UserManager,
     AuthGuard,
+    SignedInGuard,
     AUTH_HTTP_INTERCEPTOR_PROVIDER,
     { provide: DateAdapter, useClass: AppDateAdapter },
     { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS }
