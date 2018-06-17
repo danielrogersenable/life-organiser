@@ -8,7 +8,7 @@ using TaskApi.Models;
 
 namespace TaskApi.Extensions
 {
-    public static class TaskModelProjectionExtension
+    public static class ProjectionExtension
     {
         public static IQueryable<TaskModel> ProjectToTaskModel(this IQueryable<LifeTask> query)
         {
@@ -22,6 +22,17 @@ namespace TaskApi.Extensions
                     CompletedDate = t.CompletedDate.HasValue ? t.CompletedDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
                     ScheduledDate = t.ScheduledDate.HasValue ? t.ScheduledDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
                     DurationInMinutes = t.DurationInMinutes
+                });
+        }
+
+        public static IQueryable<TaskTypeModel> ProjectToTaskTypeModel(this IQueryable<TaskType> query)
+        {
+            return query
+                .Select(t => new TaskTypeModel
+                {
+                    Id = t.Id,
+                    Name = t.Name,
+                    Color = t.Color
                 });
         }
     }

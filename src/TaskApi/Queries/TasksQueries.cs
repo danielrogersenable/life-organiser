@@ -65,5 +65,16 @@ namespace TaskApi.Queries
                   .ToListAsync();
             }
         }
+
+        public async Task<List<TaskTypeModel>> GetTaskTypes()
+        {
+            using (var dbContext = _dbContextFactory.Create())
+            {
+                return await dbContext.TaskTypes
+                    .ProjectToTaskTypeModel()
+                    .OrderBy(c => c.Name)
+                    .ToListAsync();
+            }
+        }
     }
 }

@@ -13,6 +13,8 @@ namespace DataModel
     {
         DbSet<LifeTask> LifeTasks { get; }
 
+        DbSet<TaskType> TaskTypes { get; }
+
         DatabaseFacade Database { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
