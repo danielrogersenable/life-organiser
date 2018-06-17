@@ -3,7 +3,7 @@ import { BrowserAnimationsModule  } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTableModule, MatInputModule, MatFormFieldModule, MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { MatTableModule, MatInputModule, MatFormFieldModule, MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MatToolbarModule, MatMenuModule, MatIconModule } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
@@ -25,6 +25,7 @@ import { AuthGuard } from './features/sign-in/auth.guard';
 import { AUTH_HTTP_INTERCEPTOR_PROVIDER } from './features/sign-in/auth-http-interceptor-provider';
 import { AppDateAdapter } from './shared/date/app-date-adapter';
 import { APP_DATE_FORMATS } from './shared/date/app-date-formats';
+import { NavComponent } from './shared/nav/nav.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { APP_DATE_FORMATS } from './shared/date/app-date-formats';
     TaskDetailComponent,
     TaskEditComponent,
     SignInComponent,
-    TestComponent
+    TestComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,9 @@ import { APP_DATE_FORMATS } from './shared/date/app-date-formats';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [
     TaskService,

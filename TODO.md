@@ -14,17 +14,18 @@
 
 - [X] Why do all my components generate with css rather than scss?
 - [ ] Make further use of bootstrap styles, including setting a proper style.
-- [ ] Produce a proper navigation bar.
+- [X] Produce a proper navigation bar.
 - [ ] Remove header from sign-in page
 - [ ] Add styling to the header.
 - [ ] Button styling
 - [ ] Find a better method for the edit link on the list of tasks 
 	- Possibly highlighting the selected row and a redirect on click?
 	- Also consider hooking up the deletion functionality here.
-- [ ] Date formatting in datepickers - currently US formatting.
+- [X] Date formatting in datepickers - currently US formatting.
 - [X] Find/create a favicon.
-- [ ] Get suitable sign in/sign out experience#
-- [ ] WOrk out how to add fonts to table
+- [ ] Get suitable sign in/sign out experience
+- [ ] Work out how to add fonts to table
+- [ ] Bootstrap stylings for things like spacing
 
 
 ## Technical functionality
@@ -33,7 +34,7 @@
 - [ ] More sensible CORS setup.
 - [ ] Update Angular CLI
 - [ ] Make use of services, query classes etc.
-- [ ] Project all LifeTasks to TaskModels
+- [X] Project all LifeTasks to TaskModels
 - [ ] Unit testing
 - [ ] Resolve ts linting
 - [ ] Sort out VS code formatting

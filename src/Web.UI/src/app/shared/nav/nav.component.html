@@ -1,0 +1,28 @@
+<!-- <nav class="nav-bar">
+
+</nav> -->
+
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item (click)="listClick()">
+    <mat-icon>build </mat-icon>
+    <span>List all tasks</span>
+  </button>
+  <button mat-menu-item (click)="addClick()">
+    <mat-icon>add_circle </mat-icon>
+    <span>Add task</span>
+  </button>
+  <button mat-menu-item (click)="signOut()">
+    <mat-icon>sentiment_dissatisfied </mat-icon>
+    <span>Sign out</span>
+  </button>
+</mat-menu>
+
+<button mat-icon-button [matMenuTriggerFor]="appMenu">
+  <mat-icon>home</mat-icon>
+</button>
+
+<!-- 
+  <a routerLink="/tasks"> List all tasks </a>
+  <a routerLink="/instructions"> Find some instructions</a>
+  <a routerLink="/add-task"> Add a task</a>
+  <a (click)='signOut()'> Sign out</a> -->
