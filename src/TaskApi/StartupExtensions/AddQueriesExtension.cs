@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using TaskApi.Queries;
 using TaskApi.Queries.Interfaces;
-using TaskApi.Services;
-using TaskApi.Services.Interfaces;
 
 namespace TaskApi.StartupExtensions
 {
@@ -21,6 +19,7 @@ namespace TaskApi.StartupExtensions
             }
 
             services.AddScoped<ITasksQueries, TasksQueries>();
+            services.AddScoped<ITaskTypesQueries, TaskTypesQueries>();
         }
     }
 }

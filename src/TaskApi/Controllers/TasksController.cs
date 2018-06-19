@@ -15,7 +15,6 @@ namespace TaskApi.Controllers
     [Route("api/[controller]")]
     public class TasksController : Controller
     {
-        private readonly IAppDbContextFactory _dbContextFactory;
         private readonly ITasksService _tasksService;
 
         public TasksController(
