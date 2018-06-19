@@ -8,8 +8,9 @@ using TaskApi.Models;
 
 namespace TaskApi.Services.Interfaces
 {
-    public interface ILifeTaskMappingService
+    public interface IModelMappingService
     {
         LifeTask PopulateLifeTaskFromModel(TaskModel model, LifeTask dbTask);
+        TaskType PopulateTaskTypeFromModel(TaskTypeModel model, TaskType taskType);
     }
 }

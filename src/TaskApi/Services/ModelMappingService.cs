@@ -10,11 +10,11 @@ using TaskApi.Services.Interfaces;
 
 namespace TaskApi.Services
 {
-    public class LifeTaskMappingService : ILifeTaskMappingService
+    public class ModelMappingService : IModelMappingService
     {
         private readonly IDateTimeService _dateTimeService;
 
-        public LifeTaskMappingService(IDateTimeService dateTimeService)
+        public ModelMappingService(IDateTimeService dateTimeService)
         {
             _dateTimeService = dateTimeService;
         }
@@ -39,6 +39,14 @@ namespace TaskApi.Services
             dbTask.TaskTypeId = model.TaskTypeId;
 
             return dbTask;
+        }
+
+        public TaskType PopulateTaskTypeFromModel(TaskTypeModel model, TaskType taskType)
+        {
+            taskType.Name = model.Name;
+            taskType.Color = model.Color;
+
+            return taskType;
         }
     }
 }

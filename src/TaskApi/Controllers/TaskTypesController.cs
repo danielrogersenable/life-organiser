@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TaskApi.Models;
 using TaskApi.Services.Interfaces;
 
 namespace TaskApi.Controllers
@@ -19,11 +20,19 @@ namespace TaskApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetTasks()
+        public async Task<IActionResult> Get()
         {
             var results = await _taskTypesService.GetTaskTypes();
 
             return Ok(results);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] TaskTypeModel model)
+        {
+            await _taskTypesService.UpdateTaskType(model);
+
+            return new NoContentResult();
         }
     }
 }

@@ -14,11 +14,11 @@ namespace TaskApi.Commands
     public class TasksCommands : ITasksCommands
     {
         private readonly IAppDbContextFactory _dbContextFactory;
-        private readonly ILifeTaskMappingService _lifeTaskMappingService;
+        private readonly IModelMappingService _lifeTaskMappingService;
 
         public TasksCommands(
             IAppDbContextFactory dbContextFactory,
-            ILifeTaskMappingService lifeTaskMappingService)
+            IModelMappingService lifeTaskMappingService)
         {
             _dbContextFactory = dbContextFactory;
             _lifeTaskMappingService = lifeTaskMappingService;

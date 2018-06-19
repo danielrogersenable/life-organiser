@@ -27,5 +27,18 @@ namespace TaskApi.Services
         {
             return await _queries.GetTaskTypes();
         }
+
+        public async Task UpdateTaskType(TaskTypeModel model)
+        {
+            var task = await _queries.GetTaskType(model.Id);
+
+            if (task == null)
+            {
+                // TODO - determine what the service should do here
+                return;
+            }
+
+            await _commands.UpdateTaskType(model);
+        }
     }
 }

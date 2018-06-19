@@ -10,5 +10,6 @@ namespace TaskApi.Services.Interfaces
     public interface ITaskTypesService
     {
         Task<List<TaskTypeModel>> GetTaskTypes();
+        Task UpdateTaskType(TaskTypeModel model);
     }
 }

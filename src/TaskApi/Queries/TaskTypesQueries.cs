@@ -30,5 +30,13 @@ namespace TaskApi.Queries
                     .ToListAsync();
             }
         }
+
+        public async Task<TaskType> GetTaskType(int id)
+        {
+            using (var dbContext = _dbContextFactory.Create())
+            {
+                return await dbContext.TaskTypes.FindAsync(id);
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { TaskTypeDto } from '../task-type.dto';
 import { TaskTypeForm } from '../task-type-form';
+import { TaskTypeService } from '../task-type.service';
 
 @Component({
   selector: 'app-task-type-detail',
@@ -12,7 +13,9 @@ import { TaskTypeForm } from '../task-type-form';
 })
 export class TaskTypeDetailComponent implements OnInit, OnChanges {
 
-  constructor(public form: TaskTypeForm) { }
+  constructor(
+    public form: TaskTypeForm,
+    public taskTypeService: TaskTypeService) { }
 
   @Input() public taskType: TaskTypeDto;
 
@@ -25,6 +28,15 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
   }
 
   public save(): void {
-    console.log('saving');
+    if (this.form.invalid){
+      return;
+    }
+
+    this.taskType = this.form.getValue();
+
+    this.taskTypeService.updateTaskType(this.taskType)
+    .first()
+    .do(() => console.log('need to trigger some sort of event emitter'))
+    .subscribe();
   }
 }
