@@ -13,6 +13,8 @@ export class TaskTypeListingComponent implements OnInit {
 
   taskTypes: TaskTypeDto[];
 
+  selectedTaskType: TaskTypeDto;
+
   ngOnInit() {
     this.getTaskTypes();
   }

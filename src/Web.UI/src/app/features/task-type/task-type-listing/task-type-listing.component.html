@@ -1,3 +1,15 @@
-<p>
-  task-type-listing works!
-</p>
+<div *ngIf="taskTypes">
+  <mat-form-field>
+      <mat-select placeholder="Select" [(value)]="selectedTaskType">
+        <mat-option *ngFor="let taskType of taskTypes" [value]=taskType>
+          {{ taskType.name }}
+        </mat-option>
+      </mat-select>    
+  </mat-form-field>
+</div>
+
+<div *ngIf="selectedTaskType">
+  <app-task-type-detail [(taskType)]=selectedTaskType>
+
+  </app-task-type-detail>
+</div>
