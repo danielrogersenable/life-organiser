@@ -1,5 +1,12 @@
 @import 'variables';
+@import url('https://fonts.googleapis.com/css?family=Maitree');
 
 @import '~@angular/material/theming';
-$custom-typography: mat-typography-config($font-family: 'Mirza');
+$custom-typography: mat-typography-config(
+    $font-family: 'Maitree');
 @include mat-core($custom-typography);
+
+$app-primary: mat-palette($mat-blue);
+$app-accent: mat-palette($mat-blue-gray);
+$app-theme: mat-light-theme($app-primary, $app-accent);
+@include angular-material-theme($app-theme);

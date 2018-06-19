@@ -13,7 +13,7 @@
 ## Design and styling
 
 - [X] Why do all my components generate with css rather than scss?
-- [ ] Make further use of bootstrap styles, including setting a proper style.
+- [X] Make further use of bootstrap styles, including setting a proper style.
 - [X] Produce a proper navigation bar.
 - [X] Remove header from sign-in page
 - [ ] Add styling to the header.
@@ -24,7 +24,7 @@
 - [X] Date formatting in datepickers - currently US formatting.
 - [X] Find/create a favicon.
 - [X] Get suitable sign in/sign out experience
-- [ ] Work out how to add fonts to table
+- [X] Work out how to add fonts to table
 - [ ] Bootstrap stylings for things like spacing
 
 
