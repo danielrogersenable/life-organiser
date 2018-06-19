@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../../task/task.service';
 import { TaskTypeDto } from '../task-type.dto';
+import { TaskTypeService } from '../task-type.service';
 
 @Component({
   selector: 'app-task-type-listing',
@@ -9,7 +9,7 @@ import { TaskTypeDto } from '../task-type.dto';
 })
 export class TaskTypeListingComponent implements OnInit {
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskTypeService: TaskTypeService) { }
 
   taskTypes: TaskTypeDto[];
 
@@ -20,7 +20,7 @@ export class TaskTypeListingComponent implements OnInit {
   }
 
   getTaskTypes(): void {
-    this.taskService.getTaskTypes()
+    this.taskTypeService.getTaskTypes()
     .subscribe(taskTypes => {
       this.taskTypes = taskTypes;
     });

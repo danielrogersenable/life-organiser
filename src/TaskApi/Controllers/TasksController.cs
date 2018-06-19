@@ -33,15 +33,6 @@ namespace TaskApi.Controllers
         }
 
         [HttpGet]
-        [Route("get-task-types")]
-        public async Task<IActionResult> GetTaskTypes()
-        {
-            var results = await _tasksService.GetTaskTypes();
-
-            return Ok(results);
-        }
-
-        [HttpGet]
         [Route("complete-tasks")]
         public async Task<IActionResult> GetCompleteTasks()
         {

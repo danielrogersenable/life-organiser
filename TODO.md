@@ -8,6 +8,7 @@
 - [ ] Add validation (back-end)
 - [ ] Add validation (front-end)
 - [ ] Add "are you sure" warning to task deletion.
+- [ ] Add ability to remove task type from a task.
 
 
 ## Design and styling

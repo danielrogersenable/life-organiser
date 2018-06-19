@@ -41,9 +41,4 @@ export class TaskService {
     const url = `${this.tasksUrl}/${id}`;
     return this.http.delete(url);
   }
-
-  getTaskTypes(): Observable<TaskTypeDto[]> {
-    const url = `${this.tasksUrl}/get-task-types`;
-    return this.http.get<TaskTypeDto[]>(url);
-  }
 }

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { TaskService } from '../task.service';
 import { TaskForm } from './task-form';
 import { TaskTypeDto } from '../../task-type/task-type.dto';
+import { TaskTypeService } from '../../task-type/task-type.service';
 
 @Component({
   selector: 'app-task-detail',
@@ -19,6 +20,7 @@ export class TaskDetailComponent implements OnInit {
   constructor(
     public form: TaskForm,
     private taskService: TaskService,
+    private taskTypeService: TaskTypeService,
     private router: Router) { }
 
   @Input() public task: TaskDto;
@@ -26,7 +28,7 @@ export class TaskDetailComponent implements OnInit {
   public taskTypes: TaskTypeDto[];
 
   ngOnInit() {
-    this.taskService.getTaskTypes()
+    this.taskTypeService.getTaskTypes()
       .first()
       .do((taskTypes) => {
         this.taskTypes = taskTypes;

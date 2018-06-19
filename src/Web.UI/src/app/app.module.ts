@@ -40,6 +40,7 @@ import { NavComponent } from './shared/nav/nav.component';
 import { SignedInGuard } from './features/sign-in/signed-in.guard';
 import { TaskTypeListingComponent } from './features/task-type/task-type-listing/task-type-listing.component';
 import { TaskTypeDetailComponent } from './features/task-type/task-type-detail/task-type-detail.component';
+import { TaskTypeService } from './features/task-type/task-type.service';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { TaskTypeDetailComponent } from './features/task-type/task-type-detail/t
   ],
   providers: [
     TaskService,
+    TaskTypeService,
     SignInService,
     UserManager,
     AuthGuard,
