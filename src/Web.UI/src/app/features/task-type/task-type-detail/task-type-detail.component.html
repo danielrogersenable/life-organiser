@@ -1,7 +1,13 @@
-<p>
-  task-type-detail works!
-</p>
-
-<div *ngIf=taskType>
-  {{ taskType.color }}
-</div>
+<form [formGroup]="form" (submit)="save()">
+  <section class="row">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input type="text" formControlName="name" matInput placeholder="Task type name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Colour</mat-label>
+      <input type="text" formControlName="color" matInput placeholder="Colour">
+    </mat-form-field>
+    <button type="submit">Save</button>
+  </section>
+</form>
