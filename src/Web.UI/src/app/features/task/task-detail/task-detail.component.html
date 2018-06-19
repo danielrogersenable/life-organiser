@@ -33,6 +33,16 @@
     </mat-form-field>
   </section>
   <section class="row">
+    <mat-form-field>
+      <mat-label>Task type</mat-label>
+      <mat-select formControlName="taskTypeId" placeholder="Task type">
+        <mat-option *ngFor="let taskType of taskTypes" [value]=taskType.id>
+          {{ taskType.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </section>
+  <section class="row">
     <button type="submit">Save</button>
     <button type="button" *ngIf="!isNew" (click)="delete()"> Delete</button>
   </section>

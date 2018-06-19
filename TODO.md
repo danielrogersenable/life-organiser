@@ -19,6 +19,7 @@
 	- Possibly highlighting the selected row and a redirect on click?
 	- Also consider hooking up the deletion functionality here.
 - [ ] Bootstrap stylings for things like spacing
+- [ ] Loading behaviour
 
 
 ## Technical functionality
@@ -30,7 +31,6 @@
 - [ ] Unit testing
 - [ ] Resolve ts linting
 - [ ] Sort out VS code formatting
-- [X] Write PS script for startup.
 - [ ] Separate out modules in Angular
 
 ## Security functionality

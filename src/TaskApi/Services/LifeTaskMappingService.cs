@@ -36,6 +36,7 @@ namespace TaskApi.Services
             }
 
             dbTask.Completed = model.Completed;
+            dbTask.TaskTypeId = model.TaskTypeId;
 
             return dbTask;
         }

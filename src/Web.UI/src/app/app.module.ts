@@ -3,7 +3,18 @@ import { BrowserAnimationsModule  } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTableModule, MatInputModule, MatFormFieldModule, MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MatToolbarModule, MatMenuModule, MatIconModule } from '@angular/material';
+import {
+  MatTableModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatNativeDateModule,
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MatToolbarModule,
+  MatMenuModule,
+  MatIconModule,
+  MatSelectModule
+} from '@angular/material';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
@@ -55,7 +66,8 @@ import { SignedInGuard } from './features/sign-in/signed-in.guard';
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
   ],
   providers: [
     TaskService,

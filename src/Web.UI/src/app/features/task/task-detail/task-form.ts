@@ -11,6 +11,7 @@ export class TaskForm extends FormGroup {
             [TaskForm.completedDateControlKey]: new FormControl(),
             [TaskForm.scheduledDateControlKey]: new FormControl(),
             [TaskForm.durationInMinutesControlKey]: new FormControl(),
+            [TaskForm.taskTypeIdControlKey]: new FormControl()
         });
 }
 
@@ -21,6 +22,7 @@ private static readonly completedControlKey = 'completed';
 private static readonly completedDateControlKey = 'completedDate';
 private static readonly scheduledDateControlKey = 'scheduledDate';
 private static readonly durationInMinutesControlKey = 'durationInMinutes';
+private static readonly taskTypeIdControlKey = 'taskTypeId';
 
 public get name(): FormControl {
     return this.controls[TaskForm.nameControlKey] as FormControl;
@@ -36,6 +38,7 @@ public setValue(task: TaskDto): void {
             [TaskForm.completedDateControlKey]: task.completedDate,
             [TaskForm.scheduledDateControlKey]: task.scheduledDate,
             [TaskForm.durationInMinutesControlKey]: task.durationInMinutes,
+            [TaskForm.taskTypeIdControlKey]: task.taskTypeId
         });
 }
 

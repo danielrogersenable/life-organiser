@@ -4,6 +4,7 @@ import { TaskDto } from '../task.dto';
 import { Router } from '@angular/router';
 import { TaskService } from '../task.service';
 import { TaskForm } from './task-form';
+import { TaskTypeDto } from '../task-type.dto';
 
 @Component({
   selector: 'app-task-detail',
@@ -22,8 +23,17 @@ export class TaskDetailComponent implements OnInit {
 
   @Input() public task: TaskDto;
   public isNew = true;
+  public taskTypes: TaskTypeDto[];
 
   ngOnInit() {
+    this.taskService.getTaskTypes()
+      .first()
+      .do((taskTypes) => {
+        this.taskTypes = taskTypes;
+        console.log(this.taskTypes);
+      })
+      .subscribe();
+
     this.isNew = !this.task;
     if (this.isNew) {
       this.task = new TaskDto();
@@ -34,6 +44,7 @@ export class TaskDetailComponent implements OnInit {
       this.task.dateDue = new Date().toString();
       this.task.scheduledDate = new Date().toString();
       this.task.durationInMinutes = 0;
+      this.task.taskTypeId = 0;
     }
     this.form.setValue(this.task);
   }

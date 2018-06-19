@@ -6,6 +6,7 @@ import { of } from 'rxjs/observable/of';
 
 import { environment } from '../../../environments/environment';
 import { TaskDto } from './task.dto';
+import { TaskTypeDto } from './task-type.dto';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -38,5 +39,10 @@ export class TaskService {
   deleteTask(id: number): Observable<any> {
     const url = `${this.tasksUrl}/${id}`;
     return this.http.delete(url);
+  }
+
+  getTaskTypes(): Observable<TaskTypeDto[]> {
+    const url = `${this.tasksUrl}/get-task-types`;
+    return this.http.get<TaskTypeDto[]>(url);
   }
 }
