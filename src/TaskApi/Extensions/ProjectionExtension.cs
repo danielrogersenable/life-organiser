@@ -38,7 +38,8 @@ namespace TaskApi.Extensions
                     CompletedDate = t.CompletedDate.HasValue ? t.CompletedDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
                     ScheduledDate = t.ScheduledDate.HasValue ? t.ScheduledDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
                     DurationInMinutes = t.DurationInMinutes,
-                    TaskType = t.TaskType.Name
+                    TaskType = t.TaskType.Name,
+                    Color = t.TaskType.Color
                 });
         }
 

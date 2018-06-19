@@ -2,38 +2,42 @@
 <div *ngIf="tasks">
   <mat-table [dataSource]=tasks>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let tasks; columns: displayedColumns;"></mat-row>
-    <ng-container matColumnDef="name" >
-      <mat-header-cell *matHeaderCellDef>Task name</mat-header-cell>
-      <mat-cell *matCellDef="let task"> {{ task.name }}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="dateDue" >
-      <mat-header-cell *matHeaderCellDef>Date due</mat-header-cell>
-      <mat-cell *matCellDef="let task"> {{ task.dateDue | date:'fullDate'}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="completed" >
-      <mat-header-cell *matHeaderCellDef>Completed</mat-header-cell>
-      <mat-cell *matCellDef="let task"> {{ task.completed }}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="completedDate" >
-      <mat-header-cell *matHeaderCellDef>Completed date</mat-header-cell>
-      <mat-cell *matCellDef="let task"> {{ task.completedDate | date:'fullDate'}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="scheduledDate" >
-      <mat-header-cell *matHeaderCellDef>Scheduled date</mat-header-cell>
-      <mat-cell *matCellDef="let task"> {{ task.scheduledDate | date:'fullDate'}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="durationInMinutes" >
-      <mat-header-cell *matHeaderCellDef>Duration (minutes)</mat-header-cell>
-      <mat-cell *matCellDef="let task"> {{ task.durationInMinutes }}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="taskType" >
-      <mat-header-cell *matHeaderCellDef>Task type</mat-header-cell>
-      <mat-cell *matCellDef="let task"> {{ task.taskType }}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="editLink" >
-      <mat-header-cell *matHeaderCellDef>Edit link</mat-header-cell>
-      <mat-cell *matCellDef="let task"> <a routerLink="/task/{{task.id}}">Edit</a></mat-cell>
-    </ng-container>
-</mat-table>
+    <mat-row *matRowDef="let tasks; columns: displayedColumns;" [ngStyle]="{'background-color': tasks.color}"></mat-row>
+    <div>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Task name</mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.name }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="dateDue">
+        <mat-header-cell *matHeaderCellDef>Date due</mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.dateDue | date:'fullDate'}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="completed">
+        <mat-header-cell *matHeaderCellDef>Completed</mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.completed }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="completedDate">
+        <mat-header-cell *matHeaderCellDef>Completed date</mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.completedDate | date:'fullDate'}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="scheduledDate">
+        <mat-header-cell *matHeaderCellDef>Scheduled date</mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.scheduledDate | date:'fullDate'}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="durationInMinutes">
+        <mat-header-cell *matHeaderCellDef>Duration (minutes)</mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.durationInMinutes }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="taskType">
+        <mat-header-cell *matHeaderCellDef>Task type</mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.taskType }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="editLink">
+        <mat-header-cell *matHeaderCellDef>Edit link</mat-header-cell>
+        <mat-cell *matCellDef="let task">
+          <a routerLink="/task/{{task.id}}">Edit</a>
+        </mat-cell>
+      </ng-container>
+    </div>
+  </mat-table>
 </div>

@@ -7,4 +7,5 @@ export class TaskListingDto {
     scheduledDate: string;
     durationInMinutes: number;
     taskType: string;
+    color: string;
   }
