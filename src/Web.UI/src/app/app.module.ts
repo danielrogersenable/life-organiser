@@ -38,6 +38,7 @@ import { AppDateAdapter } from './shared/date/app-date-adapter';
 import { APP_DATE_FORMATS } from './shared/date/app-date-formats';
 import { NavComponent } from './shared/nav/nav.component';
 import { SignedInGuard } from './features/sign-in/signed-in.guard';
+import { TaskTypeListingComponent } from './features/task-type/task-type-listing/task-type-listing.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { SignedInGuard } from './features/sign-in/signed-in.guard';
     TaskEditComponent,
     SignInComponent,
     TestComponent,
-    NavComponent
+    NavComponent,
+    TaskTypeListingComponent
   ],
   imports: [
     BrowserModule,

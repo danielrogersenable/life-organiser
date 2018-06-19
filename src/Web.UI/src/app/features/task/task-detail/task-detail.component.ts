@@ -4,7 +4,7 @@ import { TaskDto } from '../task.dto';
 import { Router } from '@angular/router';
 import { TaskService } from '../task.service';
 import { TaskForm } from './task-form';
-import { TaskTypeDto } from '../task-type.dto';
+import { TaskTypeDto } from '../../task-type/task-type.dto';
 
 @Component({
   selector: 'app-task-detail',

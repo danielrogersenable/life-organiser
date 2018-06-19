@@ -6,8 +6,8 @@ import { of } from 'rxjs/observable/of';
 
 import { environment } from '../../../environments/environment';
 import { TaskDto } from './task.dto';
-import { TaskTypeDto } from './task-type.dto';
 import { TaskListingDto } from './task-listing.dto';
+import { TaskTypeDto } from '../task-type/task-type.dto';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

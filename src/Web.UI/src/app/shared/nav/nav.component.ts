@@ -25,6 +25,10 @@ export class NavComponent implements OnInit {
     this._router.navigateByUrl('/add-task');
   }
 
+  public taskTypeClick(): void {
+    this._router.navigateByUrl('task-types');
+  }
+
   public signOut(): void {
     console.log('signing out');
     this._userManager.removeUser();
