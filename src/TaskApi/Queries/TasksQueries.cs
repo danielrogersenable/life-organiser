@@ -55,12 +55,12 @@ namespace TaskApi.Queries
             }
         }
 
-        public async Task<List<TaskModel>> GetProjectedTasks()
+        public async Task<List<TaskListingModel>> GetProjectedTasks()
         {
             using (var dbContext = _dbContextFactory.Create())
             {
                 return await dbContext.LifeTasks
-                  .ProjectToTaskModel()
+                  .ProjectToTaskListingModel()
                   .OrderBy(c => c.DateDue)
                   .ToListAsync();
             }

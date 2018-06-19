@@ -29,7 +29,7 @@ namespace TaskApi.Services
             return await _queries.GetProjectedTask(id);
         }
 
-        public async Task<List<TaskModel>> GetProjectedTasks()
+        public async Task<List<TaskListingModel>> GetProjectedTasks()
         {
             return await _queries.GetProjectedTasks();
         }

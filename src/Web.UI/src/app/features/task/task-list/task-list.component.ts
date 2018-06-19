@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
 import { TaskDto } from '../task.dto';
+import { TaskListingDto } from '../task-listing.dto';
 
 @Component({
   selector: 'app-task-list',
@@ -11,16 +12,16 @@ export class TaskListComponent implements OnInit {
 
   constructor(private taskService: TaskService) { }
 
+  displayedColumns = ["name", "dateDue", "completed", "completedDate", "scheduledDate", "durationInMinutes", "editLink", "taskType"]; 
+
+  tasks: TaskListingDto[];
+  selectedTask: TaskListingDto;
+
   ngOnInit() {
     this.getTasks();
   }
 
-  displayedColumns = ["name", "dateDue", "completed", "completedDate", "scheduledDate", "durationInMinutes", "editLink", "taskType"]; 
-
-  tasks: TaskDto[];
-  selectedTask: TaskDto;
-
-  onSelect(task: TaskDto): void {
+  onSelect(task: TaskListingDto): void {
     this.selectedTask = task;
   }
 

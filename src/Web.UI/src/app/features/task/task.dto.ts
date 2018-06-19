@@ -1,5 +1,3 @@
-import { TaskTypeDto } from './task-type.dto';
-
 export class TaskDto {
   id: number;
   name: string;

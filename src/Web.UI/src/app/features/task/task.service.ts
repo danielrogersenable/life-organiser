@@ -7,6 +7,7 @@ import { of } from 'rxjs/observable/of';
 import { environment } from '../../../environments/environment';
 import { TaskDto } from './task.dto';
 import { TaskTypeDto } from './task-type.dto';
+import { TaskListingDto } from './task-listing.dto';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,8 +20,8 @@ export class TaskService {
 
   private tasksUrl = `${environment.apiRootUri}/tasks`;
 
-  getTasks(): Observable<TaskDto[]> {
-    return this.http.get<TaskDto[]>(this.tasksUrl);
+  getTasks(): Observable<TaskListingDto[]> {
+    return this.http.get<TaskListingDto[]>(this.tasksUrl);
   }
 
   getTask(id: number): Observable<TaskDto> {

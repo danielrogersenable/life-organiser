@@ -13,7 +13,7 @@ namespace TaskApi.Queries.Interfaces
         Task<LifeTask> GetTask(int id);
         Task<TaskModel> GetProjectedTask(int id);
         Task<List<TaskModel>> GetCompleteProjectedTasks();
-        Task<List<TaskModel>> GetProjectedTasks();
+        Task<List<TaskListingModel>> GetProjectedTasks();
         Task<List<TaskTypeModel>> GetTaskTypes();
     }
 }
