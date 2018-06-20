@@ -6,7 +6,9 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Colour</mat-label>
-      <input type="text" formControlName="color" matInput placeholder="Colour">
+      <mcc-color-picker mccConnectedColorPicker [mccConnectedColorPickerOrigin]="trigger">
+      </mcc-color-picker>
+      <input matInput mccColorPickerOrigin #trigger="mccColorPickerOrigin" formControlName="color" />
     </mat-form-field>
     <button type="submit">Save</button>
   </section>

@@ -41,7 +41,7 @@ import { SignedInGuard } from './features/sign-in/signed-in.guard';
 import { TaskTypeListingComponent } from './features/task-type/task-type-listing/task-type-listing.component';
 import { TaskTypeDetailComponent } from './features/task-type/task-type-detail/task-type-detail.component';
 import { TaskTypeService } from './features/task-type/task-type.service';
-
+import { MccColorPickerModule } from 'material-community-components';
 
 @NgModule({
   declarations: [
@@ -72,7 +72,10 @@ import { TaskTypeService } from './features/task-type/task-type.service';
     MatNativeDateModule,
     MatMenuModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MccColorPickerModule.forRoot({
+      empty_color: 'transparent'
+    })
   ],
   providers: [
     TaskService,
