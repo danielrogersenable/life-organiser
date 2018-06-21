@@ -21,8 +21,15 @@ export class TaskTypeListingComponent implements OnInit {
 
   getTaskTypes(): void {
     this.taskTypeService.getTaskTypes()
+    .first()
     .subscribe(taskTypes => {
       this.taskTypes = taskTypes;
     });
+  }
+
+  public detailComponentSaved(): void {
+    this.selectedTaskType = null;
+    this.taskTypes = null;
+    this.getTaskTypes();
   }
 }

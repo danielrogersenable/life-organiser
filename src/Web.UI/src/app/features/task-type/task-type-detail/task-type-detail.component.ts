@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, OnChanges, SimpleChanges, EventEmitter, Output } from '@angular/core';
 import { TaskTypeDto } from '../task-type.dto';
 import { TaskTypeForm } from '../task-type-form';
 import { TaskTypeService } from '../task-type.service';
@@ -18,6 +18,7 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
     public taskTypeService: TaskTypeService) { }
 
   @Input() public taskType: TaskTypeDto;
+  @Output() public saveEvent = new EventEmitter();
 
   ngOnInit() {
     this.form.setValue(this.taskType);
@@ -36,7 +37,9 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
 
     this.taskTypeService.updateTaskType(this.taskType)
     .first()
-    .do(() => console.log('need to trigger some sort of event emitter'))
+    .do(() => {
+      this.saveEvent.emit();
+    })
     .subscribe();
   }
 }

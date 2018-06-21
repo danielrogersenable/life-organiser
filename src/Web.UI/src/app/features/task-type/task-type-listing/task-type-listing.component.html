@@ -9,7 +9,7 @@
 </div>
 
 <div *ngIf="selectedTaskType">
-  <app-task-type-detail [(taskType)]=selectedTaskType>
+  <app-task-type-detail [(taskType)]=selectedTaskType (saveEvent)=detailComponentSaved($event)>
 
   </app-task-type-detail>
 </div>

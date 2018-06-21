@@ -14,7 +14,7 @@
 	- [ ] End-to-end for deleting a task type
 		- Add validation to ensure that no tasks currently use that task type, else reject.
 	- [X] Add color picker to detail page
-	- [ ] Once task has been saved, emit up to parent, reload task types, destroy component.
+	- [X] Once task type has been saved, emit up to parent, reload task types, destroy component.
 
 
 ## Design and styling
