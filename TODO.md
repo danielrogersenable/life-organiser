@@ -34,7 +34,6 @@
 - [ ] What happens when this gets deployed to Azure?
 - [ ] More sensible CORS setup.
 - [ ] Update Angular CLI
-- [ ] Make use of services, query classes etc.
 - [ ] Unit testing
 - [ ] Resolve ts linting
 - [ ] Sort out VS code formatting
