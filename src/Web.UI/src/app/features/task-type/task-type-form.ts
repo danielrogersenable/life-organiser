@@ -27,3 +27,7 @@ public getValue(): TaskTypeDto {
     return super.getRawValue() as TaskTypeDto;
 }
 }
+
+export function taskTypeFormFactory(): TaskTypeForm {
+    return new TaskTypeForm();
+}

@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TaskDto } from '../task.dto';
 import { Router } from '@angular/router';
 import { TaskService } from '../task.service';
-import { TaskForm } from './task-form';
+import { TaskForm, taskFormFactory } from './task-form';
 import { TaskTypeDto } from '../../task-type/task-type.dto';
 import { TaskTypeService } from '../../task-type/task-type.service';
 
@@ -12,7 +12,7 @@ import { TaskTypeService } from '../../task-type/task-type.service';
   templateUrl: './task-detail.component.html',
   styleUrls: ['./task-detail.component.scss'],
   providers: [
-    { provide: TaskForm, useFactory: () => new TaskForm() }
+    { provide: TaskForm, useFactory: taskFormFactory }
   ]
 })
 export class TaskDetailComponent implements OnInit {

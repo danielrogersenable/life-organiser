@@ -3,12 +3,16 @@ import { TaskTypeDto } from '../task-type.dto';
 import { TaskTypeForm } from '../task-type-form';
 import { TaskTypeService } from '../task-type.service';
 
+export function taskTypeFormFactory() {
+  return new TaskTypeForm();
+}
+
 @Component({
   selector: 'app-task-type-detail',
   templateUrl: './task-type-detail.component.html',
   styleUrls: ['./task-type-detail.component.scss'],
   providers: [
-    { provide: TaskTypeForm, useFactory: () => new TaskTypeForm() }
+    { provide: TaskTypeForm, useFactory: taskTypeFormFactory }
   ]
 })
 export class TaskTypeDetailComponent implements OnInit, OnChanges {
@@ -29,7 +33,7 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
   }
 
   public save(): void {
-    if (this.form.invalid){
+    if (this.form.invalid) {
       return;
     }
 

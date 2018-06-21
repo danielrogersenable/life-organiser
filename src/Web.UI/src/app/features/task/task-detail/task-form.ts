@@ -46,3 +46,7 @@ public getValue(): TaskDto {
     return super.getRawValue() as TaskDto;
 }
 }
+
+export function taskFormFactory(): TaskForm {
+    return new TaskForm();
+}
