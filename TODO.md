@@ -43,7 +43,7 @@ Format
 
 ## Security functionality
 
-- [ ] (2, 1 hour) Add authentication layer to API endpoints.
+- [X] (2, 1 hour) Add authentication layer to API endpoints.
 - [ ] (5, 1 hour) Add the ability to change passwords.
 
 # Feature wishlist

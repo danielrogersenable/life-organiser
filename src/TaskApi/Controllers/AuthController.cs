@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataModel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -28,6 +29,7 @@ namespace TaskApi.Controllers
             _userManager = userManager;
         }
 
+        [AllowAnonymous]
         [HttpPost("sign-in")]
         public async Task<IActionResult> SignIn([FromBody] SignInModel model)
         {
