@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataModel;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,11 @@ namespace TaskApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var authentication = Configuration.GetSection("Authentication");
+            services.Configure<Options.AuthenticationOptions>(authentication);
+
+            var test = authentication.GetValue<string>("TokenSigningSecret");
+
             services.AddMvc(options =>
             {
                 var policy = new AuthorizationPolicyBuilder()
@@ -41,7 +47,7 @@ namespace TaskApi
 
             services.AddDatabase(Configuration);
 
-            services.AddUserAuthentication();
+            services.AddUserAuthentication(authentication);
 
             services.AddCommands();
             services.AddQueries();

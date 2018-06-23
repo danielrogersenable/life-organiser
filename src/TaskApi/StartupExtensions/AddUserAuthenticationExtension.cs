@@ -8,6 +8,7 @@ using DataModel;
 using IdentityModel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
@@ -15,7 +16,7 @@ namespace TaskApi.StartupExtensions
 {
     public static class AddUserAuthenticationExtension
     {
-        public static void AddUserAuthentication(this IServiceCollection services)
+        public static void AddUserAuthentication(this IServiceCollection services, IConfigurationSection authentication)
         {
             if (services == null)
             {
@@ -55,8 +56,7 @@ namespace TaskApi.StartupExtensions
                     options.TokenValidationParameters.NameClaimType = JwtClaimTypes.Email;
                     options.TokenValidationParameters.RoleClaimType = JwtClaimTypes.Role;
 
-                    // TODO - match this key to the auth controller key
-                    var signingKey = Encoding.UTF8.GetBytes("life-organiser-secret-tbc");
+                    var signingKey = Encoding.UTF8.GetBytes(authentication.GetValue<string>("TokenSigningSecret"));
                     options.TokenValidationParameters.IssuerSigningKey = new SymmetricSecurityKey(signingKey);
                 });
         }

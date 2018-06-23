@@ -10,8 +10,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using TaskApi.Models;
+using TaskApi.Options;
 
 namespace TaskApi.Controllers
 {
@@ -20,13 +22,16 @@ namespace TaskApi.Controllers
     {
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
+        private readonly AuthenticationOptions _authenticationOptions;
 
         public AuthController(
             SignInManager<AppUser> signInManager,
-            UserManager<AppUser> userManager)
+            UserManager<AppUser> userManager,
+            IOptions<AuthenticationOptions> authenticationOptionsAccessor)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _authenticationOptions = authenticationOptionsAccessor.Value;
         }
 
         [AllowAnonymous]
@@ -43,7 +48,6 @@ namespace TaskApi.Controllers
                 {
                     var principal = await _signInManager.CreateUserPrincipalAsync(user);
 
-                    // TODO - get the right principal
                     var result = GetAuthResult(principal);
 
                     return Ok(result);
@@ -71,9 +75,8 @@ namespace TaskApi.Controllers
 
         private AuthResult GetAuthResult(ClaimsPrincipal principal)
         {
-            // TODO - update hardcoded authentication options with appsettings
-            var tokenExpiryInSeconds = 3600;
-            var tokenSigningSecret = "life-organiser-secret-tbc";
+            var tokenExpiryInSeconds = _authenticationOptions.TokenExpiryInSeconds;
+            var tokenSigningSecret = _authenticationOptions.TokenSigningSecret;
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenSigningSecret));
 
             var expiry = DateTimeOffset.Now.AddSeconds(tokenExpiryInSeconds);
