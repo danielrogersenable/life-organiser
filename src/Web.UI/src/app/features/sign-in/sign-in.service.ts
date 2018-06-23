@@ -21,7 +21,6 @@ export class SignInService {
   private signInUrl = `${authRootUri}/sign-in`;
 
   public signIn(signInDto: SignInDto): Observable<boolean> {
-    console.log(this.signInUrl);
     return this.http.post<AppUser>(this.signInUrl, signInDto, httpOptions)
       .pipe(
         tap(user =>  this._userManager.setUser(user)),

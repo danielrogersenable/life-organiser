@@ -30,7 +30,6 @@ export class NavComponent implements OnInit {
   }
 
   public signOut(): void {
-    console.log('signing out');
     this._userManager.removeUser();
   }
 }

@@ -32,7 +32,6 @@ export class TaskDetailComponent implements OnInit {
       .first()
       .do((taskTypes) => {
         this.taskTypes = taskTypes;
-        console.log(this.taskTypes);
       })
       .subscribe();
 

@@ -23,7 +23,6 @@ export class AuthGuard implements CanActivate {
                 first(),
                 tap(isAuthenticated => {
                     if (!isAuthenticated) {
-                        console.log('authorisation failed');
                         this._router.navigateByUrl('/sign-in');
                     } else {
                         return true;

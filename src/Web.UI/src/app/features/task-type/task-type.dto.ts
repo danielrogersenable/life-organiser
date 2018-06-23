@@ -1,7 +1,7 @@
 export class TaskTypeDto {
   constructor() {
     this.id = 0;
-    this.name = 'test';
+    this.name = '';
     this.color = '#ffffff';
   }
     id: number;

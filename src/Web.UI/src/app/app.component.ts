@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
   }
 
   public signOut(): void {
-    console.log('signing out');
     this._userManager.removeUser();
   }
 
@@ -43,14 +42,10 @@ export class AppComponent implements OnInit {
         )
         .skip(1)
         .do(user => {
-          console.log('should be hitting here');
             if (user.isAuthenticated) {
-              console.log('redirecting because we are signed in');
                 this._router.navigateByUrl('/tasks');
                 return;
             }
-
-            console.log('redirecting because we are signed out');
 
             this._router.navigateByUrl('');
         })
