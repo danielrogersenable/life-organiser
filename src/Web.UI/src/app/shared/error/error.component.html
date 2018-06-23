@@ -1,0 +1,4 @@
+<div class="error-message pb-1" *ngIf="message" (click)="clear()">
+  <mat-icon class="error-message--item">close</mat-icon>
+  <span class="error-message--item error-message--content">{{ message }}</span>
+</div>

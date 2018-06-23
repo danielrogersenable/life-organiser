@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnDestroy, OnChanges, SimpleChanges, EventEmi
 import { TaskTypeDto } from '../task-type.dto';
 import { TaskTypeForm } from '../task-type-form';
 import { TaskTypeService } from '../task-type.service';
+import { ErrorService } from '../../../shared/error/error.service';
 
 export function taskTypeFormFactory() {
   return new TaskTypeForm();
@@ -19,7 +20,8 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
 
   constructor(
     public form: TaskTypeForm,
-    public taskTypeService: TaskTypeService) { }
+    public taskTypeService: TaskTypeService,
+    public errorService: ErrorService) { }
 
   @Input() public taskType: TaskTypeDto;
   @Output() public saveEvent = new EventEmitter();
@@ -36,6 +38,8 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
     if (this.form.invalid) {
       return;
     }
+
+    this.errorService.addErrorMessage('test');
 
     this.taskType = this.form.getValue();
 

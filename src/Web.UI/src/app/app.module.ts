@@ -42,6 +42,8 @@ import { TaskTypeListingComponent } from './features/task-type/task-type-listing
 import { TaskTypeDetailComponent } from './features/task-type/task-type-detail/task-type-detail.component';
 import { TaskTypeService } from './features/task-type/task-type.service';
 import { MccColorPickerModule } from 'material-community-components';
+import { ErrorComponent } from './shared/error/error.component';
+import { ErrorService } from './shared/error/error.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { MccColorPickerModule } from 'material-community-components';
     TestComponent,
     NavComponent,
     TaskTypeListingComponent,
-    TaskTypeDetailComponent
+    TaskTypeDetailComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -84,6 +87,7 @@ import { MccColorPickerModule } from 'material-community-components';
     UserManager,
     AuthGuard,
     SignedInGuard,
+    ErrorService,
     AUTH_HTTP_INTERCEPTOR_PROVIDER,
     { provide: DateAdapter, useClass: AppDateAdapter },
     { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS }

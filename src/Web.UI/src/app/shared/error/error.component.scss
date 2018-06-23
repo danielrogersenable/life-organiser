@@ -1,0 +1,18 @@
+.error-message {
+    color: red;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 1rem;
+
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+.error-message--item {
+    vertical-align: middle;
+}
+
+.error-message--content {
+    height: 24px;
+}
