@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule  } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {
@@ -44,6 +44,7 @@ import { TaskTypeService } from './features/task-type/task-type.service';
 import { MccColorPickerModule } from 'material-community-components';
 import { ErrorComponent } from './shared/error/error.component';
 import { ErrorService } from './shared/error/error.service';
+import { ErrorHandlerService } from './shared/error/error-handler.service';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { ErrorService } from './shared/error/error.service';
     ErrorService,
     AUTH_HTTP_INTERCEPTOR_PROVIDER,
     { provide: DateAdapter, useClass: AppDateAdapter },
-    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS }
+    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
+    { provide: ErrorHandler, useClass: ErrorHandlerService }
   ],
   bootstrap: [AppComponent]
 })
