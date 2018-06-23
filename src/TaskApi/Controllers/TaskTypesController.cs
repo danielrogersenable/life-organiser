@@ -42,5 +42,21 @@ namespace TaskApi.Controllers
 
             return new NoContentResult();
         }
+
+        [HttpDelete]
+        [Route("{taskTypeId}")]
+        public async Task<IActionResult> Delete(int taskTypeId)
+        {
+            var messages = await _taskTypesService.GetValidationDeleteMessages(taskTypeId);
+
+            if (messages.Any())
+            {
+                return BadRequest(messages);
+            }
+
+            await _taskTypesService.DeleteTaskType(taskTypeId);
+
+            return new NoContentResult();
+        }
     }
 }

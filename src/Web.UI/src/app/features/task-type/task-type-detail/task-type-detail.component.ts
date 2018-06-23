@@ -34,12 +34,23 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
     this.form.setValue(this.taskType);
   }
 
+  get canDelete(): boolean {
+    return this.taskType && this.taskType.id !== 0;
+  }
+
+  public delete(): void {
+    this.taskTypeService.deleteTaskType(this.taskType.id)
+    .first()
+    .do(() => {
+      this.saveEvent.emit();
+    })
+    .subscribe();
+  }
+
   public save(): void {
     if (this.form.invalid) {
       return;
     }
-
-    this.errorService.addErrorMessage('test');
 
     this.taskType = this.form.getValue();
 
@@ -58,7 +69,7 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
     })
     .subscribe();
   }
-  
+
   private add(): void {
     this.taskTypeService.addTaskType(this.taskType)
     .first()

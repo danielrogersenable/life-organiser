@@ -12,5 +12,7 @@ namespace TaskApi.Queries.Interfaces
     {
         Task<List<TaskTypeModel>> GetTaskTypes();
         Task<TaskType> GetTaskType(int id);
+        Task<bool> TaskTypeExists(int id);
+        Task<int> CountTasks(int taskTypeId);
     }
 }

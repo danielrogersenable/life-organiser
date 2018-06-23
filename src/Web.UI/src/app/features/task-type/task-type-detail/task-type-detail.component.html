@@ -11,5 +11,6 @@
       <input matInput mccColorPickerOrigin #trigger="mccColorPickerOrigin" formControlName="color" />
     </mat-form-field>
     <button type="submit">Save</button>
+    <button *ngIf="canDelete" type="button" (click)="delete()">Delete</button>
   </section>
 </form>

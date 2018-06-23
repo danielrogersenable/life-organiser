@@ -26,4 +26,9 @@ export class TaskTypeService {
   addTaskType(task: TaskTypeDto): Observable<any> {
     return this.http.post(this.taskTypesUrl, task, httpOptions);
   }
+
+  deleteTaskType(taskTypeId: number): Observable<any> {
+    const url = `${this.taskTypesUrl}/${taskTypeId}`;
+    return this.http.delete(url);
+  }
 }

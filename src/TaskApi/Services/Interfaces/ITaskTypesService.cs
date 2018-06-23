@@ -12,5 +12,7 @@ namespace TaskApi.Services.Interfaces
         Task<List<TaskTypeModel>> GetTaskTypes();
         Task UpdateTaskType(TaskTypeModel model);
         Task AddTaskType(TaskTypeModel model);
+        Task DeleteTaskType(int taskTypeId);
+        Task<IEnumerable<string>> GetValidationDeleteMessages(int taskTypeId);
     }
 }

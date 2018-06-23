@@ -11,17 +11,19 @@ export class ErrorComponent implements OnInit {
 
   constructor(private _errorService: ErrorService) { }
 
-  public message: string;
+  public messages: string[] = [];
 
   ngOnInit() {
     this._errorService.errorMessage
-    .do(message => {
-      this.message = message;
+    .do(messages => {
+      (messages).forEach(message => {
+        this.messages.push(message);
+      });
     })
     .subscribe();
   }
 
-  public clear(): void {
-    this.message = null;
+  public clear(index: number): void {
+    this.messages.splice(index, 1);
   }
 }

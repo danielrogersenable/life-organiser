@@ -11,7 +11,7 @@
 - [ ] Add ability to remove task type from a task.
 - [ ] Complete task types functionality
 	- [X] End-to-end for creating a task type
-	- [ ] End-to-end for deleting a task type
+	- [X] End-to-end for deleting a task type
 		- Add validation to ensure that no tasks currently use that task type, else reject.
 	- [X] Add color picker to detail page
 	- [X] Once task type has been saved, emit up to parent, reload task types, destroy component.
@@ -46,8 +46,8 @@
 
 # Feature wishlist
 
-- [ ] Error service (perhaps just single message in header in red with the option to clear it, server-side only).
+- [X] Error service (perhaps just single message in header in red with the option to clear it, server-side only).
 - [ ] Add dashboard-style view for tasks assigned to a particular day.
-- [ ] Task type - perhaps including colour picker to be used when rendering tasks of that type.
+- [X] Task type - perhaps including colour picker to be used when rendering tasks of that type.
 - [ ] Add notion of a recurring task, which gets rescheduled following completion of the previous task (similar to Toodledo).
 - [ ] Background processing to trigger scheduling?

@@ -11,5 +11,6 @@ namespace TaskApi.Commands.Interfaces
     {
         Task UpdateTaskType(TaskTypeModel model);
         Task AddTaskType(TaskTypeModel model);
+        Task DeleteTaskType(int taskTypeId);
     }
 }

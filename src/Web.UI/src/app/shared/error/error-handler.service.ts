@@ -20,13 +20,33 @@ export class ErrorHandlerService extends ErrorHandler {
       if (error instanceof HttpErrorResponse){
         switch (error.status) {
           case 400:
-          console.log(error);
-          this._errorService.addErrorMessage(error.error);
+          this.tryAddErrors(error.error);
           break;
 
           default:
           this._errorService.addErrorMessage('Something went wrong.');
         }
+      }
+
+    } catch (e) {}
+  }
+
+  private tryAddErrors(errorBody: any): void {
+    try {
+      const messages: string[] = [];
+
+      if (typeof errorBody === 'string') {
+        messages.push(errorBody);
+      } else if (Array.isArray(errorBody)){
+        errorBody.forEach(message => {
+          if (typeof message === 'string') {
+            messages.push(message);
+          }
+        });
+      }
+
+      if (messages.length > 0) {
+        this._errorService.addErrorMessages(messages);
       }
 
     } catch (e) {}

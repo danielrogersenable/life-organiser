@@ -45,5 +45,32 @@ namespace TaskApi.Services
         {
             await _commands.AddTaskType(model);
         }
+
+        public async Task DeleteTaskType(int taskTypeId)
+        {
+            await _commands.DeleteTaskType(taskTypeId);
+        }
+
+        public async Task<IEnumerable<string>> GetValidationDeleteMessages(int taskTypeId)
+        {
+            var messages = new List<string>();
+
+            var taskTypeExists = await _queries.TaskTypeExists(taskTypeId);
+
+            if (!taskTypeExists)
+            {
+                messages.Add("This task type does not exist.");
+            }
+
+            var taskCount = await _queries.CountTasks(taskTypeId);
+
+            if (taskCount > 0)
+            {
+                var taskText = taskCount == 1 ? "task" : "tasks";
+                messages.Add($"This task type cannot be deleted as it is associated with {taskCount} {taskText}.");
+            }
+
+            return messages;
+        }
     }
 }

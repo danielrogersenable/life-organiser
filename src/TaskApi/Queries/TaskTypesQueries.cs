@@ -38,5 +38,25 @@ namespace TaskApi.Queries
                 return await dbContext.TaskTypes.FindAsync(id);
             }
         }
+
+        public async Task<bool> TaskTypeExists(int id)
+        {
+            using (var dbContext = _dbContextFactory.Create())
+            {
+                return await dbContext.TaskTypes
+                    .Where(tt => tt.Id == id)
+                    .AnyAsync();
+            }
+        }
+
+        public async Task<int> CountTasks(int taskTypeId)
+        {
+            using (var dbContext = _dbContextFactory.Create())
+            {
+                return await dbContext.LifeTasks
+                    .Where(lt => lt.TaskTypeId == taskTypeId)
+                    .CountAsync();
+            }
+        }
     }
 }

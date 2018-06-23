@@ -47,5 +47,16 @@ namespace TaskApi.Commands
                 await db.SaveChangesAsync();
             }
         }
+
+        public async Task DeleteTaskType(int taskTypeId)
+        {
+            using (var db = _dbContextFactory.Create())
+            {
+                var taskType = await db.TaskTypes.FindAsync(taskTypeId);
+                db.TaskTypes.Remove(taskType);
+
+                await db.SaveChangesAsync();
+            }
+        }
     }
 }

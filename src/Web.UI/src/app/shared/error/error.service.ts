@@ -5,10 +5,15 @@ export class ErrorService {
 
   constructor() { }
 
-  public readonly errorMessage = new EventEmitter<string>();
+  public readonly errorMessage = new EventEmitter<string[]>();
 
   public addErrorMessage(message: string) {
-    this.errorMessage.emit(message);
+    const messages: string[] = [ message ];
+    this.errorMessage.emit(messages);
+  }
+
+  public addErrorMessages(messages: string[]) {
+    this.errorMessage.emit(messages);
   }
 
 }
