@@ -24,7 +24,7 @@ Format
 - [ ] (2, 1 hour) Find a better method for the edit link on the list of tasks 
 	- Possibly highlighting the selected row and a redirect on click?
 	- Also consider hooking up the deletion functionality here.
-- [ ] (2, 1 hour) Bootstrap stylings for things like spacing
+- [X] (2, 1 hour) Bootstrap stylings for things like spacing
 - [ ] (3, 1 hour) Button styling
 - [ ] (3, 1 hour) Loading behaviour
 - [ ] (4, 1 hour) Add styling to the header.
