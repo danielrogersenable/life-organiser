@@ -40,5 +40,10 @@ namespace TaskApi.Services
 
             await _commands.UpdateTaskType(model);
         }
+
+        public async Task AddTaskType(TaskTypeModel model)
+        {
+            await _commands.AddTaskType(model);
+        }
     }
 }

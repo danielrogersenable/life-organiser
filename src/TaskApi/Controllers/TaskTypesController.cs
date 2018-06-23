@@ -27,6 +27,14 @@ namespace TaskApi.Controllers
             return Ok(results);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] TaskTypeModel model)
+        {
+            await _taskTypesService.AddTaskType(model);
+
+            return new NoContentResult();
+        }
+
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] TaskTypeModel model)
         {

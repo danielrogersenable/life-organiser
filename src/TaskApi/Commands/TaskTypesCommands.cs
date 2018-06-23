@@ -34,5 +34,18 @@ namespace TaskApi.Commands
                 await db.SaveChangesAsync();
             }
         }
+
+        public async Task AddTaskType(TaskTypeModel model)
+        {
+            using (var db = _dbContextFactory.Create())
+            {
+                var taskType = new TaskType();
+
+                taskType = _lifeTaskMappingService.PopulateTaskTypeFromModel(model, taskType);
+
+                db.TaskTypes.Add(taskType);
+                await db.SaveChangesAsync();
+            }
+        }
     }
 }

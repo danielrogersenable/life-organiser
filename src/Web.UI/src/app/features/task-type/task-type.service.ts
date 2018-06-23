@@ -22,4 +22,8 @@ export class TaskTypeService {
   updateTaskType(task: TaskTypeDto): Observable<any> {
     return this.http.put(this.taskTypesUrl, task, httpOptions);
   }
+
+  addTaskType(task: TaskTypeDto): Observable<any> {
+    return this.http.post(this.taskTypesUrl, task, httpOptions);
+  }
 }

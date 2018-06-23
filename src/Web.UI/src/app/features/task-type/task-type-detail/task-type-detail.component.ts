@@ -39,7 +39,24 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
 
     this.taskType = this.form.getValue();
 
+    if (this.taskType.id === 0) {
+      this.add();
+    } else{
+      this.update();
+    }
+  }
+
+  private update(): void {
     this.taskTypeService.updateTaskType(this.taskType)
+    .first()
+    .do(() => {
+      this.saveEvent.emit();
+    })
+    .subscribe();
+  }
+  
+  private add(): void {
+    this.taskTypeService.addTaskType(this.taskType)
     .first()
     .do(() => {
       this.saveEvent.emit();

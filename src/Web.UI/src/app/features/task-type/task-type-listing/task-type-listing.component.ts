@@ -27,6 +27,10 @@ export class TaskTypeListingComponent implements OnInit {
     });
   }
 
+  addTaskType(): void {
+    this.selectedTaskType = new TaskTypeDto();
+  }
+
   public detailComponentSaved(): void {
     this.selectedTaskType = null;
     this.taskTypes = null;
