@@ -30,7 +30,6 @@ import { TaskService } from './features/task/task.service';
 import { TaskEditComponent } from './features/task/task-edit/task-edit.component';
 import { SignInComponent } from './features/sign-in/sign-in.component';
 import { SignInService } from './features/sign-in/sign-in.service';
-import { TestComponent } from './test/test.component';
 import { UserManager } from './features/sign-in/user-manager.service';
 import { AuthGuard } from './features/sign-in/auth.guard';
 import { AUTH_HTTP_INTERCEPTOR_PROVIDER } from './features/sign-in/auth-http-interceptor-provider';
@@ -55,7 +54,6 @@ import { ErrorHandlerService } from './shared/error/error-handler.service';
     TaskDetailComponent,
     TaskEditComponent,
     SignInComponent,
-    TestComponent,
     NavComponent,
     TaskTypeListingComponent,
     TaskTypeDetailComponent,

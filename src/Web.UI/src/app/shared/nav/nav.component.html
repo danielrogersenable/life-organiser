@@ -3,15 +3,15 @@
     <mat-icon>build </mat-icon>
     <span>List all tasks</span>
   </button>
-  <button mat-menu-item (click)="taskTypeClick()">
-    <mat-icon>opacity </mat-icon>
-    <span>Task types</span>
-  </button>
   <button mat-menu-item (click)="addClick()">
     <mat-icon>add_circle </mat-icon>
     <span>Add task</span>
   </button>
-  <button mat-menu-item (click)="signOut()">
+  <button mat-menu-item (click)="taskTypeClick()">
+      <mat-icon>opacity </mat-icon>
+      <span>Task types</span>
+    </button>
+    <button mat-menu-item (click)="signOut()">
     <mat-icon>sentiment_dissatisfied </mat-icon>
     <span>Sign out</span>
   </button>
