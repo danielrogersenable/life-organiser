@@ -10,7 +10,7 @@
 - [ ] Add "are you sure" warning to task deletion.
 - [ ] Add ability to remove task type from a task.
 - [ ] Complete task types functionality
-	- [ ] End-to-end for creating a task type
+	- [X] End-to-end for creating a task type
 	- [ ] End-to-end for deleting a task type
 		- Add validation to ensure that no tasks currently use that task type, else reject.
 	- [X] Add color picker to detail page
@@ -46,6 +46,7 @@
 
 # Feature wishlist
 
+- [ ] Error service (perhaps just single message in header in red with the option to clear it, server-side only).
 - [ ] Add dashboard-style view for tasks assigned to a particular day.
 - [ ] Task type - perhaps including colour picker to be used when rendering tasks of that type.
 - [ ] Add notion of a recurring task, which gets rescheduled following completion of the previous task (similar to Toodledo).

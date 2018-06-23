@@ -6,7 +6,9 @@
         </mat-option>
       </mat-select>    
   </mat-form-field>
-  <button type="button" (click)="addTaskType()"> Add task type </button>
+  <button type="button" (click)="addTaskType()"> 
+      <mat-icon>add</mat-icon>
+  </button>
 </div>
 
 <div *ngIf="selectedTaskType">
