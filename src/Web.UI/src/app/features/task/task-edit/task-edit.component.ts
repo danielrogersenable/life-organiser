@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TaskService } from '../task.service';
 import { TaskDto } from '../task.dto';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-task-edit',
@@ -11,7 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 export class TaskEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-    private taskService: TaskService) { }
+    private taskService: TaskService,
+    private location: Location) { }
   id: number;
   task: TaskDto;
 
@@ -25,4 +27,7 @@ export class TaskEditComponent implements OnInit {
     .subscribe();
   }
 
+  public back(): void {
+    this.location.back();
+  }
 }

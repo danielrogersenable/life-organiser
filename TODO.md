@@ -1,15 +1,25 @@
 # Life Organiser - to learn/do
 
+Format 
+- [ ] (Priority, time)
+	- Priority is from 1 to 5, 1 being the most important
+		- 1 is crucial functionality
+		- 2 is
+		- 3 is
+		- 4 is
+		- 5 is something that would be nice to have, but
+	- Time is an estimate in hours
+
 ## Usability functionality
 
 - [ ] Add user id to LifeTask and load only tasks belonging to a specific user.
 - [ ] Add sorting to the task lists
-- [ ] Add back buttons to add/edit pages.
+- [X] Add back buttons to add/edit pages.
 - [ ] Add validation (back-end)
 - [ ] Add validation (front-end)
 - [ ] Add "are you sure" warning to task deletion.
 - [ ] Add ability to remove task type from a task.
-- [ ] Complete task types functionality
+- [X] Complete task types functionality
 	- [X] End-to-end for creating a task type
 	- [X] End-to-end for deleting a task type
 		- Add validation to ensure that no tasks currently use that task type, else reject.
@@ -38,6 +48,7 @@
 - [ ] Resolve ts linting
 - [ ] Sort out VS code formatting
 - [ ] Separate out modules in Angular
+- [ ] Consider combining task-add, task-edit and task-detail into a single component.
 
 ## Security functionality
 
