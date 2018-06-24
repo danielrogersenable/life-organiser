@@ -22,6 +22,10 @@ export class NavComponent implements OnInit {
         this._router.navigateByUrl('/add-task');
     }
 
+    public scheduleClick(): void {
+        this._router.navigateByUrl('/schedule');
+    }
+
     public taskTypeClick(): void {
         this._router.navigateByUrl('task-types');
     }

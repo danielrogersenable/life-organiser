@@ -8,10 +8,14 @@
     <span>Add task</span>
   </button>
   <button mat-menu-item (click)="taskTypeClick()">
-      <mat-icon>opacity </mat-icon>
-      <span>Task types</span>
-    </button>
-    <button mat-menu-item (click)="signOut()">
+    <mat-icon>opacity </mat-icon>
+    <span>Task types</span>
+  </button>
+  <button mat-menu-item (click)="scheduleClick()">
+    <mat-icon>calendar_today </mat-icon>
+    <span>Schedule</span>
+  </button>
+  <button mat-menu-item (click)="signOut()">
     <mat-icon>sentiment_dissatisfied </mat-icon>
     <span>Sign out</span>
   </button>

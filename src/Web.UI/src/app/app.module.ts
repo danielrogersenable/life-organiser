@@ -45,6 +45,7 @@ import { ErrorComponent } from './shared/error/error.component';
 import { ErrorService } from './shared/error/error.service';
 import { ErrorHandlerService } from './shared/error/error-handler.service';
 import { SharedModule } from './shared/shared.module';
+import { ScheduleComponent } from './features/schedule/schedule.component';
 
 @NgModule({
     declarations: [
@@ -58,7 +59,8 @@ import { SharedModule } from './shared/shared.module';
         NavComponent,
         TaskTypeListingComponent,
         TaskTypeDetailComponent,
-        ErrorComponent
+        ErrorComponent,
+        ScheduleComponent
     ],
     imports: [
         SharedModule,
