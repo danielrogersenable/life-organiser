@@ -44,6 +44,7 @@ import { MccColorPickerModule } from 'material-community-components';
 import { ErrorComponent } from './shared/error/error.component';
 import { ErrorService } from './shared/error/error.service';
 import { ErrorHandlerService } from './shared/error/error-handler.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -60,24 +61,13 @@ import { ErrorHandlerService } from './shared/error/error-handler.service';
     ErrorComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCheckboxModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatMenuModule,
-    MatIconModule,
-    MatSelectModule,
-    MccColorPickerModule.forRoot({
-      empty_color: 'transparent'
-    })
+    ReactiveFormsModule
   ],
   providers: [
     TaskService,
