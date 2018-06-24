@@ -65,5 +65,18 @@ namespace TaskApi.Queries
                   .ToListAsync();
             }
         }
+
+        public async Task<List<ScheduledTaskModel>> GetScheduledTasks(DateTimeOffset? fromDate, DateTimeOffset? toDate)
+        {
+            using (var dbContext = _dbContextFactory.Create())
+            {
+                return await dbContext.LifeTasks
+                    .Where(t => fromDate.HasValue ? t.ScheduledDate >= fromDate : true)
+                    .Where(t => toDate.HasValue ? t.ScheduledDate <= toDate : true)
+                    .ProjectToScheduledTaskModel()
+                    .OrderBy(c => c.ScheduledDate)
+                    .ToListAsync();
+            }
+        }
     }
 }

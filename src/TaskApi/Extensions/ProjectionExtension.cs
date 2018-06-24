@@ -43,6 +43,21 @@ namespace TaskApi.Extensions
                 });
         }
 
+        public static IQueryable<ScheduledTaskModel> ProjectToScheduledTaskModel( this IQueryable<LifeTask> query)
+        {
+            return query
+                .Select(t => new ScheduledTaskModel
+                {
+                    Id = t.Id,
+                    Name = t.Name,
+                    DateDue = t.DateDue.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz"),
+                    ScheduledDate = t.ScheduledDate.HasValue ? t.ScheduledDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
+                    DurationInMinutes = t.DurationInMinutes,
+                    TaskType = t.TaskType.Name,
+                    Color = t.TaskType.Color
+                });
+        }
+
         public static IQueryable<TaskTypeModel> ProjectToTaskTypeModel(this IQueryable<TaskType> query)
         {
             return query

@@ -68,5 +68,15 @@ namespace TaskApi.Services
 
             await _commands.DeleteTask(task);
         }
+
+        public async Task<List<ScheduledTaskModel>> GetScheduledTasks(ScheduledTasksQueryModel model)
+        {
+            var fromDate = model.FromDate;
+            var toDate = model.ToDate;
+
+            var results = await _queries.GetScheduledTasks(fromDate, toDate);
+
+            return results;
+        }
     }
 }

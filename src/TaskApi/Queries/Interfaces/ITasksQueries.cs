@@ -14,5 +14,6 @@ namespace TaskApi.Queries.Interfaces
         Task<TaskModel> GetProjectedTask(int id);
         Task<List<TaskModel>> GetCompleteProjectedTasks();
         Task<List<TaskListingModel>> GetProjectedTasks();
+        Task<List<ScheduledTaskModel>> GetScheduledTasks(DateTimeOffset? fromDate, DateTimeOffset? toDate);
     }
 }

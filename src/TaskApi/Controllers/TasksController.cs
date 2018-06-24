@@ -42,6 +42,15 @@ namespace TaskApi.Controllers
         }
 
         [HttpGet]
+        [Route("scheduled-tasks")]
+        public async Task<IActionResult> GetScheduledTasks([FromBody] ScheduledTasksQueryModel model)
+        {
+            var results = await _tasksService.GetScheduledTasks(model);
+
+            return Ok(results);
+        }
+
+        [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> GetTask(int id)
         {

@@ -13,6 +13,7 @@ namespace TaskApi.Services.Interfaces
         Task<TaskModel> GetProjectedTask(int id);
         Task<List<TaskListingModel>> GetProjectedTasks();
         Task<List<TaskModel>> GetCompleteProjectedTasks();
+        Task<List<ScheduledTaskModel>> GetScheduledTasks(ScheduledTasksQueryModel model);
         Task UpdateTask(TaskModel model);
         Task AddTask(TaskModel model);
         Task DeleteTask(int id);
