@@ -12,8 +12,21 @@ Format
 
 ## Usability functionality
 
+- [ ] (1, 1 hour) Add plaintext "description" to task (just on add/edit pages, not listing) to add detail to the task.
+- [ ] (2, 4 hours) Add a "schedule" view
+	- Groups tasks by date scheduled (today, this week, future perhaps?)
+	- Similar to dashboard view - only list name, duration, date scheduled (perhaps date due by?)
+	- Shared component
+	- Consider adding a right panel on click instead of edit page, to view some details about the task.
+		- Perhaps this panel could long-term include a 'reschedule' button to remove it from the schedule.
+		- It should also contain a link to the edit page.
+		- Or a delete button to delete the task permanently.
+		- This panel could also display the description for the task
 - [ ] (2, 15 mins) Add ability to remove task type from a task.
-- [ ] (3, 2 hours) Add sorting to the task lists
+- [ ] (3, 1 hour) Move "add task" button to listing?
+- [ ] (3, 1 hour) Include positive messages in error component (perhaps in green).
+- [ ] (4, 2 hours) Consider paging on task list?
+- [ ] (4, 2 hours) Add sorting to the task lists
 - [ ] (4, 1 hour) Add user id to LifeTask and load only tasks belonging to a specific user.
 - [ ] (4, 1 hour) Add validation (front-end)
 - [ ] (5, 1 hour) Add validation (back-end)
@@ -50,5 +63,8 @@ Format
 # Feature wishlist
 
 - [ ] Add dashboard-style view for tasks assigned to a particular day.
+- [ ] Set availability per day
+	- [ ] Potential long-term goal - set availability per day for different tasks.
+	- [ ] Add recurring availability (e.g. 4 hours free every Saturday).
 - [ ] Add notion of a recurring task, which gets rescheduled following completion of the previous task (similar to Toodledo).
 - [ ] Background processing to trigger scheduling?
