@@ -5,30 +5,29 @@ import { TaskTypeDto } from './task-type.dto';
 import { Observable } from 'rxjs/Observable';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable()
 export class TaskTypeService {
+    constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+    private taskTypesUrl = `${environment.apiRootUri}/task-types`;
 
-  private taskTypesUrl = `${environment.apiRootUri}/task-types`;
+    getTaskTypes(): Observable<TaskTypeDto[]> {
+        return this.http.get<TaskTypeDto[]>(this.taskTypesUrl);
+    }
 
-  getTaskTypes(): Observable<TaskTypeDto[]> {
-    return this.http.get<TaskTypeDto[]>(this.taskTypesUrl);
-  }
+    updateTaskType(task: TaskTypeDto): Observable<any> {
+        return this.http.put(this.taskTypesUrl, task, httpOptions);
+    }
 
-  updateTaskType(task: TaskTypeDto): Observable<any> {
-    return this.http.put(this.taskTypesUrl, task, httpOptions);
-  }
+    addTaskType(task: TaskTypeDto): Observable<any> {
+        return this.http.post(this.taskTypesUrl, task, httpOptions);
+    }
 
-  addTaskType(task: TaskTypeDto): Observable<any> {
-    return this.http.post(this.taskTypesUrl, task, httpOptions);
-  }
-
-  deleteTaskType(taskTypeId: number): Observable<any> {
-    const url = `${this.taskTypesUrl}/${taskTypeId}`;
-    return this.http.delete(url);
-  }
+    deleteTaskType(taskTypeId: number): Observable<any> {
+        const url = `${this.taskTypesUrl}/${taskTypeId}`;
+        return this.http.delete(url);
+    }
 }

@@ -11,10 +11,7 @@ import { UserManager } from './user-manager.service';
 
 @Injectable()
 export class SignedInGuard implements CanActivate {
-    constructor(
-        private _userManager: UserManager,
-        private _router: Router
-    ) {}
+    constructor(private _userManager: UserManager, private _router: Router) {}
 
     public canActivate(
         next: ActivatedRouteSnapshot,

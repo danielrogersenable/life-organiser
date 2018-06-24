@@ -13,24 +13,23 @@ export class TaskForm extends FormGroup {
             [TaskForm.durationInMinutesControlKey]: new FormControl(),
             [TaskForm.taskTypeIdControlKey]: new FormControl()
         });
-}
+    }
 
-private static readonly idControlKey = 'id';
-private static readonly nameControlKey = 'name';
-private static readonly dateDueControlKey = 'dateDue';
-private static readonly completedControlKey = 'completed';
-private static readonly completedDateControlKey = 'completedDate';
-private static readonly scheduledDateControlKey = 'scheduledDate';
-private static readonly durationInMinutesControlKey = 'durationInMinutes';
-private static readonly taskTypeIdControlKey = 'taskTypeId';
+    private static readonly idControlKey = 'id';
+    private static readonly nameControlKey = 'name';
+    private static readonly dateDueControlKey = 'dateDue';
+    private static readonly completedControlKey = 'completed';
+    private static readonly completedDateControlKey = 'completedDate';
+    private static readonly scheduledDateControlKey = 'scheduledDate';
+    private static readonly durationInMinutesControlKey = 'durationInMinutes';
+    private static readonly taskTypeIdControlKey = 'taskTypeId';
 
-public get name(): FormControl {
-    return this.controls[TaskForm.nameControlKey] as FormControl;
-}
+    public get name(): FormControl {
+        return this.controls[TaskForm.nameControlKey] as FormControl;
+    }
 
-public setValue(task: TaskDto): void {
-    super.setValue(
-        {
+    public setValue(task: TaskDto): void {
+        super.setValue({
             [TaskForm.nameControlKey]: task.name,
             [TaskForm.dateDueControlKey]: task.dateDue,
             [TaskForm.completedControlKey]: task.completed,
@@ -40,11 +39,11 @@ public setValue(task: TaskDto): void {
             [TaskForm.durationInMinutesControlKey]: task.durationInMinutes,
             [TaskForm.taskTypeIdControlKey]: task.taskTypeId
         });
-}
+    }
 
-public getValue(): TaskDto {
-    return super.getRawValue() as TaskDto;
-}
+    public getValue(): TaskDto {
+        return super.getRawValue() as TaskDto;
+    }
 }
 
 export function taskFormFactory(): TaskForm {

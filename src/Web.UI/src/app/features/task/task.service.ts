@@ -10,35 +10,34 @@ import { TaskListingDto } from './task-listing.dto';
 import { TaskTypeDto } from '../task-type/task-type.dto';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable()
 export class TaskService {
+    constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+    private tasksUrl = `${environment.apiRootUri}/tasks`;
 
-  private tasksUrl = `${environment.apiRootUri}/tasks`;
+    getTasks(): Observable<TaskListingDto[]> {
+        return this.http.get<TaskListingDto[]>(this.tasksUrl);
+    }
 
-  getTasks(): Observable<TaskListingDto[]> {
-    return this.http.get<TaskListingDto[]>(this.tasksUrl);
-  }
+    getTask(id: number): Observable<TaskDto> {
+        const url = `${this.tasksUrl}/${id}`;
+        return this.http.get<TaskDto>(url);
+    }
 
-  getTask(id: number): Observable<TaskDto> {
-    const url = `${this.tasksUrl}/${id}`;
-    return this.http.get<TaskDto>(url);
-  }
+    updateTask(task: TaskDto): Observable<any> {
+        return this.http.put(this.tasksUrl, task, httpOptions);
+    }
 
-  updateTask(task: TaskDto): Observable<any> {
-    return this.http.put(this.tasksUrl, task, httpOptions);
-  }
+    addTask(task: TaskDto): Observable<any> {
+        return this.http.post(this.tasksUrl, task, httpOptions);
+    }
 
-  addTask(task: TaskDto): Observable<any> {
-    return this.http.post(this.tasksUrl, task, httpOptions);
-  }
-
-  deleteTask(id: number): Observable<any> {
-    const url = `${this.tasksUrl}/${id}`;
-    return this.http.delete(url);
-  }
+    deleteTask(id: number): Observable<any> {
+        const url = `${this.tasksUrl}/${id}`;
+        return this.http.delete(url);
+    }
 }

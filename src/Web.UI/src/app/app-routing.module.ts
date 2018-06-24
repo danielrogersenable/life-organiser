@@ -11,20 +11,27 @@ import { SignedInGuard } from './features/sign-in/signed-in.guard';
 import { TaskTypeListingComponent } from './features/task-type/task-type-listing/task-type-listing.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/sign-in'},
-  { path: 'sign-in', canActivate: [SignedInGuard], component: SignInComponent },
-  { path: '', canActivate: [AuthGuard], children: [
-    { path: 'tasks', component: TaskListComponent },
-    { path: 'instructions', component: InstructionsComponent },
-    { path: 'add-task', component: TaskAddComponent },
-    { path: 'task/:id', component: TaskEditComponent },
-    { path: 'task-types', component: TaskTypeListingComponent}
-  ]}
+    { path: '', pathMatch: 'full', redirectTo: '/sign-in' },
+    {
+        path: 'sign-in',
+        canActivate: [SignedInGuard],
+        component: SignInComponent
+    },
+    {
+        path: '',
+        canActivate: [AuthGuard],
+        children: [
+            { path: 'tasks', component: TaskListComponent },
+            { path: 'instructions', component: InstructionsComponent },
+            { path: 'add-task', component: TaskAddComponent },
+            { path: 'task/:id', component: TaskEditComponent },
+            { path: 'task-types', component: TaskTypeListingComponent }
+        ]
+    }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes)],
-  exports: [ RouterModule ]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

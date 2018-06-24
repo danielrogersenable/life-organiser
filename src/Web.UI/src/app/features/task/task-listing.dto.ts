@@ -8,4 +8,4 @@ export class TaskListingDto {
     durationInMinutes: number;
     taskType: string;
     color: string;
-  }
+}

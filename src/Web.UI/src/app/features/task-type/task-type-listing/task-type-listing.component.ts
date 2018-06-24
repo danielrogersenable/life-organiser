@@ -3,37 +3,37 @@ import { TaskTypeDto } from '../task-type.dto';
 import { TaskTypeService } from '../task-type.service';
 
 @Component({
-  selector: 'app-task-type-listing',
-  templateUrl: './task-type-listing.component.html',
-  styleUrls: ['./task-type-listing.component.scss']
+    selector: 'app-task-type-listing',
+    templateUrl: './task-type-listing.component.html',
+    styleUrls: ['./task-type-listing.component.scss']
 })
 export class TaskTypeListingComponent implements OnInit {
+    constructor(private taskTypeService: TaskTypeService) {}
 
-  constructor(private taskTypeService: TaskTypeService) { }
+    taskTypes: TaskTypeDto[];
 
-  taskTypes: TaskTypeDto[];
+    selectedTaskType: TaskTypeDto;
 
-  selectedTaskType: TaskTypeDto;
+    ngOnInit() {
+        this.getTaskTypes();
+    }
 
-  ngOnInit() {
-    this.getTaskTypes();
-  }
+    getTaskTypes(): void {
+        this.taskTypeService
+            .getTaskTypes()
+            .first()
+            .subscribe(taskTypes => {
+                this.taskTypes = taskTypes;
+            });
+    }
 
-  getTaskTypes(): void {
-    this.taskTypeService.getTaskTypes()
-    .first()
-    .subscribe(taskTypes => {
-      this.taskTypes = taskTypes;
-    });
-  }
+    addTaskType(): void {
+        this.selectedTaskType = new TaskTypeDto();
+    }
 
-  addTaskType(): void {
-    this.selectedTaskType = new TaskTypeDto();
-  }
-
-  public detailComponentSaved(): void {
-    this.selectedTaskType = null;
-    this.taskTypes = null;
-    this.getTaskTypes();
-  }
+    public detailComponentSaved(): void {
+        this.selectedTaskType = null;
+        this.taskTypes = null;
+        this.getTaskTypes();
+    }
 }

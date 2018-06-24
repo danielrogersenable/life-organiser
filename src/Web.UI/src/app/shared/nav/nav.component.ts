@@ -5,31 +5,28 @@ import { MatIconRegistry } from '@angular/material';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+    selector: 'app-nav',
+    templateUrl: './nav.component.html',
+    styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+    constructor(private _userManager: UserManager, private _router: Router) {}
 
-  constructor(private _userManager: UserManager,
-  private _router: Router) { }
+    ngOnInit() {}
 
-  ngOnInit() {
-  }
+    public listClick(): void {
+        this._router.navigateByUrl('/tasks');
+    }
 
-  public listClick(): void {
-    this._router.navigateByUrl('/tasks');
-  }
+    public addClick(): void {
+        this._router.navigateByUrl('/add-task');
+    }
 
-  public addClick(): void {
-    this._router.navigateByUrl('/add-task');
-  }
+    public taskTypeClick(): void {
+        this._router.navigateByUrl('task-types');
+    }
 
-  public taskTypeClick(): void {
-    this._router.navigateByUrl('task-types');
-  }
-
-  public signOut(): void {
-    this._userManager.removeUser();
-  }
+    public signOut(): void {
+        this._userManager.removeUser();
+    }
 }

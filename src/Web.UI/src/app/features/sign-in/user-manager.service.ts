@@ -50,11 +50,10 @@ export class UserManager {
     }
 
     get isAuthenticated(): Observable<boolean> {
-        return this.user
-            .pipe(
-                map(user => user && user.isAuthenticated),
-                distinctUntilChanged()
-            );
+        return this.user.pipe(
+            map(user => user && user.isAuthenticated),
+            distinctUntilChanged()
+        );
     }
 
     public setUser(user: AppUser): void {

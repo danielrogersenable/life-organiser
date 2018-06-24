@@ -7,20 +7,24 @@ export class SignInForm extends FormGroup {
             [SignInForm.usernameControlKey]: new FormControl(),
             [SignInForm.passwordControlKey]: new FormControl()
         });
-}
+    }
 
-private static readonly usernameControlKey = 'username';
-private static readonly passwordControlKey = 'password';
+    private static readonly usernameControlKey = 'username';
+    private static readonly passwordControlKey = 'password';
 
-public setValue(signInDto: SignInDto): void {
-    super.setValue(
-        {
+    public setValue(signInDto: SignInDto): void {
+        super.setValue({
             [SignInForm.usernameControlKey]: signInDto.username,
             [SignInForm.passwordControlKey]: signInDto.password
         });
+    }
+
+    public getValue(): SignInDto {
+        return super.getRawValue() as SignInDto;
+    }
 }
 
-public getValue(): SignInDto {
-    return super.getRawValue() as SignInDto;
+export function signInFormFactory(): SignInForm {
+    return new SignInForm();
 }
-}
+

@@ -1,19 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule  } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {
-  MatTableModule,
-  MatInputModule,
-  MatFormFieldModule,
-  MatNativeDateModule,
-  DateAdapter,
-  MAT_DATE_FORMATS,
-  MatToolbarModule,
-  MatMenuModule,
-  MatIconModule,
-  MatSelectModule
+    MatTableModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    DateAdapter,
+    MAT_DATE_FORMATS,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatSelectModule
 } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -47,41 +47,41 @@ import { ErrorHandlerService } from './shared/error/error-handler.service';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TaskListComponent,
-    InstructionsComponent,
-    TaskAddComponent,
-    TaskDetailComponent,
-    TaskEditComponent,
-    SignInComponent,
-    NavComponent,
-    TaskTypeListingComponent,
-    TaskTypeDetailComponent,
-    ErrorComponent
-  ],
-  imports: [
-    SharedModule,
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule
-  ],
-  providers: [
-    TaskService,
-    TaskTypeService,
-    SignInService,
-    UserManager,
-    AuthGuard,
-    SignedInGuard,
-    ErrorService,
-    AUTH_HTTP_INTERCEPTOR_PROVIDER,
-    { provide: DateAdapter, useClass: AppDateAdapter },
-    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
-    { provide: ErrorHandler, useClass: ErrorHandlerService }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        TaskListComponent,
+        InstructionsComponent,
+        TaskAddComponent,
+        TaskDetailComponent,
+        TaskEditComponent,
+        SignInComponent,
+        NavComponent,
+        TaskTypeListingComponent,
+        TaskTypeDetailComponent,
+        ErrorComponent
+    ],
+    imports: [
+        SharedModule,
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule
+    ],
+    providers: [
+        TaskService,
+        TaskTypeService,
+        SignInService,
+        UserManager,
+        AuthGuard,
+        SignedInGuard,
+        ErrorService,
+        AUTH_HTTP_INTERCEPTOR_PROVIDER,
+        { provide: DateAdapter, useClass: AppDateAdapter },
+        { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
+        { provide: ErrorHandler, useClass: ErrorHandlerService }
+    ],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

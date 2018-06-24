@@ -5,29 +5,31 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-task-edit',
-  templateUrl: './task-edit.component.html',
-  styleUrls: ['./task-edit.component.scss']
+    selector: 'app-task-edit',
+    templateUrl: './task-edit.component.html',
+    styleUrls: ['./task-edit.component.scss']
 })
 export class TaskEditComponent implements OnInit {
+    constructor(
+        private route: ActivatedRoute,
+        private taskService: TaskService,
+        private location: Location
+    ) {}
+    id: number;
+    task: TaskDto;
 
-  constructor(private route: ActivatedRoute,
-    private taskService: TaskService,
-    private location: Location) { }
-  id: number;
-  task: TaskDto;
+    ngOnInit() {
+        this.id = +this.route.snapshot.paramMap.get('id');
+        this.taskService
+            .getTask(this.id)
+            .first()
+            .do(result => {
+                this.task = result;
+            })
+            .subscribe();
+    }
 
-  ngOnInit() {
-    this.id = +this.route.snapshot.paramMap.get('id');
-    this.taskService.getTask(this.id)
-    .first()
-    .do((result) =>{
-      this.task = result;
-    })
-    .subscribe();
-  }
-
-  public back(): void {
-    this.location.back();
-  }
+    public back(): void {
+        this.location.back();
+    }
 }

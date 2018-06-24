@@ -4,17 +4,14 @@ import { SharedMaterialModule } from './shared-material.module';
 import { MccColorPickerModule } from 'material-community-components';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SharedMaterialModule,
-    MccColorPickerModule.forRoot({
-      empty_color: 'transparent'
-    })
-  ],
-  exports: [
-    SharedMaterialModule,
-    MccColorPickerModule
-  ],
-  declarations: []
+    imports: [
+        CommonModule,
+        SharedMaterialModule,
+        MccColorPickerModule.forRoot({
+            empty_color: 'transparent'
+        })
+    ],
+    exports: [SharedMaterialModule, MccColorPickerModule],
+    declarations: []
 })
-export class SharedModule { }
+export class SharedModule {}
