@@ -5,10 +5,10 @@ import {
     HttpRequest
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { first, mergeMap } from 'rxjs/operators';
 
 import { UserManager } from './user-manager.service';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthHttpInterceptor implements HttpInterceptor {

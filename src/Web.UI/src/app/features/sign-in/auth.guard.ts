@@ -5,10 +5,10 @@ import {
     Router,
     RouterStateSnapshot
 } from '@angular/router';
-import { Observable } from 'rxjs';
 import { first, tap } from 'rxjs/operators';
 
 import { UserManager } from './user-manager.service';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthGuard implements CanActivate {

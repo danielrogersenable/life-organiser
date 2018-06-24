@@ -48,12 +48,12 @@ Format
 
 - [ ] (1, 8 hours) What happens when this gets deployed to Azure?
 - [ ] (1, 2 hours) More sensible CORS setup.
-- [ ] (3, 1 hour) Sort out VS code formatting
+- [X] (3, 1 hour) Sort out VS code formatting
 - [ ] (3, 2 hours) Separate out modules in Angular
 - [ ] (4, 1 hour) Update Angular CLI
 - [ ] (4, 1 hour) Consider combining task-add, task-edit and task-detail into a single component.
 - [ ] (5, 3 hours) Unit testing
-- [ ] (5, 1 hour) Resolve ts linting
+- [X] (5, 1 hour) Resolve ts linting
 
 ## Security functionality
 
