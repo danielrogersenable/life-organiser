@@ -27,6 +27,7 @@ Format
 - [ ] (3, 1 hour) Include positive messages in error component (perhaps in green).
 - [ ] (4, 2 hours) Consider paging on task list?
 - [ ] (4, 2 hours) Add sorting to the task lists
+	- Perhaps look at service monitoring
 - [ ] (4, 1 hour) Add user id to LifeTask and load only tasks belonging to a specific user.
 - [ ] (4, 1 hour) Add validation (front-end)
 - [ ] (5, 1 hour) Add validation (back-end)
