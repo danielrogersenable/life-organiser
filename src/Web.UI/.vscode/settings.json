@@ -1,5 +1,5 @@
 {
-    "window.title": "${dirty}Quintillion - ${activeEditorShort}${separator}${rootName}${separator}${appName}",
+    "window.title": "${dirty}Life Organiser - ${activeEditorShort}${separator}${rootName}${separator}${appName}",
     "prettier.singleQuote": true,
     "prettier.tabWidth": 4,
     "scss.scannerExclude": [
