@@ -1,0 +1,6 @@
+@import 'variables.scss';
+
+.mat-row:hover {
+    cursor: pointer;
+    background-color: $white !important;
+}

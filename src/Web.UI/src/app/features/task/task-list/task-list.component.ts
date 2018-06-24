@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
 import { TaskDto } from '../task.dto';
 import { TaskListingDto } from '../task-listing.dto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-list',
@@ -10,9 +11,10 @@ import { TaskListingDto } from '../task-listing.dto';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService,
+  private router: Router) { }
 
-  displayedColumns = ["name", "dateDue", "completed", "completedDate", "scheduledDate", "durationInMinutes", "editLink", "taskType"]; 
+  displayedColumns = ["name", "dateDue", "completed", "completedDate", "scheduledDate", "durationInMinutes", "taskType"]; 
 
   tasks: TaskListingDto[];
   selectedTask: TaskListingDto;
@@ -30,5 +32,10 @@ export class TaskListComponent implements OnInit {
       .subscribe(tasks => {
         this.tasks = tasks;
       });
+  }
+
+  editTask(id: number): void {
+    console.log(id);
+    this.router.navigateByUrl(`/task/${id}`);
   }
 }

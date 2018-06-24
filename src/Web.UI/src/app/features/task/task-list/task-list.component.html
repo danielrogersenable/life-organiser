@@ -2,8 +2,7 @@
 <div *ngIf="tasks">
   <mat-table [dataSource]=tasks>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let tasks; columns: displayedColumns;" [ngStyle]="{'background-color': tasks.color}"></mat-row>
-    <div>
+    <mat-row *matRowDef="let task; columns: displayedColumns;" [ngStyle]="{'background-color': task.color}" (click)="editTask(task.id)"></mat-row>
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef>Task name</mat-header-cell>
         <mat-cell *matCellDef="let task"> {{ task.name }}</mat-cell>
@@ -32,12 +31,5 @@
         <mat-header-cell *matHeaderCellDef>Task type</mat-header-cell>
         <mat-cell *matCellDef="let task"> {{ task.taskType }}</mat-cell>
       </ng-container>
-      <ng-container matColumnDef="editLink">
-        <mat-header-cell *matHeaderCellDef>Edit link</mat-header-cell>
-        <mat-cell *matCellDef="let task">
-          <a routerLink="/task/{{task.id}}">Edit</a>
-        </mat-cell>
-      </ng-container>
-    </div>
   </mat-table>
 </div>

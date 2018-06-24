@@ -21,8 +21,9 @@ Format
 
 ## Design and styling
 
-- [ ] (2, 1 hour) Find a better method for the edit link on the list of tasks 
+- [X] (2, 1 hour) Find a better method for the edit link on the list of tasks 
 	- Possibly highlighting the selected row and a redirect on click?
+		- Highlighting will require attention for the color change on hover. Perhaps a default?
 	- Also consider hooking up the deletion functionality here.
 - [X] (2, 1 hour) Bootstrap stylings for things like spacing
 - [ ] (3, 1 hour) Button styling
@@ -32,7 +33,7 @@ Format
 
 ## Technical functionality
 
-- [ ] (1, 4 hours) What happens when this gets deployed to Azure?
+- [ ] (1, 8 hours) What happens when this gets deployed to Azure?
 - [ ] (1, 2 hours) More sensible CORS setup.
 - [ ] (3, 1 hour) Sort out VS code formatting
 - [ ] (3, 2 hours) Separate out modules in Angular
