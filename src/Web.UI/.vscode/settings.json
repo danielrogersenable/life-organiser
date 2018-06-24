@@ -1,0 +1,9 @@
+{
+    "window.title": "${dirty}Quintillion - ${activeEditorShort}${separator}${rootName}${separator}${appName}",
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "scss.scannerExclude": [
+        "**/.git",
+        "**/node_modules/!(bootstrap/scss/*.scss|@angular/material/theming.scss)"
+    ],
+}
