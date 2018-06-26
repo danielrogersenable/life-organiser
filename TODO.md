@@ -12,7 +12,7 @@ Format
 
 ## Usability functionality
 
-- [ ] (1, 1 hour) Add plaintext "description" to task (just on add/edit pages, not listing) to add detail to the task.
+- [X] (1, 1 hour) Add plaintext "description" to task (just on add/edit pages, not listing) to add detail to the task.
 - [ ] (2, 4 hours) Add a "schedule" view
 	- Groups tasks by date scheduled (today, this week, future perhaps?)
 	- Similar to dashboard view - only list name, duration, date scheduled (perhaps date due by?)
@@ -22,7 +22,7 @@ Format
 		- It should also contain a link to the edit page.
 		- Or a delete button to delete the task permanently.
 		- This panel could also display the description for the task
-- [ ] (2, 15 mins) Add ability to remove task type from a task.
+- [X] (2, 15 mins) Add ability to remove task type from a task.
 - [ ] (3, 1 hour) Move "add task" button to listing?
 - [ ] (3, 1 hour) Include positive messages in error component (perhaps in green).
 - [ ] (4, 2 hours) Consider paging on task list?

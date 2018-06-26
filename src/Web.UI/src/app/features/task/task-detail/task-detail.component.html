@@ -43,6 +43,7 @@
     <mat-form-field>
       <mat-label>Task type</mat-label>
       <mat-select formControlName="taskTypeId" placeholder="Task type">
+        <mat-option [value]=null>None</mat-option>
         <mat-option *ngFor="let taskType of taskTypes" [value]=taskType.id>
           {{ taskType.name }}
         </mat-option>
