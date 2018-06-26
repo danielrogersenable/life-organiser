@@ -2,7 +2,8 @@
   <section>
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input type="text" formControlName="name" matInput placeholder="Task name">
+      <input type="text" formControlName="name" matInput placeholder="Task name"
+      required >
     </mat-form-field>
   </section>
   <section>
@@ -37,6 +38,8 @@
     <mat-form-field>
       <mat-label>Duration (minutes)</mat-label>
       <input type="number" formControlName="durationInMinutes" matInput placeholder="Duration">
+      <mat-error *ngIf="form.durationInMinutes.hasError('notInteger')">Please ensure this is a whole number.</mat-error>
+      <mat-error *ngIf="form.durationInMinutes.hasError('tooSmall')">This cannot be negative.</mat-error>
     </mat-form-field>
   </section>
   <section>

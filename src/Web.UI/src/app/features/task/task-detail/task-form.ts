@@ -1,5 +1,7 @@
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { TaskDto } from '../task.dto';
+import { NumberControl } from '../../../shared/validators/number-control';
+import { integerValidator } from '../../../shared/validators/integer.validator';
 
 export class TaskForm extends FormGroup {
     constructor() {
@@ -10,7 +12,10 @@ export class TaskForm extends FormGroup {
             [TaskForm.completedControlKey]: new FormControl(),
             [TaskForm.completedDateControlKey]: new FormControl(),
             [TaskForm.scheduledDateControlKey]: new FormControl(),
-            [TaskForm.durationInMinutesControlKey]: new FormControl(),
+            [TaskForm.durationInMinutesControlKey]: new NumberControl([
+                Validators.required,
+                integerValidator(0)
+            ]),
             [TaskForm.taskTypeIdControlKey]: new FormControl(),
             [TaskForm.descriptionControlKey]: new FormControl()
         });
@@ -46,6 +51,10 @@ export class TaskForm extends FormGroup {
 
     public getValue(): TaskDto {
         return super.getRawValue() as TaskDto;
+    }
+
+    public get durationInMinutes(): FormControl {
+        return this.controls[TaskForm.durationInMinutesControlKey] as FormControl;
     }
 }
 
