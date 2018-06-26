@@ -22,7 +22,6 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { InstructionsComponent } from './instructions/instructions.component';
 import { TaskAddComponent } from './features/task/task-add/task-add.component';
 import { TaskDetailComponent } from './features/task/task-detail/task-detail.component';
 import { TaskListComponent } from './features/task/task-list/task-list.component';
@@ -52,7 +51,6 @@ import { ScheduleListingComponent } from './features/schedule/schedule-listing/s
     declarations: [
         AppComponent,
         TaskListComponent,
-        InstructionsComponent,
         TaskAddComponent,
         TaskDetailComponent,
         TaskEditComponent,
