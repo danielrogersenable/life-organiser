@@ -6,12 +6,19 @@
     </mat-form-field>
   </section>
   <section>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea formControlName="description" matInput placeholder="Description">
+      </textarea>
+    </mat-form-field>
+  </section>
+  <section>
     <mat-checkbox formControlName="completed">
       <mat-label>Completed?</mat-label>
     </mat-checkbox>
   </section>
   <section>
-      <mat-form-field>
+    <mat-form-field>
       <mat-label>Date due</mat-label>
       <input matInput formControlName="dateDue" [matDatepicker]="dateDueDatePicker">
       <mat-datepicker-toggle matSuffix [for]="dateDueDatePicker"></mat-datepicker-toggle>
@@ -19,7 +26,7 @@
     </mat-form-field>
   </section>
   <section>
-      <mat-form-field>
+    <mat-form-field>
       <mat-label>Scheduled date</mat-label>
       <input matInput formControlName="scheduledDate" [matDatepicker]="scheduledDatePicker">
       <mat-datepicker-toggle matSuffix [for]="scheduledDatePicker"></mat-datepicker-toggle>
@@ -27,13 +34,13 @@
     </mat-form-field>
   </section>
   <section>
-      <mat-form-field>
+    <mat-form-field>
       <mat-label>Duration (minutes)</mat-label>
       <input type="number" formControlName="durationInMinutes" matInput placeholder="Duration">
     </mat-form-field>
   </section>
   <section>
-      <mat-form-field>
+    <mat-form-field>
       <mat-label>Task type</mat-label>
       <mat-select formControlName="taskTypeId" placeholder="Task type">
         <mat-option *ngFor="let taskType of taskTypes" [value]=taskType.id>
@@ -43,7 +50,7 @@
     </mat-form-field>
   </section>
   <section>
-      <button type="submit">Save</button>
+    <button type="submit">Save</button>
     <button type="button" *ngIf="!isNew" (click)="delete()"> Delete</button>
   </section>
 </form>

@@ -26,7 +26,7 @@ const routes: Routes = [
             { path: 'instructions', component: InstructionsComponent },
             { path: 'add-task', component: TaskAddComponent },
             { path: 'task/:id', component: TaskEditComponent },
-            { path: 'task-types', component: TaskTypeListingComponent }
+            { path: 'task-types', component: TaskTypeListingComponent },
             { path: 'schedule', component: ScheduleComponent }
         ]
     }

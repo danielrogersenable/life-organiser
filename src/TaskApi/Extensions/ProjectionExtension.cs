@@ -17,6 +17,7 @@ namespace TaskApi.Extensions
                 {
                     Id = t.Id,
                     Name = t.Name,
+                    Description = t.Description,
                     DateDue = t.DateDue.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz"),
                     Completed = t.Completed,
                     CompletedDate = t.CompletedDate.HasValue ? t.CompletedDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,

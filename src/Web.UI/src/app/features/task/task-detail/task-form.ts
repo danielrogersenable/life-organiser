@@ -11,7 +11,8 @@ export class TaskForm extends FormGroup {
             [TaskForm.completedDateControlKey]: new FormControl(),
             [TaskForm.scheduledDateControlKey]: new FormControl(),
             [TaskForm.durationInMinutesControlKey]: new FormControl(),
-            [TaskForm.taskTypeIdControlKey]: new FormControl()
+            [TaskForm.taskTypeIdControlKey]: new FormControl(),
+            [TaskForm.descriptionControlKey]: new FormControl()
         });
     }
 
@@ -23,6 +24,7 @@ export class TaskForm extends FormGroup {
     private static readonly scheduledDateControlKey = 'scheduledDate';
     private static readonly durationInMinutesControlKey = 'durationInMinutes';
     private static readonly taskTypeIdControlKey = 'taskTypeId';
+    private static readonly descriptionControlKey = 'description';
 
     public get name(): FormControl {
         return this.controls[TaskForm.nameControlKey] as FormControl;
@@ -37,7 +39,8 @@ export class TaskForm extends FormGroup {
             [TaskForm.completedDateControlKey]: task.completedDate,
             [TaskForm.scheduledDateControlKey]: task.scheduledDate,
             [TaskForm.durationInMinutesControlKey]: task.durationInMinutes,
-            [TaskForm.taskTypeIdControlKey]: task.taskTypeId
+            [TaskForm.taskTypeIdControlKey]: task.taskTypeId,
+            [TaskForm.descriptionControlKey]: task.description
         });
     }
 
