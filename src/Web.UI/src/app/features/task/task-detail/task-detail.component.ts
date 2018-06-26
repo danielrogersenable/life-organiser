@@ -38,13 +38,14 @@ export class TaskDetailComponent implements OnInit {
         if (this.isNew) {
             this.task = new TaskDto();
             this.task.id = 0;
-            this.task.name = 'sample';
+            this.task.name = null;
             this.task.completed = false;
             this.task.completedDate = null;
             this.task.dateDue = new Date().toString();
             this.task.scheduledDate = new Date().toString();
             this.task.durationInMinutes = 0;
-            this.task.taskTypeId = 0;
+            this.task.taskTypeId = null;
+            this.task.description = null;
         }
         this.form.setValue(this.task);
     }
