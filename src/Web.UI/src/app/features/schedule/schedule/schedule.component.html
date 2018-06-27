@@ -1,3 +1,8 @@
-<p>
-  schedule works!
-</p>
+<h2>Today's tasks</h2>
+<app-schedule-listing [(taskListing)]="todaysTasks" ></app-schedule-listing>
+
+<h2> Next seven days</h2>
+<app-schedule-listing [(taskListing)]="weeksTasks" ></app-schedule-listing>
+
+<h2> Further ahead</h2>
+<app-schedule-listing [(taskListing)]="futureTasks" ></app-schedule-listing>

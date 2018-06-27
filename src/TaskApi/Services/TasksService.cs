@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataModel;
 using TaskApi.Commands.Interfaces;
+using TaskApi.Extensions;
 using TaskApi.Models;
 using TaskApi.Queries.Interfaces;
 using TaskApi.Services.Interfaces;
@@ -71,8 +72,8 @@ namespace TaskApi.Services
 
         public async Task<List<ScheduledTaskModel>> GetScheduledTasks(ScheduledTasksQueryModel model)
         {
-            var fromDate = model.FromDate;
-            var toDate = model.ToDate;
+            var fromDate = CustomFormatExtensions.TryDateFormatter(model.FromDate);
+            var toDate = CustomFormatExtensions.TryDateFormatter(model.ToDate);
 
             var results = await _queries.GetScheduledTasks(fromDate, toDate);
 

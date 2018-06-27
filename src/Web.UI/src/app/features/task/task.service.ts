@@ -8,6 +8,8 @@ import { environment } from '../../../environments/environment';
 import { TaskDto } from './task.dto';
 import { TaskListingDto } from './task-listing.dto';
 import { TaskTypeDto } from '../task-type/task-type.dto';
+import { ScheduledTasksQueryDto } from '../schedule/scheduled-tasks-query.dto';
+import { ScheduledTaskDto } from '../schedule/scheduled-tasks.dto';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -39,5 +41,10 @@ export class TaskService {
     deleteTask(id: number): Observable<any> {
         const url = `${this.tasksUrl}/${id}`;
         return this.http.delete(url);
+    }
+
+    getScheduledTasks(model: ScheduledTasksQueryDto): Observable<ScheduledTaskDto[]> {
+        const url = `${this.tasksUrl}/scheduled-tasks`;
+        return this.http.post<ScheduledTaskDto[]>(url, model);
     }
 }

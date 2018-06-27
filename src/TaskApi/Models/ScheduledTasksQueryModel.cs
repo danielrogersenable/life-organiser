@@ -8,7 +8,7 @@ namespace TaskApi.Models
 {
     public class ScheduledTasksQueryModel
     {
-        public DateTimeOffset? FromDate { get; set; }
-        public DateTimeOffset? ToDate { get; set; }
+        public string FromDate { get; set; }
+        public string ToDate { get; set; }
     }
 }
