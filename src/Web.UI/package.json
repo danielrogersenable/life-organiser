@@ -36,7 +36,6 @@
     "oidc-client": "^1.5.1",
     "popper.js": "^1.14.3",
     "rxjs": "^6.2.2",
-    "rxjs-compat": "^6.2.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
