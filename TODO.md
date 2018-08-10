@@ -62,3 +62,10 @@ Format
 	- [ ] Add recurring availability (e.g. 4 hours free every Saturday).
 - [ ] Add notion of a recurring task, which gets rescheduled following completion of the previous task (similar to Toodledo).
 - [ ] Background processing to trigger scheduling?
+- [ ] Scoring tasks
+	- Some method of providing a task with a score (perhaps at least partially auto generated with some manual input, based on complexity, time taken, date due etc.), and schedule based on score.
+- [ ] Overview
+	- Provide an overview of how I have scored in various categories over a given period. 
+	- Perhaps combined with the option to set a baseline score expectation (e.g. a certain score attained per week worth of household chores), or score against a specified set of targets (e.g. for recurring tasks, overview score is based on how many regularly scheduled tasks have been completed recently).
+- [ ] Daily checklist
+	- Perhaps tying in to the overview, a list of small repeating daily activities to keep track of (e.g. 5 a day, prayer time, CBT stuff, etc) - these could also tie into task categories.
