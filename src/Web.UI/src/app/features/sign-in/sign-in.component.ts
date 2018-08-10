@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SignInForm, signInFormFactory } from './sign-in-form';
 import { SignInService } from './sign-in.service';
 import { SignInDto } from './sign-in.dto';
+import { first } from 'rxjs/operators';
 
 @Component({
     selector: 'app-sign-in',
@@ -28,7 +29,9 @@ export class SignInComponent implements OnInit {
 
         this.signInService
             .signIn(this.signInDto)
-            .first()
+            .pipe(
+                first()
+            )
             .subscribe();
     }
 }

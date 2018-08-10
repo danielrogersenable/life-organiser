@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class ErrorService {
@@ -8,10 +9,10 @@ export class ErrorService {
 
     public addErrorMessage(message: string) {
         const messages: string[] = [message];
-        this.errorMessage.emit(messages);
+        this.errorMessage.next(messages);
     }
 
     public addErrorMessages(messages: string[]) {
-        this.errorMessage.emit(messages);
+        this.errorMessage.next(messages);
     }
 }

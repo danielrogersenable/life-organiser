@@ -12,6 +12,7 @@ import { TaskTypeDto } from '../task-type.dto';
 import { TaskTypeForm } from '../task-type-form';
 import { TaskTypeService } from '../task-type.service';
 import { ErrorService } from '../../../shared/error/error.service';
+import { first, tap } from 'rxjs/operators';
 
 export function taskTypeFormFactory() {
     return new TaskTypeForm();
@@ -48,10 +49,12 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
     public delete(): void {
         this.taskTypeService
             .deleteTaskType(this.taskType.id)
-            .first()
-            .do(() => {
-                this.saveEvent.emit();
-            })
+            .pipe(
+                first(),
+                tap(() => {
+                    this.saveEvent.emit();
+                })
+            )
             .subscribe();
     }
 
@@ -72,20 +75,24 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
     private update(): void {
         this.taskTypeService
             .updateTaskType(this.taskType)
-            .first()
-            .do(() => {
-                this.saveEvent.emit();
-            })
+            .pipe(
+                first(),
+                tap(() => {
+                    this.saveEvent.emit();
+                })
+            )
             .subscribe();
     }
 
     private add(): void {
         this.taskTypeService
             .addTaskType(this.taskType)
-            .first()
-            .do(() => {
-                this.saveEvent.emit();
-            })
+            .pipe(
+                first(),
+                tap(() => {
+                    this.saveEvent.emit();
+                })
+            )
             .subscribe();
     }
 }

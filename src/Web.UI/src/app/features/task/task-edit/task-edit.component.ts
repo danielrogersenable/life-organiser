@@ -3,6 +3,7 @@ import { TaskService } from '../task.service';
 import { TaskDto } from '../task.dto';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { first, tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-task-edit',
@@ -22,10 +23,12 @@ export class TaskEditComponent implements OnInit {
         this.id = +this.route.snapshot.paramMap.get('id');
         this.taskService
             .getTask(this.id)
-            .first()
-            .do(result => {
-                this.task = result;
-            })
+            .pipe(
+                first(),
+                tap(result => {
+                    this.task = result;
+                })
+            )
             .subscribe();
     }
 

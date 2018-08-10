@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskTypeDto } from '../task-type.dto';
 import { TaskTypeService } from '../task-type.service';
+import { first, map } from 'rxjs/operators';
 
 @Component({
     selector: 'app-task-type-listing',
@@ -21,10 +22,13 @@ export class TaskTypeListingComponent implements OnInit {
     getTaskTypes(): void {
         this.taskTypeService
             .getTaskTypes()
-            .first()
-            .subscribe(taskTypes => {
-                this.taskTypes = taskTypes;
-            });
+            .pipe(
+                first(),
+                map(taskTypes => {
+                    this.taskTypes = taskTypes;
+                })
+            )
+            .subscribe();
     }
 
     addTaskType(): void {

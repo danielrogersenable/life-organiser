@@ -8,8 +8,7 @@ import {
 import { distinctUntilChanged, map } from 'rxjs/operators';
 
 import { AppUser, AppUserProfile } from './app-user';
-import { Observable } from 'rxjs/Observable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { Observable ,  ReplaySubject } from 'rxjs';
 
 const USER_STORAGE_KEY_PREFIX = 'app:';
 const USER_STORAGE = localStorage;

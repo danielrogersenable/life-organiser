@@ -5,9 +5,10 @@ import {
     RouterStateSnapshot,
     Router
 } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { UserManager } from './user-manager.service';
+import { tap, first, map } from 'rxjs/operators';
 
 @Injectable()
 export class SignedInGuard implements CanActivate {
@@ -18,12 +19,14 @@ export class SignedInGuard implements CanActivate {
         state: RouterStateSnapshot
     ): Observable<boolean> {
         return this._userManager.user
-            .first()
-            .do(user => {
+        .pipe(
+            first(),
+            tap(user => {
                 if (user.isAuthenticated) {
                     this._router.navigateByUrl('');
                 }
-            })
-            .map(user => !user.isAuthenticated);
+            }),
+            map(user => !user.isAuthenticated)
+        );
     }
 }

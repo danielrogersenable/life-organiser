@@ -6,6 +6,7 @@ import { TaskService } from '../task.service';
 import { TaskForm, taskFormFactory } from './task-form';
 import { TaskTypeDto } from '../../task-type/task-type.dto';
 import { TaskTypeService } from '../../task-type/task-type.service';
+import { tap, first } from 'rxjs/operators';
 
 @Component({
     selector: 'app-task-detail',
@@ -28,10 +29,12 @@ export class TaskDetailComponent implements OnInit {
     ngOnInit() {
         this.taskTypeService
             .getTaskTypes()
-            .first()
-            .do(taskTypes => {
-                this.taskTypes = taskTypes;
-            })
+            .pipe(
+                first(),
+                tap(taskTypes => {
+                    this.taskTypes = taskTypes;
+                })
+            )
             .subscribe();
 
         this.isNew = !this.task;
@@ -67,26 +70,32 @@ export class TaskDetailComponent implements OnInit {
     add(): void {
         this.taskService
             .addTask(this.task)
-            .first()
-            .do(() => this.router.navigateByUrl('/tasks'))
+            .pipe(
+                first(),
+                tap(() => this.router.navigateByUrl('/tasks'))
+            )
             .subscribe();
     }
 
     update(): void {
         this.taskService
             .updateTask(this.task)
-            .first()
-            .do(() => this.router.navigateByUrl('/tasks'))
+            .pipe(
+                first(),
+                tap(() => this.router.navigateByUrl('/tasks'))
+            )
             .subscribe();
     }
 
     delete(): void {
         this.taskService
             .deleteTask(this.task.id)
-            .first()
-            .do(() => {
-                this.router.navigateByUrl('/tasks');
-            })
+            .pipe(
+                first(),
+                tap(() => {
+                    this.router.navigateByUrl('/tasks');
+                })
+            )
             .subscribe();
     }
 }

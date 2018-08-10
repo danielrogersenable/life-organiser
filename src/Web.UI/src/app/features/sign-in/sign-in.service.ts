@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { SignInDto } from './sign-in.dto';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import {
     map,
     tap,

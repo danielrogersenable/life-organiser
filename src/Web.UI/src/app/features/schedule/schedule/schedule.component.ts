@@ -4,6 +4,7 @@ import { ScheduledTasksQueryDto } from '../scheduled-tasks-query.dto';
 import { ScheduledTaskDto } from '../scheduled-tasks.dto';
 import * as moment from 'moment';
 import { convertMomentToString } from '../../../shared/date/moment-date-adapter';
+import { first, tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-schedule',
@@ -33,10 +34,12 @@ export class ScheduleComponent implements OnInit {
 
         this.taskService
             .getScheduledTasks(model)
-            .first()
-            .do(result => {
-                this.todaysTasks = result;
-            })
+            .pipe(
+                first(),
+                tap(result => {
+                    this.todaysTasks = result;
+                })
+            )
             .subscribe();
     }
 
@@ -50,10 +53,12 @@ export class ScheduleComponent implements OnInit {
 
       this.taskService
           .getScheduledTasks(model)
-          .first()
-          .do(result => {
-              this.weeksTasks = result;
-          })
+          .pipe(
+              first(),
+              tap(result => {
+                this.weeksTasks = result;
+            })
+          )
           .subscribe();
   }
 
@@ -67,10 +72,12 @@ export class ScheduleComponent implements OnInit {
 
     this.taskService
         .getScheduledTasks(model)
-        .first()
-        .do(result => {
-            this.futureTasks = result;
-        })
+        .pipe(
+            first(),
+            tap(result => {
+                this.futureTasks = result;
+            })
+        )
         .subscribe();
 }
 }

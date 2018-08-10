@@ -14,12 +14,14 @@ export class ErrorComponent implements OnInit {
 
     ngOnInit() {
         this._errorService.errorMessage
-            .do(messages => {
+        .pipe(
+            tap(messages => {
                 messages.forEach(message => {
                     this.messages.push(message);
                 });
             })
-            .subscribe();
+        )
+        .subscribe();
     }
 
     public clear(index: number): void {

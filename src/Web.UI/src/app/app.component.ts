@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserManager } from './features/sign-in/user-manager.service';
 import { SignInService } from './features/sign-in/sign-in.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { distinctUntilChanged, skip, tap, map } from 'rxjs/operators';
 
 @Component({
     selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit {
         private _userManager: UserManager,
         private _signInService: SignInService,
         private _router: Router
-    ) {}
+    ) { }
 
     title = 'Life Organiser';
     public isAuthenticated: boolean;
@@ -37,24 +38,28 @@ export class AppComponent implements OnInit {
 
     private redirectOnSignInOut(): void {
         this._userManager.user
-            .distinctUntilChanged(
-                (x, y) => x.isAuthenticated === y.isAuthenticated
-            )
-            .skip(1)
-            .do(user => {
-                if (user.isAuthenticated) {
-                    this._router.navigateByUrl('/tasks');
-                    return;
-                }
+            .pipe(
+                distinctUntilChanged(
+                    (x, y) => x.isAuthenticated === y.isAuthenticated
+                ),
+                skip(1),
+                tap(user => {
+                    if (user.isAuthenticated) {
+                        this._router.navigateByUrl('/tasks');
+                        return;
+                    }
 
-                this._router.navigateByUrl('');
-            })
+                    this._router.navigateByUrl('');
+                })
+            )
             .subscribe();
     }
 
     private isAuthenticatedSubscription(): void {
         this._userManager.isAuthenticated
-            .map(a => (this.isAuthenticated = a))
+            .pipe(
+                map(a => (this.isAuthenticated = a))
+            )
             .subscribe();
     }
 }

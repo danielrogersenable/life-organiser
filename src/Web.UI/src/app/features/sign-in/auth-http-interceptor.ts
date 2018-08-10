@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import { first, mergeMap } from 'rxjs/operators';
 
 import { UserManager } from './user-manager.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthHttpInterceptor implements HttpInterceptor {

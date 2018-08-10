@@ -22,6 +22,7 @@ Format
 		- Or a delete button to delete the task permanently.
 		- This panel could also display the description for the task
 - [ ] (3, 1 hour) Move "add task" button to listing?
+- [ ] (3, 1 hour) Test error service still works after RxJS upgrade
 - [ ] (3, 1 hour) Include positive messages in error component (perhaps in green).
 - [ ] (4, 2 hours) Consider paging on task list?
 - [ ] (4, 2 hours) Add sorting to the task lists
@@ -45,7 +46,8 @@ Format
 - [ ] (3, 2 hours) Separate out modules in Angular
 - [ ] (4, 1 hour) Update Angular CLI
 - [ ] (4, 1 hour) Consider combining task-add, task-edit and task-detail into a single component.
-- [ ] (5, 3 hours) Unit testing
+- [X] (4, 2 hours) Upgrade RxJS to v6 and make corresponding code changes.
+- [ ] (5, 4 hours) Unit testing
 
 ## Security functionality
 
