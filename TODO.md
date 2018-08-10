@@ -44,7 +44,7 @@ Format
 - [ ] (1, 8 hours) What happens when this gets deployed to Azure?
 - [ ] (1, 2 hours) More sensible CORS setup.
 - [ ] (3, 2 hours) Separate out modules in Angular
-- [ ] (4, 1 hour) Update Angular CLI
+- [X] (4, 1 hour) Update Angular CLI
 - [ ] (4, 1 hour) Consider combining task-add, task-edit and task-detail into a single component.
 - [X] (4, 2 hours) Upgrade RxJS to v6 and make corresponding code changes.
 - [ ] (5, 4 hours) Unit testing
