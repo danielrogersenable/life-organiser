@@ -12,3 +12,11 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+  
+- script: npm install
+  displayName: 'Install npm packages'
+  workingDirectory: 'src/Web.UI'
+  
+- script: npm run build
+  displayName: 'Build Web.UI'
+  workingDirectory: 'src/Web.UI'
