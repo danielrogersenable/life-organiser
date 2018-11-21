@@ -35,3 +35,10 @@ steps:
 - script: npm run build
   displayName: 'Build Web.UI'
   workingDirectory: 'src/Web.UI'
+  
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+
+
