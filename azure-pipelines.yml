@@ -17,17 +17,22 @@ steps:
   displayName: Publish Migrations
   inputs:
     command: publish
-
     publishWebProjects: false
-
     projects: src/DataModel.Migrations/DataModel.Migrations.csproj
-
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-
     zipAfterPublish: false
-
     modifyOutputPath: false
- 
+
+- task: DotNetCoreCLI@2
+  displayName: Publish Task API
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: src/TaskApi/TaskApi.csproj
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: false
+    modifyOutputPath: false
+    
 - script: npm install
   displayName: 'Install npm packages'
   workingDirectory: 'src/Web.UI'
