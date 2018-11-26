@@ -30,18 +30,39 @@ steps:
     projects: src/TaskApi/TaskApi.csproj
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
+
+- task: Npm@1
+  displayName: 'npm install angular cli'
+  inputs:
+    command: custom
+    workingDir: src/Web.UI
+    verbose: false
+    customCommand: 'install @angular/cli -g'
     
-- script: npm install
-  displayName: 'Install npm packages'
-  workingDirectory: 'src/Web.UI'
-  
-- script: npm run build
-  displayName: 'Build Web.UI'
-  workingDirectory: 'src/Web.UI'
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    workingDir: src/Web.UI
+    verbose: false
+    
+- task: Npm@1
+  displayName: 'npm run build'
+  inputs:
+    command: custom
+    workingDir: src/Web.UI
+    verbose: false
+    customCommand: 'run-script build'
   
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact'
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
+    
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Web Artifacts'
+  inputs:
+    PathtoPublish: src/Web.UI/dist
+    ArtifactName: Web.UI
+
 
 

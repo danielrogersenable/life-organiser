@@ -23,7 +23,8 @@
             },
             "assets": [
               "src/assets",
-              "src/favicon.ico"
+              "src/favicon.ico",
+			  "src/web.config"
             ],
             "styles": [
               "src/styles.scss"
