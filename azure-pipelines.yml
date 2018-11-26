@@ -32,14 +32,6 @@ steps:
     zipAfterPublish: true
 
 - task: Npm@1
-  displayName: 'npm install angular cli'
-  inputs:
-    command: custom
-    workingDir: src/Web.UI
-    verbose: false
-    customCommand: 'install @angular/cli -g'
-    
-- task: Npm@1
   displayName: 'npm install'
   inputs:
     workingDir: src/Web.UI
