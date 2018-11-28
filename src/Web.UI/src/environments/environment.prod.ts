@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiRootUri: ''
+  apiRootUri: 'https://lifeorganiserapi.azurewebsites.net/api'
 };
