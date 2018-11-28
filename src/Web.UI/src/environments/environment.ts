@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiRootUri: 'http://localhost:52965/api'
+  apiRootUri: 'https://lifeorganiserapi.azurewebsites.net/api'
 };
