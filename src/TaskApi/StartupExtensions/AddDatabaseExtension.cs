@@ -20,7 +20,9 @@ namespace TaskApi.StartupExtensions
             }
 
             services
-                .AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("AppDatabase")))
+                .AddDbContext<AppDbContext>(options => options.UseSqlServer(
+                    configuration.GetConnectionString("AppDatabase"), 
+                    b => b.MigrationsAssembly("DataModel.Migrations")))
                 .AddScoped<IAppDbContextFactory, AppDbContextFactory>();
         }
     }
