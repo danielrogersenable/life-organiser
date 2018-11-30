@@ -22,7 +22,6 @@ Format
 		- Or a delete button to delete the task permanently.
 		- This panel could also display the description for the task
 - [ ] (3, 1 hour) Move "add task" button to listing?
-- [X] (3, 1 hour) Test error service still works after RxJS upgrade
 - [ ] (3, 1 hour) Include positive messages in error component (perhaps in green).
 - [ ] (4, 2 hours) Consider paging on task list?
 - [ ] (4, 2 hours) Add sorting to the task lists
@@ -41,14 +40,14 @@ Format
 
 ## Technical functionality
 
-- [ ] (1, 8 hours) What happens when this gets deployed to Azure?
 - [ ] (1, 2 hours) More sensible CORS setup.
+- [ ] (2, 2 hours) Improve Git branching strategy to have a "live" branch and a "dev" branch. Dev merges to live, live auto deploys.
+- [ ] (3, 0.5 hours) Remove migrate build step from YAML
+- [ ] (3, 2 hours) Clean up variables in code, use other variables instead.
+- [ ] (3, 3 hours) Use ARM templates for deploying Azure resources
 - [ ] (3, 2 hours) Separate out modules in Angular
-- [X] (4, 1 hour) Update Angular CLI
 - [ ] (4, 1 hour) Consider combining task-add, task-edit and task-detail into a single component.
-- [X] (4, 2 hours) Upgrade RxJS to v6 and make corresponding code changes.
-- [X] (5, 1 hour) Remove rxjs-compat and check all still works.
-- [ ] (5, 4 hours) Unit testing
+- [ ] (5, 4 hours) Unit testing (including incorporation in CI build)
 
 ## Security functionality
 
