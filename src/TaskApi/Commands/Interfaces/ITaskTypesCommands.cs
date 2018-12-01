@@ -10,7 +10,7 @@ namespace TaskApi.Commands.Interfaces
     public interface ITaskTypesCommands
     {
         Task UpdateTaskType(TaskTypeModel model);
-        Task AddTaskType(TaskTypeModel model);
+        Task AddTaskType(TaskTypeModel model, int userId);
         Task DeleteTaskType(int taskTypeId);
     }
 }

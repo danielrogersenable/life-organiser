@@ -19,12 +19,25 @@ namespace TaskApi.Services
             _dateTimeService = dateTimeService;
         }
 
-        public LifeTask PopulateLifeTaskFromModel(TaskModel model, LifeTask dbTask)
+        public LifeTask PopulateLifeTaskFromModel(TaskModel model, LifeTask dbTask, int? userId = null)
         {
             dbTask.Name = model.Name;
             dbTask.DateDue = CustomFormatExtensions.DateFormatter(model.DateDue);
             dbTask.ScheduledDate = CustomFormatExtensions.DateFormatter(model.ScheduledDate);
             dbTask.DurationInMinutes = model.DurationInMinutes;
+
+            // TODO - potentially need better checks on whether a user already exists
+            if (dbTask.UserId == 0)
+            {
+                if (userId.HasValue)
+                {
+                    dbTask.UserId = userId.Value;
+                }
+                else
+                {
+                    throw new InvalidOperationException("This task has not been created in the context of a user");
+                }
+            }
 
             if (dbTask.Completed && !model.Completed)
             {
@@ -42,12 +55,25 @@ namespace TaskApi.Services
             return dbTask;
         }
 
-        public TaskType PopulateTaskTypeFromModel(TaskTypeModel model, TaskType taskType)
+        public TaskType PopulateTaskTypeFromModel(TaskTypeModel model, TaskType dbTaskType, int? userId = null)
         {
-            taskType.Name = model.Name;
-            taskType.Color = model.Color;
+            // TODO - potentially need better checks on whether a user already exists
+            if (dbTaskType.UserId == 0)
+            {
+                if (userId.HasValue)
+                {
+                    dbTaskType.UserId = userId.Value;
+                }
+                else
+                {
+                    throw new InvalidOperationException("This task has not been created in the context of a user");
+                }
+            }
 
-            return taskType;
+            dbTaskType.Name = model.Name;
+            dbTaskType.Color = model.Color;
+
+            return dbTaskType;
         }
     }
 }

@@ -43,34 +43,40 @@ namespace TaskApi.Queries
             }
         }
 
-        public async Task<List<TaskModel>> GetCompleteProjectedTasks()
+        public async Task<List<TaskModel>> GetCompleteProjectedTasks(int userId)
         {
             using (var dbContext = _dbContextFactory.Create())
             {
                 return await dbContext.LifeTasks
                     .Where(lt => lt.Completed)
+                    .Where(lt => lt.UserId == userId)
                     .ProjectToTaskModel()
                     .OrderBy(c => c.DateDue)
                     .ToListAsync();
             }
         }
 
-        public async Task<List<TaskListingModel>> GetProjectedTasks()
+        public async Task<List<TaskListingModel>> GetProjectedTasks(int userId)
         {
             using (var dbContext = _dbContextFactory.Create())
             {
                 return await dbContext.LifeTasks
-                  .ProjectToTaskListingModel()
-                  .OrderBy(c => c.DateDue)
-                  .ToListAsync();
+                    .Where(lt => lt.UserId == userId)
+                    .ProjectToTaskListingModel()
+                    .OrderBy(c => c.DateDue)
+                    .ToListAsync();
             }
         }
 
-        public async Task<List<ScheduledTaskModel>> GetScheduledTasks(DateTimeOffset? fromDate, DateTimeOffset? toDate)
+        public async Task<List<ScheduledTaskModel>> GetScheduledTasks(
+            DateTimeOffset? fromDate,
+            DateTimeOffset? toDate,
+            int userId)
         {
             using (var dbContext = _dbContextFactory.Create())
             {
                 return await dbContext.LifeTasks
+                    .Where(t => t.UserId == userId)
                     .Where(t => fromDate.HasValue ? t.ScheduledDate >= fromDate : true)
                     .Where(t => toDate.HasValue ? t.ScheduledDate <= toDate : true)
                     .ProjectToScheduledTaskModel()

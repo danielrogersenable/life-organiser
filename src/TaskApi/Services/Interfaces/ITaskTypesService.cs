@@ -9,9 +9,9 @@ namespace TaskApi.Services.Interfaces
 {
     public interface ITaskTypesService
     {
-        Task<List<TaskTypeModel>> GetTaskTypes();
+        Task<List<TaskTypeModel>> GetTaskTypes(int userId);
         Task UpdateTaskType(TaskTypeModel model);
-        Task AddTaskType(TaskTypeModel model);
+        Task AddTaskType(TaskTypeModel model, int userId);
         Task DeleteTaskType(int taskTypeId);
         Task<IEnumerable<string>> GetValidationDeleteMessages(int taskTypeId);
     }

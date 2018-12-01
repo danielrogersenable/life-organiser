@@ -11,11 +11,11 @@ namespace TaskApi.Services.Interfaces
     public interface ITasksService
     {
         Task<TaskModel> GetProjectedTask(int id);
-        Task<List<TaskListingModel>> GetProjectedTasks();
-        Task<List<TaskModel>> GetCompleteProjectedTasks();
-        Task<List<ScheduledTaskModel>> GetScheduledTasks(ScheduledTasksQueryModel model);
+        Task<List<TaskListingModel>> GetProjectedTasks(int userId);
+        Task<List<TaskModel>> GetCompleteProjectedTasks(int userId);
+        Task<List<ScheduledTaskModel>> GetScheduledTasks(ScheduledTasksQueryModel model, int userId);
         Task UpdateTask(TaskModel model);
-        Task AddTask(TaskModel model);
+        Task AddTask(TaskModel model, int userId);
         Task DeleteTask(int id);
     }
 }

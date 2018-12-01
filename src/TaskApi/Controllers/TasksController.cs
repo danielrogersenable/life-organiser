@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TaskApi.Extensions;
@@ -16,18 +17,28 @@ namespace TaskApi.Controllers
     public class TasksController : Controller
     {
         private readonly ITasksService _tasksService;
+        private readonly IUserManagerService _userManagerService;
 
         public TasksController(
-            ITasksService tasksService)
+            ITasksService tasksService,
+            IUserManagerService userManagerService)
         {
             _tasksService = tasksService;
+            _userManagerService = userManagerService;
         }
 
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetTasks()
         {
-            var results = await _tasksService.GetProjectedTasks();
+            var userId = _userManagerService.TryGetUserId(User);
+
+            if (!userId.HasValue)
+            {
+                return new UnauthorizedResult();
+            }
+
+            var results = await _tasksService.GetProjectedTasks(userId.Value);
 
             return Ok(results);
         }
@@ -36,7 +47,14 @@ namespace TaskApi.Controllers
         [Route("complete-tasks")]
         public async Task<IActionResult> GetCompleteTasks()
         {
-            var results = await _tasksService.GetCompleteProjectedTasks();
+            var userId = _userManagerService.TryGetUserId(User);
+
+            if (!userId.HasValue)
+            {
+                return new UnauthorizedResult();
+            }
+
+            var results = await _tasksService.GetCompleteProjectedTasks(userId.Value);
 
             return Ok(results);
         }
@@ -45,7 +63,14 @@ namespace TaskApi.Controllers
         [Route("scheduled-tasks")]
         public async Task<IActionResult> GetScheduledTasks([FromBody]ScheduledTasksQueryModel model)
         {
-            var results = await _tasksService.GetScheduledTasks(model);
+            var userId = _userManagerService.TryGetUserId(User);
+
+            if (!userId.HasValue)
+            {
+                return new UnauthorizedResult();
+            }
+
+            var results = await _tasksService.GetScheduledTasks(model, userId.Value);
 
             return Ok(results);
         }
@@ -73,8 +98,15 @@ namespace TaskApi.Controllers
         [Route("")]
         public async Task<IActionResult> Post([FromBody] TaskModel model)
         {
+            var userId = _userManagerService.TryGetUserId(User);
+
+            if (!userId.HasValue)
+            {
+                return new UnauthorizedResult();
+            }
+
             // TODO - add validation
-            await _tasksService.AddTask(model);
+            await _tasksService.AddTask(model, userId.Value);
 
             return new NoContentResult();
         }

@@ -10,7 +10,7 @@ namespace TaskApi.Services.Interfaces
 {
     public interface IModelMappingService
     {
-        LifeTask PopulateLifeTaskFromModel(TaskModel model, LifeTask dbTask);
-        TaskType PopulateTaskTypeFromModel(TaskTypeModel model, TaskType taskType);
+        LifeTask PopulateLifeTaskFromModel(TaskModel model, LifeTask dbTask, int? userId = null);
+        TaskType PopulateTaskTypeFromModel(TaskTypeModel model, TaskType taskType, int? userId = null);
     }
 }

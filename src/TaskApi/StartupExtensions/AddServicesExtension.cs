@@ -22,6 +22,7 @@ namespace TaskApi.StartupExtensions
             services.AddScoped<IDateTimeService, DateTimeService>();
             services.AddScoped<IModelMappingService, ModelMappingService>();
             services.AddScoped<ITaskTypesService, TaskTypesService>();
+            services.AddScoped<IUserManagerService, UserManagerService>();
         }
     }
 }

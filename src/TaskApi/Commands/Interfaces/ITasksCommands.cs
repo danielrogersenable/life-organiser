@@ -11,7 +11,7 @@ namespace TaskApi.Commands.Interfaces
     public interface ITasksCommands
     {
         Task UpdateTask(TaskModel model);
-        Task AddTask(TaskModel model);
+        Task AddTask(TaskModel model, int userId);
         Task DeleteTask(LifeTask id);
     }
 }

@@ -17,5 +17,7 @@ namespace DataModel
         public int DurationInMinutes { get; set; }
         public int? TaskTypeId { get; set; }
         public virtual TaskType TaskType { get; set; }
+        public int UserId { get; set; }
+        public virtual AppUser User { get; set; }
     }
 }

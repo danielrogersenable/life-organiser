@@ -20,11 +20,12 @@ namespace TaskApi.Queries
             _dbContextFactory = dbContextFactory;
         }
 
-        public async Task<List<TaskTypeModel>> GetTaskTypes()
+        public async Task<List<TaskTypeModel>> GetTaskTypes(int userId)
         {
             using (var dbContext = _dbContextFactory.Create())
             {
                 return await dbContext.TaskTypes
+                    .Where(tt => tt.UserId == userId)
                     .ProjectToTaskTypeModel()
                     .OrderBy(c => c.Name)
                     .ToListAsync();

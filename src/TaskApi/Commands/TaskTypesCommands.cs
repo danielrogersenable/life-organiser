@@ -35,13 +35,13 @@ namespace TaskApi.Commands
             }
         }
 
-        public async Task AddTaskType(TaskTypeModel model)
+        public async Task AddTaskType(TaskTypeModel model, int userId)
         {
             using (var db = _dbContextFactory.Create())
             {
                 var taskType = new TaskType();
 
-                taskType = _lifeTaskMappingService.PopulateTaskTypeFromModel(model, taskType);
+                taskType = _lifeTaskMappingService.PopulateTaskTypeFromModel(model, taskType, userId);
 
                 db.TaskTypes.Add(taskType);
                 await db.SaveChangesAsync();

@@ -30,19 +30,19 @@ namespace TaskApi.Services
             return await _queries.GetProjectedTask(id);
         }
 
-        public async Task<List<TaskListingModel>> GetProjectedTasks()
+        public async Task<List<TaskListingModel>> GetProjectedTasks(int userId)
         {
-            return await _queries.GetProjectedTasks();
+            return await _queries.GetProjectedTasks(userId);
         }
 
-        public async Task<List<TaskModel>> GetCompleteProjectedTasks()
+        public async Task<List<TaskModel>> GetCompleteProjectedTasks(int userId)
         {
-            return await _queries.GetCompleteProjectedTasks();
+            return await _queries.GetCompleteProjectedTasks(userId);
         }
 
-        public async Task AddTask(TaskModel model)
+        public async Task AddTask(TaskModel model, int userId)
         {
-            await _commands.AddTask(model);
+            await _commands.AddTask(model, userId);
         }
 
         public async Task UpdateTask(TaskModel model)
@@ -70,12 +70,12 @@ namespace TaskApi.Services
             await _commands.DeleteTask(task);
         }
 
-        public async Task<List<ScheduledTaskModel>> GetScheduledTasks(ScheduledTasksQueryModel model)
+        public async Task<List<ScheduledTaskModel>> GetScheduledTasks(ScheduledTasksQueryModel model, int userId)
         {
             var fromDate = CustomFormatExtensions.TryDateFormatter(model.FromDate);
             var toDate = CustomFormatExtensions.TryDateFormatter(model.ToDate);
 
-            var results = await _queries.GetScheduledTasks(fromDate, toDate);
+            var results = await _queries.GetScheduledTasks(fromDate, toDate, userId);
 
             return results;
         }

@@ -13,16 +13,27 @@ namespace TaskApi.Controllers
     public class TaskTypesController : Controller
     {
         private readonly ITaskTypesService _taskTypesService;
+        private readonly IUserManagerService _userManagerService;
 
-        public TaskTypesController(ITaskTypesService taskTypesService)
+        public TaskTypesController(
+            ITaskTypesService taskTypesService,
+            IUserManagerService userManagerService)
         {
             _taskTypesService = taskTypesService;
+            _userManagerService = userManagerService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var results = await _taskTypesService.GetTaskTypes();
+            var userId = _userManagerService.TryGetUserId(User);
+
+            if (!userId.HasValue)
+            {
+                return new UnauthorizedResult();
+            }
+
+            var results = await _taskTypesService.GetTaskTypes(userId.Value);
 
             return Ok(results);
         }
@@ -30,7 +41,14 @@ namespace TaskApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] TaskTypeModel model)
         {
-            await _taskTypesService.AddTaskType(model);
+            var userId = _userManagerService.TryGetUserId(User);
+
+            if (!userId.HasValue)
+            {
+                return new UnauthorizedResult();
+            }
+
+            await _taskTypesService.AddTaskType(model, userId.Value);
 
             return new NoContentResult();
         }

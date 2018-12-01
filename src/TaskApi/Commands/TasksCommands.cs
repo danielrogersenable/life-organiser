@@ -36,13 +36,13 @@ namespace TaskApi.Commands
             }
         }
 
-        public async Task AddTask(TaskModel model)
+        public async Task AddTask(TaskModel model, int userId)
         {
             using (var db = _dbContextFactory.Create())
             {
                 var dbTask = new LifeTask();
 
-                dbTask = _lifeTaskMappingService.PopulateLifeTaskFromModel(model, dbTask);
+                dbTask = _lifeTaskMappingService.PopulateLifeTaskFromModel(model, dbTask, userId);
 
                 db.LifeTasks.Add(dbTask);
 

@@ -23,9 +23,9 @@ namespace TaskApi.Services
             _queries = queries;
         }
 
-        public async Task<List<TaskTypeModel>> GetTaskTypes()
+        public async Task<List<TaskTypeModel>> GetTaskTypes(int userId)
         {
-            return await _queries.GetTaskTypes();
+            return await _queries.GetTaskTypes(userId);
         }
 
         public async Task UpdateTaskType(TaskTypeModel model)
@@ -41,9 +41,9 @@ namespace TaskApi.Services
             await _commands.UpdateTaskType(model);
         }
 
-        public async Task AddTaskType(TaskTypeModel model)
+        public async Task AddTaskType(TaskTypeModel model, int userId)
         {
-            await _commands.AddTaskType(model);
+            await _commands.AddTaskType(model, userId);
         }
 
         public async Task DeleteTaskType(int taskTypeId)
