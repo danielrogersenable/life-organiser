@@ -67,7 +67,7 @@ namespace TaskApi
 
             // TODO : make this more restrictive
             app.UseCors(builder => builder
-            .AllowAnyOrigin()
+            .WithOrigins(Configuration["Cors:WebUrl"])
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials());
