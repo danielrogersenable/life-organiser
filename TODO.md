@@ -40,7 +40,7 @@ Format
 
 ## Technical functionality
 
-- [ ] (1, 2 hours) More sensible CORS setup.
+- [X] (1, 2 hours) More sensible CORS setup.
 - [X] (2, 2 hours) Improve Git branching strategy to have a "live" branch and a "dev" branch. Dev merges to live, live auto deploys.
 - [X] (3, 0.5 hours) Remove migrate build step from YAML
 - [ ] (3, 2 hours) Clean up variables in code, use other variables instead.
