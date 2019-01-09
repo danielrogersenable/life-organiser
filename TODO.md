@@ -35,6 +35,10 @@ Format
 
 - [X] (3, 1 hour) Button styling
 - [ ] (3, 1 hour) Loading behaviour
+	- [X] Create spinner
+	- [X] Add spinner to login page
+	- [ ] Ensure spinner on login page is rendered in the right place
+	- [ ] Add spinner to listing page
 - [ ] (4, 1 hour) Add styling to the header.
 	- Add a logo with hyperlink to home
 

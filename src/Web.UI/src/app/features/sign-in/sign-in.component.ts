@@ -3,6 +3,7 @@ import { SignInForm, signInFormFactory } from './sign-in-form';
 import { SignInService } from './sign-in.service';
 import { SignInDto } from './sign-in.dto';
 import { first } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 
 @Component({
     selector: 'app-sign-in',
@@ -18,6 +19,8 @@ export class SignInComponent implements OnInit {
 
     public signInDto: SignInDto;
 
+    public isSigningIn: boolean = false;
+
     ngOnInit() {}
 
     signIn() {
@@ -25,12 +28,17 @@ export class SignInComponent implements OnInit {
             return;
         }
 
+        this.isSigningIn = true;
+
         this.signInDto = this.form.getValue();
 
         this.signInService
             .signIn(this.signInDto)
             .pipe(
-                first()
+                first(),
+                finalize(() => {
+                    this.isSigningIn = false;
+                })
             )
             .subscribe();
     }

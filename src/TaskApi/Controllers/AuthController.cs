@@ -38,6 +38,11 @@ namespace TaskApi.Controllers
         [HttpPost("sign-in")]
         public async Task<IActionResult> SignIn([FromBody] SignInModel model)
         {
+            if (string.IsNullOrWhiteSpace(model.UserName) || string.IsNullOrWhiteSpace(model.Password))
+            {
+                return BadRequest("Please provide an email and password.");
+            }
+
             var user = await _userManager.FindByNameAsync(model.UserName);
 
             if (user != null)
