@@ -1,0 +1,22 @@
+@import 'variables';
+
+#bootstrap-overrides {
+    .btn-primary,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:visited,
+    .btn-primary:focus {
+        background-color: $color-primary;
+        border-color: $color-primary;
+    }
+
+    .btn-secondary,
+    .btn-secondary:hover,
+    .btn-secondary:active,
+    .btn-secondary:visited,
+    .btn-secondary:focus {
+        background-color: $grey;
+        border-color: $grey;
+        color: black;
+    }
+}

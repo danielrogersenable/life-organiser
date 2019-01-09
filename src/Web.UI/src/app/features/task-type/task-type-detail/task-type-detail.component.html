@@ -4,13 +4,17 @@
       <mat-label>Name</mat-label>
       <input type="text" formControlName="name" matInput placeholder="Task type name">
     </mat-form-field>
+  </section>
+  <section>
     <mat-form-field>
       <mat-label>Colour</mat-label>
       <mcc-color-picker mccConnectedColorPicker [mccConnectedColorPickerOrigin]="trigger">
       </mcc-color-picker>
       <input matInput mccColorPickerOrigin #trigger="mccColorPickerOrigin" formControlName="color" />
     </mat-form-field>
-    <button type="submit">Save</button>
-    <button *ngIf="canDelete" type="button" (click)="delete()">Delete</button>
+  </section>
+  <section>
+    <button type="submit" class="btn btn-primary mr-2">Save</button>
+    <button *ngIf="canDelete" type="button" class="btn btn-secondary" (click)="delete()">Delete</button>
   </section>
 </form>

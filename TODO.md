@@ -33,7 +33,7 @@ Format
 
 ## Design and styling
 
-- [ ] (3, 1 hour) Button styling
+- [X] (3, 1 hour) Button styling
 - [ ] (3, 1 hour) Loading behaviour
 - [ ] (4, 1 hour) Add styling to the header.
 	- Add a logo with hyperlink to home
