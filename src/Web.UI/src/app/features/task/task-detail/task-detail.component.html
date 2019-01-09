@@ -1,60 +1,62 @@
 <form [formGroup]="form" (submit)="save()">
-  <section>
+  <div class="row">
+    <div class="col-md-4">
     <mat-form-field>
       <mat-label>Name</mat-label>
       <input type="text" formControlName="name" matInput placeholder="Task name"
       required >
     </mat-form-field>
-  </section>
-  <section>
-    <mat-form-field>
+  </div>
+  <div class="col-md-4">
+      <mat-form-field>
       <mat-label>Description</mat-label>
       <textarea formControlName="description" matInput placeholder="Description">
       </textarea>
     </mat-form-field>
-  </section>
-  <section>
-    <mat-checkbox formControlName="completed">
-      <mat-label>Completed?</mat-label>
-    </mat-checkbox>
-  </section>
-  <section>
+  </div>
+  <div class="col-md-4">
+      <mat-form-field>
+        <mat-label>Task type</mat-label>
+        <mat-select formControlName="taskTypeId" placeholder="Task type">
+          <mat-option [value]=null>None</mat-option>
+          <mat-option *ngFor="let taskType of taskTypes" [value]=taskType.id>
+            {{ taskType.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  <div class="col-md-4">
     <mat-form-field>
       <mat-label>Date due</mat-label>
       <input matInput formControlName="dateDue" [matDatepicker]="dateDueDatePicker">
       <mat-datepicker-toggle matSuffix [for]="dateDueDatePicker"></mat-datepicker-toggle>
       <mat-datepicker #dateDueDatePicker></mat-datepicker>
     </mat-form-field>
-  </section>
-  <section>
+  </div>
+  <div class="col-md-4">
     <mat-form-field>
       <mat-label>Scheduled date</mat-label>
       <input matInput formControlName="scheduledDate" [matDatepicker]="scheduledDatePicker">
       <mat-datepicker-toggle matSuffix [for]="scheduledDatePicker"></mat-datepicker-toggle>
       <mat-datepicker #scheduledDatePicker></mat-datepicker>
     </mat-form-field>
-  </section>
-  <section>
+  </div>
+  <div class="col-md-4">
+      <mat-checkbox formControlName="completed">
+      <mat-label>Completed?</mat-label>
+    </mat-checkbox>
+  </div>
+  <div class="col-md-4">
     <mat-form-field>
       <mat-label>Duration (minutes)</mat-label>
       <input type="number" formControlName="durationInMinutes" matInput placeholder="Duration">
       <mat-error *ngIf="form.durationInMinutes.hasError('notInteger')">Please ensure this is a whole number.</mat-error>
       <mat-error *ngIf="form.durationInMinutes.hasError('tooSmall')">This cannot be negative.</mat-error>
     </mat-form-field>
-  </section>
-  <section>
-    <mat-form-field>
-      <mat-label>Task type</mat-label>
-      <mat-select formControlName="taskTypeId" placeholder="Task type">
-        <mat-option [value]=null>None</mat-option>
-        <mat-option *ngFor="let taskType of taskTypes" [value]=taskType.id>
-          {{ taskType.name }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </section>
-  <section>
-    <button class="btn btn-primary mr-2" type="submit">Save</button>
+  </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-primary mr-2 ml-3" type="submit">Save</button>
     <button class="btn btn-secondary" type="button" *ngIf="!isNew" (click)="delete()"> Delete</button>
-  </section>
-</form>
+  </div>
+  </form>
