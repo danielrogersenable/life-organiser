@@ -13,7 +13,10 @@
       </ng-container>
       <ng-container matColumnDef="completed">
         <mat-header-cell *matHeaderCellDef>Completed</mat-header-cell>
-        <mat-cell *matCellDef="let task"> {{ task.completed }}</mat-cell>
+        <mat-cell *matCellDef="let task">
+          <mat-checkbox [(ngModel)] = "task.completed" [disabled]=true class="pl-md-3">
+          </mat-checkbox>
+          </mat-cell>
       </ng-container>
       <ng-container matColumnDef="completedDate">
         <mat-header-cell *matHeaderCellDef>Completed date</mat-header-cell>

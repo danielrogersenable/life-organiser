@@ -10,6 +10,10 @@
         border-color: $color-primary;
     }
 
+    .btn-primary:focus{
+        box-shadow: 0 0 0 0.2rem $color-primary
+    }
+
     .btn-secondary,
     .btn-secondary:hover,
     .btn-secondary:active,
@@ -17,6 +21,10 @@
     .btn-secondary:focus {
         background-color: $grey;
         border-color: $grey;
-        color: black;
+        color: $black;
+    }
+
+    .btn-secondary:focus{
+        box-shadow: 0 0 0 0.2rem $grey
     }
 }
