@@ -9,13 +9,6 @@
   </div>
   <div class="col-md-4">
       <mat-form-field>
-      <mat-label>Description</mat-label>
-      <textarea formControlName="description" matInput placeholder="Description">
-      </textarea>
-    </mat-form-field>
-  </div>
-  <div class="col-md-4">
-      <mat-form-field>
         <mat-label>Task type</mat-label>
         <mat-select formControlName="taskTypeId" placeholder="Task type">
           <mat-option [value]=null>None</mat-option>
@@ -54,6 +47,15 @@
       <mat-error *ngIf="form.durationInMinutes.hasError('tooSmall')">This cannot be negative.</mat-error>
     </mat-form-field>
   </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        <mat-form-field class="description-full-width">
+        <mat-label>Description</mat-label>
+        <textarea formControlName="description" matInput placeholder="Description">
+        </textarea>
+      </mat-form-field>
+    </div>
   </div>
   <div class="row">
     <button class="btn btn-primary mr-2 ml-3" type="submit">Save</button>
