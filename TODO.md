@@ -41,6 +41,9 @@ Format
 	- [ ] Add spinner to listing page
 - [ ] (4, 1 hour) Add styling to the header.
 	- Add a logo with hyperlink to home
+- [ ] (5, 2 hours) Expand the dashboard card functionality
+	- [ ] Change colour based on task type
+	- [ ] Consider making the card itself a shared component for reuse elsewhere
 
 ## Technical functionality
 
@@ -55,7 +58,7 @@ Format
 
 ## Security functionality
 
-- [ ] (4, 2 hours) Add claims to users, and use these claims to determine whether users can add/remove data belonging to other users.
+- [ ] (5, 2 hours) Add claims to users, and use these claims to determine whether users can add/remove data belonging to other users.
 - [ ] (5, 1 hour) Add the ability to change passwords.
 
 # Feature wishlist
