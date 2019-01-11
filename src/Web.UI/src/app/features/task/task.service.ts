@@ -29,9 +29,9 @@ export class TaskService {
         return this.http.get<TaskDto>(url);
     }
 
-    getRandomTask(): Observable<TaskDto> {
+    getRandomTask(): Observable<ScheduledTaskDto> {
         const url = `${this.tasksUrl}/random-task`;
-        return this.http.get<TaskDto>(url);
+        return this.http.get<ScheduledTaskDto>(url);
     }
 
     updateTask(task: TaskDto): Observable<any> {

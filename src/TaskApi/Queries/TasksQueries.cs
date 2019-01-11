@@ -55,7 +55,7 @@ namespace TaskApi.Queries
             }
         }
 
-        public async Task<TaskModel> GetProjectedTaskFromIndex(int userId, int index)
+        public async Task<ScheduledTaskModel> GetScheduledTaskFromIndex(int userId, int index)
         {
             using (var db = _dbContextFactory.Create())
             {
@@ -63,7 +63,7 @@ namespace TaskApi.Queries
                     .Where(lt => lt.UserId == userId)
                     .OrderBy(lt => lt.Id)
                     .Skip(index)
-                    .ProjectToTaskModel()
+                    .ProjectToScheduledTaskModel()
                     .FirstOrDefaultAsync();
 
                 return dbTask;
