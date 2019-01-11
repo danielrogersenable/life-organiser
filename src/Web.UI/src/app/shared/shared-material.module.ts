@@ -9,8 +9,9 @@ import {
     MatMenuModule,
     MatIconModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
 } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         MatMenuModule,
         MatIconModule,
         MatSelectModule,
-        MatDialogModule
+        MatDialogModule,
+        MatCardModule
     ]
 })
 export class SharedMaterialModule {}

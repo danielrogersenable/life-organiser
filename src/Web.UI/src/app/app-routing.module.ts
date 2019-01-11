@@ -9,6 +9,7 @@ import { AuthGuard } from './features/sign-in/auth.guard';
 import { SignedInGuard } from './features/sign-in/signed-in.guard';
 import { TaskTypeListingComponent } from './features/task-type/task-type-listing/task-type-listing.component';
 import { ScheduleComponent } from './features/schedule/schedule/schedule.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/sign-in' },
@@ -25,7 +26,8 @@ const routes: Routes = [
             { path: 'add-task', component: TaskAddComponent },
             { path: 'task/:id', component: TaskEditComponent },
             { path: 'task-types', component: TaskTypeListingComponent },
-            { path: 'schedule', component: ScheduleComponent }
+            { path: 'schedule', component: ScheduleComponent },
+            { path: 'dashboard', component: DashboardComponent }
         ]
     }
 ];

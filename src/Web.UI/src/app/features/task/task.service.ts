@@ -29,6 +29,11 @@ export class TaskService {
         return this.http.get<TaskDto>(url);
     }
 
+    getRandomTask(): Observable<TaskDto> {
+        const url = `${this.tasksUrl}/random-task`;
+        return this.http.get<TaskDto>(url);
+    }
+
     updateTask(task: TaskDto): Observable<any> {
         return this.http.put(this.tasksUrl, task, httpOptions);
     }

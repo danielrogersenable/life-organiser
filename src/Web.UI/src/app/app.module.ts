@@ -47,6 +47,7 @@ import { SharedModule } from './shared/shared.module';
 import { ScheduleComponent } from './features/schedule/schedule/schedule.component';
 import { ScheduleListingComponent } from './features/schedule/schedule-listing/schedule-listing.component';
 import { TaskDeleteModalComponent } from './features/task/task-delete-modal/task-delete-modal.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 
 @NgModule({
     declarations: [
@@ -62,7 +63,8 @@ import { TaskDeleteModalComponent } from './features/task/task-delete-modal/task
         ErrorComponent,
         ScheduleComponent,
         ScheduleListingComponent,
-        TaskDeleteModalComponent
+        TaskDeleteModalComponent,
+        DashboardComponent
     ],
     imports: [
         SharedModule,

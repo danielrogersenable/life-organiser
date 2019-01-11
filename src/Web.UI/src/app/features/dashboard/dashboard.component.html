@@ -1,0 +1,9 @@
+<h1>Random task</h1>
+  <mat-card *ngIf="randomTask">
+    <mat-card-title>{{ randomTask.name }}</mat-card-title>
+    <mat-card-subtitle> {{ typeOfRandomTask }} </mat-card-subtitle>
+    <mat-card-subtitle> Due by: {{ randomTask.dateDue | date:'fullDate' }}</mat-card-subtitle>
+    <mat-card-content>
+      {{ randomTask.description }}
+    </mat-card-content>
+  </mat-card>

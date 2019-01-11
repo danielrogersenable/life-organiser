@@ -14,6 +14,10 @@ export class NavComponent implements OnInit {
 
     ngOnInit() {}
 
+    public dashboardClick(): void {
+        this._router.navigateByUrl('dashboard');
+    }
+
     public listClick(): void {
         this._router.navigateByUrl('/tasks');
     }

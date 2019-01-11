@@ -1,4 +1,8 @@
 <mat-menu #appMenu="matMenu">
+  <button mat-menu-item (click)="dashboardClick()">
+    <mat-icon>dashboard </mat-icon>
+    <span>Dashboard</span>
+  </button>
   <button mat-menu-item (click)="listClick()">
     <mat-icon>build </mat-icon>
     <span>List all tasks</span>
