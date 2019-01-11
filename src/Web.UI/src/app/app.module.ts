@@ -46,6 +46,7 @@ import { ErrorHandlerService } from './shared/error/error-handler.service';
 import { SharedModule } from './shared/shared.module';
 import { ScheduleComponent } from './features/schedule/schedule/schedule.component';
 import { ScheduleListingComponent } from './features/schedule/schedule-listing/schedule-listing.component';
+import { TaskDeleteModalComponent } from './features/task/task-delete-modal/task-delete-modal.component';
 
 @NgModule({
     declarations: [
@@ -60,7 +61,8 @@ import { ScheduleListingComponent } from './features/schedule/schedule-listing/s
         TaskTypeDetailComponent,
         ErrorComponent,
         ScheduleComponent,
-        ScheduleListingComponent
+        ScheduleListingComponent,
+        TaskDeleteModalComponent
     ],
     imports: [
         SharedModule,
@@ -83,6 +85,9 @@ import { ScheduleListingComponent } from './features/schedule/schedule-listing/s
         { provide: DateAdapter, useClass: AppDateAdapter },
         { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
         { provide: ErrorHandler, useClass: ErrorHandlerService }
+    ],
+    entryComponents: [
+        TaskDeleteModalComponent
     ],
     bootstrap: [AppComponent]
 })

@@ -7,6 +7,8 @@ import { TaskForm, taskFormFactory } from './task-form';
 import { TaskTypeDto } from '../../task-type/task-type.dto';
 import { TaskTypeService } from '../../task-type/task-type.service';
 import { tap, first } from 'rxjs/operators';
+import { MatDialog } from '@angular/material';
+import { TaskDeleteModalComponent } from '../task-delete-modal/task-delete-modal.component';
 
 @Component({
     selector: 'app-task-detail',
@@ -17,6 +19,7 @@ import { tap, first } from 'rxjs/operators';
 export class TaskDetailComponent implements OnInit {
     constructor(
         public form: TaskForm,
+        public dialog: MatDialog,
         private taskService: TaskService,
         private taskTypeService: TaskTypeService,
         private router: Router
@@ -85,6 +88,16 @@ export class TaskDetailComponent implements OnInit {
                 tap(() => this.router.navigateByUrl('/tasks'))
             )
             .subscribe();
+    }
+
+    deleteModal(): void {
+        const dialogRef = this.dialog.open(TaskDeleteModalComponent);
+
+        dialogRef.afterClosed().subscribe((result: boolean) => {
+            if (result){
+                this.delete();
+            }
+        })
     }
 
     delete(): void {
