@@ -84,6 +84,22 @@ namespace TaskApi.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [Route("random-task")]
+        public async Task<IActionResult> GetRandomTask()
+        {
+            var userId = _userManagerService.TryGetUserId(User);
+
+            if (!userId.HasValue)
+            {
+                return new UnauthorizedResult();
+            }
+
+            var result = await _tasksService.GetRandomTask(userId.Value);
+
+            return Ok(result);
+        }
+
         [HttpPut]
         [Route("")]
         public async Task<IActionResult> Put([FromBody] TaskModel model)

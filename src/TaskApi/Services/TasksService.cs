@@ -35,6 +35,24 @@ namespace TaskApi.Services
             return await _queries.GetProjectedTasks(userId);
         }
 
+        public async Task<TaskModel> GetRandomTask(int userId)
+        {
+            var totalTasks = await _queries.GetTotalTasksForUser(userId);
+
+            if (totalTasks == 0)
+            {
+                return new TaskModel();
+            }
+
+            var random = new Random();
+
+            var randomIndex = random.Next(totalTasks - 1);
+
+            var randomTask = await _queries.GetProjectedTaskFromIndex(userId, randomIndex);
+
+            return randomTask;
+        }
+
         public async Task<List<TaskModel>> GetCompleteProjectedTasks(int userId)
         {
             return await _queries.GetCompleteProjectedTasks(userId);

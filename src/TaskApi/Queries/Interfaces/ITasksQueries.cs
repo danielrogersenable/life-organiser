@@ -12,6 +12,8 @@ namespace TaskApi.Queries.Interfaces
     {
         Task<LifeTask> GetTask(int id);
         Task<TaskModel> GetProjectedTask(int id);
+        Task<int> GetTotalTasksForUser(int userId);
+        Task<TaskModel> GetProjectedTaskFromIndex(int userId, int index);
         Task<List<TaskModel>> GetCompleteProjectedTasks(int userId);
         Task<List<TaskListingModel>> GetProjectedTasks(int userId);
         Task<List<ScheduledTaskModel>> GetScheduledTasks(DateTimeOffset? fromDate, DateTimeOffset? toDate, int userId);

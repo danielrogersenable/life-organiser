@@ -12,6 +12,7 @@ namespace TaskApi.Services.Interfaces
     {
         Task<TaskModel> GetProjectedTask(int id);
         Task<List<TaskListingModel>> GetProjectedTasks(int userId);
+        Task<TaskModel> GetRandomTask(int userId);
         Task<List<TaskModel>> GetCompleteProjectedTasks(int userId);
         Task<List<ScheduledTaskModel>> GetScheduledTasks(ScheduledTasksQueryModel model, int userId);
         Task UpdateTask(TaskModel model);

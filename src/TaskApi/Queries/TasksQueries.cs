@@ -43,6 +43,33 @@ namespace TaskApi.Queries
             }
         }
 
+        public async Task<int> GetTotalTasksForUser(int userId)
+        {
+            using (var db = _dbContextFactory.Create())
+            {
+                var dbTask = await db.LifeTasks
+                    .Where(lt => lt.UserId == userId)
+                    .CountAsync();
+
+                return dbTask;
+            }
+        }
+
+        public async Task<TaskModel> GetProjectedTaskFromIndex(int userId, int index)
+        {
+            using (var db = _dbContextFactory.Create())
+            {
+                var dbTask = await db.LifeTasks
+                    .Where(lt => lt.UserId == userId)
+                    .OrderBy(lt => lt.Id)
+                    .Skip(index)
+                    .ProjectToTaskModel()
+                    .FirstOrDefaultAsync();
+
+                return dbTask;
+            }
+        }
+
         public async Task<List<TaskModel>> GetCompleteProjectedTasks(int userId)
         {
             using (var dbContext = _dbContextFactory.Create())
