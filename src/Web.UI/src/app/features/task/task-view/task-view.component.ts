@@ -56,4 +56,54 @@ export class TaskViewComponent implements OnInit {
   public getDurationText(): string {
     return this.task.durationInMinutes + ' minutes';
   }
+
+  public getRelativeDueDate(){
+    return this.getRelativeDateText(new Date(this.task.dateDue));
+  }
+
+  public getRelativeScheduledDate(){
+    return this.getRelativeDateText(new Date(this.task.scheduledDate));
+  }
+
+  private getRelativeDateText(comparisonDate: Date): string {
+    const now = new Date();
+    comparisonDate.setHours(0,0,0);
+    now.setHours(0,0,0);
+
+    if (comparisonDate == now){
+      return 'Today';
+    }
+
+    const timeDiff = Math.abs(comparisonDate.getTime() - now.getTime());
+    const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+    const isFutureDate = now < comparisonDate;
+
+    if (daysDiff == 1){
+      if (isFutureDate){
+        return `Tomorrow`;
+      }
+      else {
+        return `Yesterday`;
+      }
+    }
+
+    if (daysDiff <= 14)
+    {
+      if (isFutureDate){
+        return `In ${daysDiff} days`;
+      }
+      else {
+        return `${daysDiff} days ago`;
+      }
+    }
+
+    const weeksDiff = Math.ceil(daysDiff / 7);
+
+    if (isFutureDate) {
+      return `In ${weeksDiff} weeks`;
+    }
+    else {
+      return `${weeksDiff} weeks ago`;
+    }
+  }
 }

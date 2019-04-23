@@ -6,6 +6,7 @@
         <div class="status-box-image due-by"></div>
         <div class="status-box-text">
             <div class="status-box-content">{{ task.dateDue  | date:'fullDate' }}</div>
+            <div class="status-box-content">({{ getRelativeDueDate() }})</div>
             <div class="status-box-legend">Due by</div>
         </div>
     </div>
@@ -13,6 +14,7 @@
         <div class="status-box-image scheduled"></div>
         <div class="status-box-text">
             <div class="status-box-content">{{ task.scheduledDate  | date:'fullDate' }}</div>
+            <div class="status-box-content">({{ getRelativeScheduledDate() }})</div>
             <div class="status-box-legend">Scheduled</div>
         </div>
     </div>      
