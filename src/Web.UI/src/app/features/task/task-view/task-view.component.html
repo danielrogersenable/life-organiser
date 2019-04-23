@@ -1,10 +1,30 @@
-<h2>{{ task.name }}</h2>
-<div> {{ getStatusText() }} </div>
+<h2 class = "task-view-heading"> {{ task.name }} </h2>
+<div class= "task-view-subheading"> {{ getStatusText() }} </div>
 
-<div>Due by: {{ task.dateDue  | date:'fullDate' }}</div>
-<div>Scheduled: {{ task.scheduledDate  | date:'fullDate' }}</div>
-<div>Duration: {{ getDurationText() }}</div>
+<div class="status-container">
+    <div class="status-box">
+        <div class="status-box-image due-by"></div>
+        <div class="status-box-text">
+            <div class="status-box-content">{{ task.dateDue  | date:'fullDate' }}</div>
+            <div class="status-box-legend">Due by</div>
+        </div>
+    </div>
+    <div class="status-box">
+        <div class="status-box-image scheduled"></div>
+        <div class="status-box-text">
+            <div class="status-box-content">{{ task.scheduledDate  | date:'fullDate' }}</div>
+            <div class="status-box-legend">Scheduled</div>
+        </div>
+    </div>      
+    <div class="status-box">
+        <div class="status-box-image duration"></div>
+        <div class="status-box-text">
+                <div class="status-box-content">{{ getDurationText() }}</div>
+                <div class="status-box-legend">Duration</div>        
+        </div>
+    </div>      
+</div>
 
-<div> {{ task.description }} </div>
+<p class="task-description"> {{ task.description }} </p>
 
-<button class="btn btn-primary mr-2 ml-3" type="button" (click)="startEdit()">Edit</button>
+<button class="btn btn-primary" type="button" (click)="startEdit()">Edit</button>
