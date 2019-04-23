@@ -1,0 +1,35 @@
+@import 'variables';
+
+$sign-in-height: 180px;
+$sign-in-width: 432px;
+$sign-in-padding: 40px;
+
+.sign-in-box {
+    border: 1px solid $color-primary;
+    border-radius: 24px;
+    box-shadow: 0 0 8px -2px $color-primary;
+    max-width: $sign-in-width + $sign-in-padding;
+    height: $sign-in-height + $sign-in-padding;
+    position: relative;
+
+    .sign-in-content {
+        height: $sign-in-height;
+        width: $sign-in-width;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        margin: -($sign-in-height / 2) 0 0 0-($sign-in-width / 2);
+
+        .btn-primary {
+            position: absolute;
+            top: 108px;
+            right: 24px;
+        }
+    }
+}
+
+.sign-in-field {
+    padding: 16px; 
+}

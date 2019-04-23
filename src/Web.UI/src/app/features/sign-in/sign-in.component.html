@@ -1,21 +1,17 @@
-<form [formGroup]="form" (submit)="signIn()">
-  <section>
-  <mat-form-field>
-    <mat-label>Username</mat-label>
-    <input type="text" formControlName="username" matInput placeholder="Username">
-  </mat-form-field>
-</section>
-<section>
-  <mat-form-field>
-    <mat-label>Password</mat-label>
-    <input type="password" formControlName="password" matInput placeholder="Password">
-  </mat-form-field>
-</section>
-  <section>
+<form [formGroup]="form" (submit)="signIn()" class="sign-in-box">
+  <div class="sign-in-content">
+    <mat-form-field class="sign-in-field">
+      <mat-label>Username</mat-label>
+      <input type="text" formControlName="username" matInput placeholder="Username">
+    </mat-form-field>
+    <mat-form-field class="sign-in-field">
+      <mat-label>Password</mat-label>
+      <input type="password" formControlName="password" matInput placeholder="Password">
+    </mat-form-field>
     <button type="submit" class="btn btn-primary" [class.disabled]="isSigningIn">Sign in</button>
     <div *ngIf="isSigningIn">
         <app-loader></app-loader>
     </div>
-  </section>
+  </div>
 </form>
  
