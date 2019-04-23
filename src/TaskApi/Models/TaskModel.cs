@@ -17,5 +17,6 @@ namespace TaskApi.Models
         public string ScheduledDate { get; set; }
         public int DurationInMinutes { get; set; }
         public int? TaskTypeId { get; set; }
+        public string TaskType { get; set; }
     }
 }

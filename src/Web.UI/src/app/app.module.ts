@@ -48,6 +48,8 @@ import { ScheduleComponent } from './features/schedule/schedule/schedule.compone
 import { ScheduleListingComponent } from './features/schedule/schedule-listing/schedule-listing.component';
 import { TaskDeleteModalComponent } from './features/task/task-delete-modal/task-delete-modal.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { TaskViewComponent } from './features/task/task-view/task-view.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -64,7 +66,8 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
         ScheduleComponent,
         ScheduleListingComponent,
         TaskDeleteModalComponent,
-        DashboardComponent
+        DashboardComponent,
+        TaskViewComponent
     ],
     imports: [
         SharedModule,
@@ -84,6 +87,7 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
         SignedInGuard,
         ErrorService,
         AUTH_HTTP_INTERCEPTOR_PROVIDER,
+        DatePipe,
         { provide: DateAdapter, useClass: AppDateAdapter },
         { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
         { provide: ErrorHandler, useClass: ErrorHandlerService }

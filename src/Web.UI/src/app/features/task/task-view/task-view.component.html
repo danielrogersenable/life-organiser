@@ -1,0 +1,10 @@
+<h2>{{ task.name }}</h2>
+<div> {{ getStatusText() }} </div>
+
+<div>Due by: {{ task.dateDue  | date:'fullDate' }}</div>
+<div>Scheduled: {{ task.scheduledDate  | date:'fullDate' }}</div>
+<div>Duration: {{ getDurationText() }}</div>
+
+<div> {{ task.description }} </div>
+
+<button class="btn btn-primary mr-2 ml-3" type="button" (click)="startEdit()">Edit</button>

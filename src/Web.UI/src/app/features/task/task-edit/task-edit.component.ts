@@ -18,6 +18,7 @@ export class TaskEditComponent implements OnInit {
     ) {}
     id: number;
     task: TaskDto;
+    isEditView: boolean = false;
 
     ngOnInit() {
         this.id = +this.route.snapshot.paramMap.get('id');
@@ -34,5 +35,10 @@ export class TaskEditComponent implements OnInit {
 
     public back(): void {
         this.location.back();
+    }
+
+    public toggleEditView(): void {
+        console.log('toggle edit');
+        this.isEditView = !this.isEditView;
     }
 }

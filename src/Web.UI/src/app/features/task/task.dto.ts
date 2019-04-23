@@ -8,4 +8,5 @@ export class TaskDto {
     scheduledDate: string;
     durationInMinutes: number;
     taskTypeId: number;
+    taskType: string;
 }

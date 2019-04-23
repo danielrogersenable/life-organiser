@@ -1,6 +1,13 @@
-<h2>Edit a task</h2>
-<button class="btn btn-secondary" (click)="back()">Back</button>
-<p> Use the below to edit a task </p>
-<ng-container *ngIf="task">
-    <app-task-detail [task]=task></app-task-detail>
-</ng-container>
+<div *ngIf="isEditView; else taskReadView">
+    <h2>Edit a task</h2>
+    <button class="btn btn-secondary" (click)="back()">Back</button>
+    <p> Use the below to edit a task </p>
+    <ng-container *ngIf="task">
+        <app-task-detail [task]=task></app-task-detail>
+    </ng-container>
+</div>
+<ng-template #taskReadView>
+    <ng-container *ngIf="task">
+        <app-task-view [task]=task (toggleEditView)="toggleEditView($event)"></app-task-view>
+    </ng-container>
+</ng-template>
