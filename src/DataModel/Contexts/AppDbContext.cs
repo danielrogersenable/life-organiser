@@ -20,5 +20,6 @@ namespace DataModel
         public DbSet<AppUser> AppRoles { get; set; }
         public DbSet<LifeTask> LifeTasks { get; set; }
         public DbSet<TaskType> TaskTypes { get; set; }
+        public DbSet<RecurringTask> RecurringTasks { get; set; }
     }
 }
