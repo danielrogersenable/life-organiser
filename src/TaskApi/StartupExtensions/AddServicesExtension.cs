@@ -23,6 +23,7 @@ namespace TaskApi.StartupExtensions
             services.AddScoped<IModelMappingService, ModelMappingService>();
             services.AddScoped<ITaskTypesService, TaskTypesService>();
             services.AddScoped<IUserManagerService, UserManagerService>();
+            services.AddScoped<IRecurringTasksService, RecurringTasksService>();
         }
     }
 }

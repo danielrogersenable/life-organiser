@@ -20,6 +20,7 @@ namespace TaskApi.StartupExtensions
 
             services.AddScoped<ITasksQueries, TasksQueries>();
             services.AddScoped<ITaskTypesQueries, TaskTypesQueries>();
+            services.AddScoped<IRecurringTasksQueries, RecurringTasksQueries>();
         }
     }
 }

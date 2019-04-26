@@ -13,19 +13,24 @@ namespace TaskApi.Extensions
         public static IQueryable<TaskModel> ProjectToTaskModel(this IQueryable<LifeTask> query)
         {
             return query
-                .Select(t => new TaskModel
-                {
-                    Id = t.Id,
-                    Name = t.Name,
-                    Description = t.Description,
-                    DateDue = t.DateDue.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz"),
-                    Completed = t.Completed,
-                    CompletedDate = t.CompletedDate.HasValue ? t.CompletedDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
-                    ScheduledDate = t.ScheduledDate.HasValue ? t.ScheduledDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
-                    DurationInMinutes = t.DurationInMinutes,
-                    TaskTypeId = t.TaskTypeId,
-                    TaskType = t.TaskType.Name
-                });
+                .Select(t => t.MapLifeTaskToTaskModel());
+        }
+
+        public static TaskModel MapLifeTaskToTaskModel(this LifeTask t)
+        {
+            return new TaskModel
+            {
+                Id = t.Id,
+                Name = t.Name,
+                Description = t.Description,
+                DateDue = t.DateDue.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz"),
+                Completed = t.Completed,
+                CompletedDate = t.CompletedDate.HasValue ? t.CompletedDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
+                ScheduledDate = t.ScheduledDate.HasValue ? t.ScheduledDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
+                DurationInMinutes = t.DurationInMinutes,
+                TaskTypeId = t.TaskTypeId,
+                TaskType = t.TaskType.Name
+            };
         }
 
         public static IQueryable<TaskListingModel> ProjectToTaskListingModel(this IQueryable<LifeTask> query)
@@ -69,6 +74,21 @@ namespace TaskApi.Extensions
                     Id = t.Id,
                     Name = t.Name,
                     Color = t.Color
+                });
+        }
+
+        public static IQueryable<RecurringTaskModel> ProjectToRecurringTaskModel(this IQueryable<RecurringTask> query)
+        {
+            return query
+                .Select(t => new RecurringTaskModel
+                {
+                    Id = t.Id,
+                    Name = t.Name,
+                    Description = t.Description,
+                    RecurrenceInterval = t.RecurrenceInterval,
+                    TaskRecurrenceType = t.TaskRecurrenceType,
+                    TaskType = t.TaskType,
+                    Tasks = t.Tasks.Select(tk => tk.MapLifeTaskToTaskModel()).ToList()
                 });
         }
     }

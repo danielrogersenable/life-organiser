@@ -15,6 +15,8 @@ namespace DataModel
 
         DbSet<TaskType> TaskTypes { get; }
 
+        DbSet<RecurringTask> RecurringTasks { get; set; }
+
         DatabaseFacade Database { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
