@@ -1,0 +1,6 @@
+<h2>Recurring tasks</h2>
+<div *ngIf="recurringTasks">
+  <div *ngFor="let task of recurringTasks">
+      <div>{{task.description}}</div>
+  </div>
+</div>
