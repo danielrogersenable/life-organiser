@@ -4,29 +4,11 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {
-    MatTableModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatNativeDateModule,
     DateAdapter,
     MAT_DATE_FORMATS,
-    MatToolbarModule,
-    MatMenuModule,
-    MatIconModule,
-    MatSelectModule
 } from '@angular/material';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { TaskAddComponent } from './features/task/task-add/task-add.component';
-import { TaskDetailComponent } from './features/task/task-detail/task-detail.component';
-import { TaskListComponent } from './features/task/task-list/task-list.component';
-import { TaskService } from './features/task/task.service';
-import { TaskEditComponent } from './features/task/task-edit/task-edit.component';
 import { SignInComponent } from './features/sign-in/sign-in.component';
 import { SignInService } from './features/sign-in/sign-in.service';
 import { UserManager } from './features/sign-in/user-manager.service';
@@ -36,38 +18,25 @@ import { AppDateAdapter } from './shared/date/app-date-adapter';
 import { APP_DATE_FORMATS } from './shared/date/app-date-formats';
 import { NavComponent } from './shared/nav/nav.component';
 import { SignedInGuard } from './features/sign-in/signed-in.guard';
-import { TaskTypeListingComponent } from './features/task-type/task-type-listing/task-type-listing.component';
-import { TaskTypeDetailComponent } from './features/task-type/task-type-detail/task-type-detail.component';
-import { TaskTypeService } from './features/task-type/task-type.service';
-import { MccColorPickerModule } from 'material-community-components';
 import { ErrorComponent } from './shared/error/error.component';
 import { ErrorService } from './shared/error/error.service';
 import { ErrorHandlerService } from './shared/error/error-handler.service';
 import { SharedModule } from './shared/shared.module';
 import { ScheduleComponent } from './features/schedule/schedule/schedule.component';
 import { ScheduleListingComponent } from './features/schedule/schedule-listing/schedule-listing.component';
-import { TaskDeleteModalComponent } from './features/task/task-delete-modal/task-delete-modal.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { TaskViewComponent } from './features/task/task-view/task-view.component';
 import { DatePipe } from '@angular/common';
+import { TaskModule } from './features/task/task.module';
 
 @NgModule({
     declarations: [
         AppComponent,
-        TaskListComponent,
-        TaskAddComponent,
-        TaskDetailComponent,
-        TaskEditComponent,
         SignInComponent,
         NavComponent,
-        TaskTypeListingComponent,
-        TaskTypeDetailComponent,
         ErrorComponent,
         ScheduleComponent,
         ScheduleListingComponent,
-        TaskDeleteModalComponent,
-        DashboardComponent,
-        TaskViewComponent
+        DashboardComponent
     ],
     imports: [
         SharedModule,
@@ -76,11 +45,10 @@ import { DatePipe } from '@angular/common';
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        TaskModule
     ],
     providers: [
-        TaskService,
-        TaskTypeService,
         SignInService,
         UserManager,
         AuthGuard,
@@ -91,9 +59,6 @@ import { DatePipe } from '@angular/common';
         { provide: DateAdapter, useClass: AppDateAdapter },
         { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
         { provide: ErrorHandler, useClass: ErrorHandlerService }
-    ],
-    entryComponents: [
-        TaskDeleteModalComponent
     ],
     bootstrap: [AppComponent]
 })
