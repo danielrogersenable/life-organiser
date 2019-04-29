@@ -29,7 +29,7 @@ namespace TaskApi.Extensions
                 ScheduledDate = t.ScheduledDate.HasValue ? t.ScheduledDate.Value.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz") : null,
                 DurationInMinutes = t.DurationInMinutes,
                 TaskTypeId = t.TaskTypeId,
-                TaskType = t.TaskType.Name
+                TaskType = t.TaskType?.Name
             };
         }
 
