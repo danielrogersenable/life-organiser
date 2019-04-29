@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
     constructor(private _userManager: UserManager, private _router: Router) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
 
     public dashboardClick(): void {
         this._router.navigateByUrl('dashboard');
@@ -32,6 +33,10 @@ export class NavComponent implements OnInit {
 
     public taskTypeClick(): void {
         this._router.navigateByUrl('task-types');
+    }
+
+    public recurringTasksClick(): void {
+        this._router.navigateByUrl('recurring-tasks');
     }
 
     public signOut(): void {

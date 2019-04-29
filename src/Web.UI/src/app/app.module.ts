@@ -27,6 +27,7 @@ import { ScheduleListingComponent } from './features/schedule/schedule-listing/s
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { DatePipe } from '@angular/common';
 import { TaskModule } from './features/task/task.module';
+import { RecurringTaskModule } from './features/recurring-task/recurring-task.module';
 
 @NgModule({
     declarations: [
@@ -46,7 +47,8 @@ import { TaskModule } from './features/task/task.module';
         HttpClientModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
-        TaskModule
+        TaskModule,
+        RecurringTaskModule
     ],
     providers: [
         SignInService,
