@@ -1,27 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TaskService } from '../../task/task.service';
 import { ScheduledTasksQueryDto } from '../scheduled-tasks-query.dto';
 import { ScheduledTaskDto } from '../scheduled-tasks.dto';
 import * as moment from 'moment';
 import { convertMomentToString } from '../../../shared/date/moment-date-adapter';
-import { first, tap } from 'rxjs/operators';
+import { first, tap, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
     selector: 'app-schedule',
     templateUrl: './schedule.component.html',
     styleUrls: ['./schedule.component.scss']
 })
-export class ScheduleComponent implements OnInit {
+export class ScheduleComponent implements OnInit, OnDestroy {
     constructor(public taskService: TaskService) {}
 
     public todaysTasks: ScheduledTaskDto[];
     public weeksTasks: ScheduledTaskDto[];
     public futureTasks: ScheduledTaskDto[];
 
+    private _destroyed$ = new Subject();
+
     ngOnInit() {
         this.getTodaysTasks();
         this.getWeekTasks();
         this.getFutureTasks();
+    }
+
+    ngOnDestroy() {
+        this._destroyed$.next();
+        this._destroyed$.complete();
     }
 
     public getTodaysTasks(): void {
@@ -35,6 +43,7 @@ export class ScheduleComponent implements OnInit {
         this.taskService
             .getScheduledTasks(model)
             .pipe(
+                takeUntil(this._destroyed$),
                 first(),
                 tap(result => {
                     this.todaysTasks = result;
@@ -54,7 +63,8 @@ export class ScheduleComponent implements OnInit {
       this.taskService
           .getScheduledTasks(model)
           .pipe(
-              first(),
+            takeUntil(this._destroyed$),
+            first(),
               tap(result => {
                 this.weeksTasks = result;
             })
@@ -73,6 +83,7 @@ export class ScheduleComponent implements OnInit {
     this.taskService
         .getScheduledTasks(model)
         .pipe(
+            takeUntil(this._destroyed$),
             first(),
             tap(result => {
                 this.futureTasks = result;

@@ -12,7 +12,8 @@ import { TaskTypeDto } from '../task-type.dto';
 import { TaskTypeForm } from '../task-type-form';
 import { TaskTypeService } from '../task-type.service';
 import { ErrorService } from '../../../shared/error/error.service';
-import { first, tap } from 'rxjs/operators';
+import { first, tap, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 export function taskTypeFormFactory() {
     return new TaskTypeForm();
@@ -24,7 +25,7 @@ export function taskTypeFormFactory() {
     styleUrls: ['./task-type-detail.component.scss'],
     providers: [{ provide: TaskTypeForm, useFactory: taskTypeFormFactory }]
 })
-export class TaskTypeDetailComponent implements OnInit, OnChanges {
+export class TaskTypeDetailComponent implements OnInit, OnChanges, OnDestroy {
     constructor(
         public form: TaskTypeForm,
         public taskTypeService: TaskTypeService,
@@ -42,6 +43,13 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
         this.form.setValue(this.taskType);
     }
 
+    private _destroyed$ = new Subject();
+
+    ngOnDestroy() {
+        this._destroyed$.next();
+        this._destroyed$.complete();
+    }
+    
     get canDelete(): boolean {
         return this.taskType && this.taskType.id !== 0;
     }
@@ -50,6 +58,7 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
         this.taskTypeService
             .deleteTaskType(this.taskType.id)
             .pipe(
+                takeUntil(this._destroyed$),
                 first(),
                 tap(() => {
                     this.saveEvent.emit();
@@ -76,6 +85,7 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
         this.taskTypeService
             .updateTaskType(this.taskType)
             .pipe(
+                takeUntil(this._destroyed$),
                 first(),
                 tap(() => {
                     this.saveEvent.emit();
@@ -88,6 +98,7 @@ export class TaskTypeDetailComponent implements OnInit, OnChanges {
         this.taskTypeService
             .addTaskType(this.taskType)
             .pipe(
+                takeUntil(this._destroyed$),
                 first(),
                 tap(() => {
                     this.saveEvent.emit();

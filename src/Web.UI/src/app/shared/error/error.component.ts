@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ErrorService } from './error.service';
-import { tap } from 'rxjs/operators';
+import { tap, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
     selector: 'app-error',
     templateUrl: './error.component.html',
     styleUrls: ['./error.component.scss']
 })
-export class ErrorComponent implements OnInit {
+export class ErrorComponent implements OnInit, OnDestroy {
     constructor(private _errorService: ErrorService) {}
 
     public messages: string[] = [];
@@ -15,6 +16,7 @@ export class ErrorComponent implements OnInit {
     ngOnInit() {
         this._errorService.errorMessage
         .pipe(
+            takeUntil(this._destroyed$),
             tap(messages => {
                 messages.forEach(message => {
                     this.messages.push(message);
@@ -22,6 +24,13 @@ export class ErrorComponent implements OnInit {
             })
         )
         .subscribe();
+    }
+
+    private _destroyed$ = new Subject();
+
+    ngOnDestroy() {
+        this._destroyed$.next();
+        this._destroyed$.complete();
     }
 
     public clear(index: number): void {

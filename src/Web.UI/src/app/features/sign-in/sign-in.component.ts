@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SignInForm, signInFormFactory } from './sign-in-form';
 import { SignInService } from './sign-in.service';
 import { SignInDto } from './sign-in.dto';
-import { first } from 'rxjs/operators';
+import { first, takeUntil } from 'rxjs/operators';
 import { finalize } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
     selector: 'app-sign-in',
@@ -11,7 +12,7 @@ import { finalize } from 'rxjs/operators';
     styleUrls: ['./sign-in.component.scss'],
     providers: [{ provide: SignInForm, useFactory: signInFormFactory }]
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent implements OnInit, OnDestroy {
     constructor(
         public form: SignInForm,
         private signInService: SignInService
@@ -22,6 +23,13 @@ export class SignInComponent implements OnInit {
     public isSigningIn: boolean = false;
 
     ngOnInit() {}
+
+    private _destroyed$ = new Subject();
+
+    ngOnDestroy() {
+        this._destroyed$.next();
+        this._destroyed$.complete();
+    }
 
     signIn() {
         if (this.form.invalid) {
@@ -35,6 +43,7 @@ export class SignInComponent implements OnInit {
         this.signInService
             .signIn(this.signInDto)
             .pipe(
+                takeUntil(this._destroyed$),
                 first(),
                 finalize(() => {
                     this.isSigningIn = false;

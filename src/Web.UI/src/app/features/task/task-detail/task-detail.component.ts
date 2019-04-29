@@ -1,14 +1,15 @@
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { TaskDto } from '../task.dto';
 import { Router } from '@angular/router';
 import { TaskService } from '../task.service';
 import { TaskForm, taskFormFactory } from './task-form';
 import { TaskTypeDto } from '../../task-type/task-type.dto';
 import { TaskTypeService } from '../../task-type/task-type.service';
-import { tap, first } from 'rxjs/operators';
+import { tap, first, takeUntil } from 'rxjs/operators';
 import { MatDialog } from '@angular/material';
 import { TaskDeleteModalComponent } from '../task-delete-modal/task-delete-modal.component';
+import { Subject } from 'rxjs';
 
 @Component({
     selector: 'app-task-detail',
@@ -16,7 +17,7 @@ import { TaskDeleteModalComponent } from '../task-delete-modal/task-delete-modal
     styleUrls: ['./task-detail.component.scss'],
     providers: [{ provide: TaskForm, useFactory: taskFormFactory }]
 })
-export class TaskDetailComponent implements OnInit {
+export class TaskDetailComponent implements OnInit, OnDestroy {
     constructor(
         public form: TaskForm,
         public dialog: MatDialog,
@@ -33,6 +34,7 @@ export class TaskDetailComponent implements OnInit {
         this.taskTypeService
             .getTaskTypes()
             .pipe(
+                takeUntil(this._destroyed$),
                 first(),
                 tap(taskTypes => {
                     this.taskTypes = taskTypes;
@@ -56,6 +58,14 @@ export class TaskDetailComponent implements OnInit {
         this.form.setValue(this.task);
     }
 
+    
+    private _destroyed$ = new Subject();
+
+    ngOnDestroy() {
+        this._destroyed$.next();
+        this._destroyed$.complete();
+    }
+
     save() {
         if (this.form.invalid) {
             return;
@@ -74,6 +84,7 @@ export class TaskDetailComponent implements OnInit {
         this.taskService
             .addTask(this.task)
             .pipe(
+                takeUntil(this._destroyed$),
                 first(),
                 tap(() => this.router.navigateByUrl('/tasks'))
             )
@@ -84,6 +95,7 @@ export class TaskDetailComponent implements OnInit {
         this.taskService
             .updateTask(this.task)
             .pipe(
+                takeUntil(this._destroyed$),
                 first(),
                 tap(() => this.router.navigateByUrl('/tasks'))
             )
@@ -93,17 +105,22 @@ export class TaskDetailComponent implements OnInit {
     deleteModal(): void {
         const dialogRef = this.dialog.open(TaskDeleteModalComponent);
 
-        dialogRef.afterClosed().subscribe((result: boolean) => {
-            if (result){
-                this.delete();
-            }
-        })
+        dialogRef.afterClosed()
+        .pipe(
+            takeUntil(this._destroyed$),
+            tap((result: boolean) => {
+                if (result){
+                    this.delete();
+                }
+            }))
+        .subscribe();
     }
 
     delete(): void {
         this.taskService
             .deleteTask(this.task.id)
             .pipe(
+                takeUntil(this._destroyed$),
                 first(),
                 tap(() => {
                     this.router.navigateByUrl('/tasks');

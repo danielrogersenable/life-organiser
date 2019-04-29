@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { SignInDto } from './sign-in.dto';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import {
     map,
     tap,
@@ -21,10 +21,17 @@ const httpOptions = {
 const authRootUri = `${environment.apiRootUri}/auth`;
 
 @Injectable()
-export class SignInService {
+export class SignInService implements OnDestroy {
     constructor(private http: HttpClient, private _userManager: UserManager) {}
 
     private signInUrl = `${authRootUri}/sign-in`;
+
+    private _destroyed$ = new Subject();
+
+    ngOnDestroy() {
+        this._destroyed$.next();
+        this._destroyed$.complete();
+    }
 
     public signIn(signInDto: SignInDto): Observable<boolean> {
         return this.http
@@ -43,6 +50,7 @@ export class SignInService {
         this.http
             .post<AppUser>(`${authRootUri}/refresh-token`, null)
             .pipe(
+                takeUntil(this._destroyed$),
                 retryWhen(errors =>
                     errors.pipe(
                         delay(5000),
