@@ -12,5 +12,6 @@ namespace TaskApi.Services.Interfaces
     {
         LifeTask PopulateLifeTaskFromModel(TaskModel model, LifeTask dbTask, int? userId = null);
         TaskType PopulateTaskTypeFromModel(TaskTypeModel model, TaskType taskType, int? userId = null);
+        RecurringTask PopulateRecurringTaskFromModel(RecurringTaskModel model, RecurringTask dbRecurringTask, int? userId = null);
     }
 }

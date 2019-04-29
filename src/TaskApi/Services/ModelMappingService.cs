@@ -75,5 +75,35 @@ namespace TaskApi.Services
 
             return dbTaskType;
         }
+
+        public RecurringTask PopulateRecurringTaskFromModel(RecurringTaskModel model, RecurringTask dbRecurringTask, int? userId = null)
+        {
+            if (dbRecurringTask.UserId == 0)
+            {
+                if (userId.HasValue)
+                {
+                    dbRecurringTask.UserId = userId.Value;
+                }
+                else
+                {
+                    throw new InvalidOperationException("This task has not been created in the context of a user");
+                }
+            }
+
+            dbRecurringTask.Name = model.Name;
+            dbRecurringTask.Description = model.Description;
+            dbRecurringTask.RecurrenceInterval = model.RecurrenceInterval;
+            dbRecurringTask.TaskRecurrenceType = model.TaskRecurrenceType;
+
+
+            foreach (var taskModel in model.Tasks)
+            {
+                var dbTask = new LifeTask();
+                dbTask = PopulateLifeTaskFromModel(taskModel, dbTask, userId);
+                dbRecurringTask.Tasks.Add(dbTask);
+            }
+
+            return dbRecurringTask;
+        }
     }
 }
