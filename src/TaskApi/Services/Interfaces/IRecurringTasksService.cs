@@ -11,5 +11,8 @@ namespace TaskApi.Services.Interfaces
     {
         Task<List<RecurringTaskModel>> GetProjectedRecurringTasks(int userId);
         Task<RecurringTaskModel> GetProjectedRecurringTask(int id);
+        Task UpdateRecurringTask(RecurringTaskModel model);
+        Task AddRecurringTask(RecurringTaskModel model, int userId);
+        Task DeleteRecurringTask(int id);
     }
 }

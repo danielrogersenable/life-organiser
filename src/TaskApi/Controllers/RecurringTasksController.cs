@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TaskApi.Models;
 using TaskApi.Services.Interfaces;
 
 namespace TaskApi.Controllers
@@ -45,6 +46,42 @@ namespace TaskApi.Controllers
             var results = await _recurringTasksService.GetProjectedRecurringTask(id);
 
             return Ok(results);
+        }
+
+        [HttpPut]
+        [Route("")]
+        public async Task<IActionResult> Put([FromBody] RecurringTaskModel model)
+        {
+            // TODO - add validation
+            ////await _recurringTasksService.UpdateTask(model);
+
+            return new NoContentResult();
+        }
+
+        [HttpPost]
+        [Route("")]
+        public async Task<IActionResult> Post([FromBody] RecurringTaskModel model)
+        {
+            var userId = _userManagerService.TryGetUserId(User);
+
+            if (!userId.HasValue)
+            {
+                return new UnauthorizedResult();
+            }
+
+            // TODO - add validation
+            await _recurringTasksService.AddRecurringTask(model, userId.Value);
+
+            return new NoContentResult();
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            ////await _recurringTasksService.DeleteTask(id);
+
+            return new NoContentResult();
         }
     }
 }

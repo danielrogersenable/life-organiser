@@ -16,6 +16,7 @@ namespace TaskApi.Services
     {
         private readonly ITasksCommands _commands;
         private readonly ITasksQueries _queries;
+        private readonly IRecurringTaskValueService _recurringTaskValueService;
 
         public TasksService(
             ITasksCommands commands,

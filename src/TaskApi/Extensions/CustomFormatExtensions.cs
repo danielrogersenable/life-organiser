@@ -10,7 +10,7 @@ namespace TaskApi.Extensions
     {
         public static DateTimeOffset DateFormatter(string date)
         {
-           return DateTimeOffset.Parse(date, null, System.Globalization.DateTimeStyles.RoundtripKind);
+            return DateTimeOffset.Parse(date, null, System.Globalization.DateTimeStyles.RoundtripKind);
         }
 
         public static DateTimeOffset? TryDateFormatter(string date)
@@ -25,6 +25,11 @@ namespace TaskApi.Extensions
             {
                 return null;
             }
+        }
+
+        public static string FormatDateString(this DateTimeOffset date)
+        {
+            return date.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz");
         }
 
         public static TimeSpan TimeFormatter(string time)
