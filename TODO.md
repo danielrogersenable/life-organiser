@@ -26,14 +26,12 @@ Format
 - [ ] (4, 2 hours) Consider paging on task list?
 - [ ] (4, 2 hours) Add sorting to the task lists
 	- Perhaps look at service monitoring
-- [X] (4, 1 hour) Add user id to LifeTask and load only tasks belonging to a specific user.
 - [ ] (4, 1 hour) Add validation (front-end)
 - [ ] (5, 1 hour) Add validation (back-end)
 - [ ] (5, 30 mins) Add "are you sure" warning to task deletion.
 
 ## Design and styling
 
-- [X] (3, 1 hour) Button styling
 - [ ] (3, 1 hour) Loading behaviour
 	- [X] Create spinner
 	- [X] Add spinner to login page
@@ -47,9 +45,6 @@ Format
 
 ## Technical functionality
 
-- [X] (1, 2 hours) More sensible CORS setup.
-- [X] (2, 2 hours) Improve Git branching strategy to have a "live" branch and a "dev" branch. Dev merges to live, live auto deploys.
-- [X] (3, 0.5 hours) Remove migrate build step from YAML
 - [ ] (3, 2 hours) Clean up variables in code, use other variables instead.
 - [ ] (3, 3 hours) Use ARM templates for deploying Azure resources
 - [ ] (3, 2 hours) Separate out modules in Angular
@@ -63,11 +58,11 @@ Format
 
 # Feature wishlist
 
+- [ ] Add notion of a recurring task, which gets rescheduled following completion of the previous task (similar to Toodledo).
 - [ ] Add dashboard-style view for tasks assigned to a particular day.
 - [ ] Set availability per day
 	- [ ] Potential long-term goal - set availability per day for different tasks.
 	- [ ] Add recurring availability (e.g. 4 hours free every Saturday).
-- [ ] Add notion of a recurring task, which gets rescheduled following completion of the previous task (similar to Toodledo).
 - [ ] Background processing to trigger scheduling?
 - [ ] Scoring tasks
 	- Some method of providing a task with a score (perhaps at least partially auto generated with some manual input, based on complexity, time taken, date due etc.), and schedule based on score.

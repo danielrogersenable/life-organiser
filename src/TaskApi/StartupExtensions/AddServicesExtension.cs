@@ -24,6 +24,7 @@ namespace TaskApi.StartupExtensions
             services.AddScoped<ITaskTypesService, TaskTypesService>();
             services.AddScoped<IUserManagerService, UserManagerService>();
             services.AddScoped<IRecurringTasksService, RecurringTasksService>();
+            services.AddScoped<IRecurringTaskValueService, RecurringTaskValueService>();
         }
     }
 }

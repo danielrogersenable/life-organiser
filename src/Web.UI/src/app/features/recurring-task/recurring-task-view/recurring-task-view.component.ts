@@ -9,32 +9,11 @@ import { RecurringTaskListingDto } from '../recurring-task.dto';
   templateUrl: './recurring-task-view.component.html',
   styleUrls: ['./recurring-task-view.component.scss']
 })
-export class RecurringTaskViewComponent implements OnInit, OnDestroy {
+export class RecurringTaskViewComponent implements OnInit {
 
-  constructor(private recurringTaskService: RecurringTaskService) { }
+  constructor() { }
 
-  recurringTasks: RecurringTaskListingDto[];
-
-  ngOnInit() {
-    this.getRecurringTasks();
-  }
-  
-  private _destroyed$ = new Subject();
-
-  ngOnDestroy() {
-      this._destroyed$.next();
-      this._destroyed$.complete();
-  }
-
-  getRecurringTasks(): void {
-    this.recurringTaskService.getRecurringTasks()
-    .pipe(
-        takeUntil(this._destroyed$),
-        tap(tasks => {
-            this.recurringTasks = tasks;
-        })
-    )
-    .subscribe();
+ngOnInit() {
 }
 
 }
