@@ -1,0 +1,68 @@
+@import 'variables';
+
+$box-width: 284px;
+$box-height: 224px;
+$box-margin: 8px;
+$icon-height: 80px;
+$icon-width: 80px;
+$icon-top: 24px;
+$status-text-top: 42px;
+
+.status-box {
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    height: $box-height;
+    width: $box-width;
+    position: relative;
+    margin-top: 16px;
+
+    &:first-of-type {
+        margin-left: 0;
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    .status-box-text {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: $box-width - 2 * $box-margin;
+        position: relative;
+        top: $status-text-top;
+    
+        .status-box-content {
+            font-size: 20px;
+            position: relative;
+        }
+
+        .status-box-legend {
+            font-size: 16px;
+            font-variant: small-caps;
+            position: relative;
+            color: $color-secondary;
+        }
+
+    }
+    .status-box-image {
+        height: $icon-height;
+        width: $icon-width;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        top: $icon-top;
+
+        &.duration {
+            background: url('../../../assets/icons/hourglass.svg');
+        }
+
+        &.due-by {
+            background: url('../../../assets/icons/alarm.svg');
+        }
+
+        &.scheduled {
+            background: url('../../../assets/icons/calendar.svg');
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<div class="status-box">
+    <div [className]="'status-box-image ' + statusClass"></div>
+    <div class="status-box-text">
+      <div *ngIf="dateValue">
+          <div class="status-box-content">{{ dateValue  | date:'fullDate' }}</div>
+          <div class="status-box-content">({{ getRelativeDateValue() }})</div>  
+      </div>
+      <div *ngIf="tileValue">
+          <div class="status-box-content">{{ tileValue }}</div>
+      </div>
+      <div *ngIf="hasTimeValue()">
+          <div class="status-box-content">{{ getTimeValue() }}</div>
+      </div>
+      <div class="status-box-legend">{{ tileName }}</div>
+    </div>
+</div>
