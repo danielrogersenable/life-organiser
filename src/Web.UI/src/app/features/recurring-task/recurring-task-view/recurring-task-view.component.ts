@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { RecurringTaskService } from '../recurring-task.service';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
@@ -11,6 +11,7 @@ import { RecurringTaskListingDto } from '../recurring-task.dto';
 })
 export class RecurringTaskViewComponent implements OnInit {
 
+  @Input() recurringTask: RecurringTaskListingDto
   constructor() { }
 
 ngOnInit() {

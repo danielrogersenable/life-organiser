@@ -37,11 +37,11 @@ Format
 	- [X] Add spinner to login page
 	- [X] Ensure spinner on login page is rendered in the right place
 	- [ ] Add spinner to listing page
+- [ ] (3, 2 hours) Expand the dashboard card functionality
+	- [ ] Change colour based on task type or other statuses
+	- [ ] Consider making the card itself a shared component for reuse elsewhere
 - [ ] (4, 1 hour) Add styling to the header.
 	- Add a logo with hyperlink to home
-- [ ] (5, 2 hours) Expand the dashboard card functionality
-	- [ ] Change colour based on task type
-	- [ ] Consider making the card itself a shared component for reuse elsewhere
 
 ## Technical functionality
 

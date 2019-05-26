@@ -1,6 +1,6 @@
 <h2>Recurring tasks</h2>
 <div *ngIf="recurringTasks">
   <div *ngFor="let task of recurringTasks">
-      <div>{{task.description}}</div>
+      <app-recurring-task-view [(recurringTask)]="task"></app-recurring-task-view>
   </div>
 </div>
