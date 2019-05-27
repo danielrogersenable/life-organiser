@@ -1,5 +1,12 @@
 <div *ngIf="recurringTask">
-    <div>{{ recurringTask.name }}</div>
-    <div>{{ recurringTask.description }}</div>
+    <h3 (click)="toggleExpansion()">{{ recurringTask.name }}</h3>
+    <div *ngIf="isExpanded">
+        <div>{{ recurringTask.name }}</div>
+        <div>{{ recurringTask.description }}</div>
+        <app-status-tile [(tileValue)]="recurrenceText" 
+        [(tileName)]="recurrenceName"
+        [(statusClass)]="recurrenceClass">
+        </app-status-tile>
+    </div>
 </div>
   

@@ -1,6 +1,6 @@
 @import 'variables';
 
-$box-width: 284px;
+$box-width: 316px;
 $box-height: 224px;
 $box-margin: 8px;
 $icon-height: 80px;
@@ -63,6 +63,10 @@ $status-text-top: 42px;
 
         &.scheduled {
             background: url('../../../assets/icons/calendar.svg');
+        }
+
+        &.recurrence {
+            background: url('../../../assets/icons/big-ben.svg');
         }
     }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { RecurringTaskService } from '../recurring-task.service';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
-import { RecurringTaskListingDto } from '../recurring-task.dto';
+import { RecurringTaskListingDto, RecurrenceType } from '../recurring-task.dto';
 
 @Component({
   selector: 'app-recurring-task-view',
@@ -14,7 +14,63 @@ export class RecurringTaskViewComponent implements OnInit {
   @Input() recurringTask: RecurringTaskListingDto
   constructor() { }
 
+  isExpanded: boolean = false;
+
+  recurrenceName = "Recurrence";
+  recurrenceClass = "recurrence";
+  recurrenceText: string;
+
 ngOnInit() {
+  this.populateRecurrenceText();
 }
 
+toggleExpansion(): void {
+  this.isExpanded = !this.isExpanded;
+}
+
+populateRecurrenceText(): void {
+  if (!this.recurringTask){
+    this.recurrenceText = "nah";
+    return;
+  }
+
+  switch(this.recurringTask.taskRecurrenceType){
+    case RecurrenceType.Day:
+    {
+      if (this.recurringTask.recurrenceInterval == 1){
+        this.recurrenceText = "Every day";
+      } else{
+        this.recurrenceText = `Every ${this.recurringTask.recurrenceInterval} days`;
+      }
+      break;
+    }
+    case RecurrenceType.Week:
+    {
+      if (this.recurringTask.recurrenceInterval == 1){
+        this.recurrenceText = "Every week";
+      } else{
+        this.recurrenceText = `Every ${this.recurringTask.recurrenceInterval} weeks`;
+      }
+      break;
+    }
+    case RecurrenceType.Month:
+    {
+      if (this.recurringTask.recurrenceInterval == 1){
+        this.recurrenceText = "Every month";
+      } else{
+        this.recurrenceText = `Every ${this.recurringTask.recurrenceInterval} months`;
+      }
+      break;
+    }
+    case RecurrenceType.Year:
+    {
+      if (this.recurringTask.recurrenceInterval == 1){
+        this.recurrenceText = "Every year";
+      } else{
+        this.recurrenceText = `Every ${this.recurringTask.recurrenceInterval} years`;
+      }
+      break;
+    }
+  }
+}
 }
