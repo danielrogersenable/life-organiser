@@ -19,6 +19,7 @@ export class RecurringTaskViewComponent implements OnInit {
   recurrenceName = "Recurrence";
   recurrenceClass = "recurrence";
   recurrenceText: string;
+  panelClass: string = 'recurring-task-panel hidden';
 
 ngOnInit() {
   this.populateRecurrenceText();
@@ -26,6 +27,15 @@ ngOnInit() {
 
 toggleExpansion(): void {
   this.isExpanded = !this.isExpanded;
+  this.panelClass = this.getPanelClass();
+}
+
+getPanelClass(): string {
+  let panelClass = 'recurring-task-panel';
+  if (!this.isExpanded){
+    panelClass = panelClass + ' hidden';
+  }
+  return panelClass;
 }
 
 populateRecurrenceText(): void {

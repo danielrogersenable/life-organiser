@@ -1,0 +1,18 @@
+@import 'variables.scss';
+
+h3 {
+    border: 1px solid $color-primary;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: $color-primary;
+    color: $white;
+}
+
+.recurring-task-panel {
+    padding-bottom: 16px;
+
+    &.hidden {
+        display: none;
+    }
+}
