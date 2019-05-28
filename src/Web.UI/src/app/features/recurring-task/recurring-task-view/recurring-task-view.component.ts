@@ -4,45 +4,13 @@ import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { RecurringTaskListingDto, RecurrenceType } from '../recurring-task.dto';
 import { trigger, transition, style, animate, state, group } from '@angular/animations';
+import { SlideInOutAnimation } from '../../../shared/animations/slideinout';
 
 @Component({
   selector: 'app-recurring-task-view',
   templateUrl: './recurring-task-view.component.html',
   styleUrls: ['./recurring-task-view.component.scss'],
-  animations: [
-    trigger('slideInOut', [
-      state('expanded', style({
-          'max-height': '500px', 'opacity': '1', 'visibility': 'visible'
-      })),
-      state('hidden', style({
-          'max-height': '0px', 'opacity': '0', 'visibility': 'hidden'
-      })),
-      transition('expanded => hidden', [group([
-          animate('400ms ease-in-out', style({
-              'opacity': '0'
-          })),
-          animate('600ms ease-in-out', style({
-              'max-height': '0px'
-          })),
-          animate('700ms ease-in-out', style({
-              'visibility': 'hidden'
-          }))
-      ]
-      )]),
-      transition('hidden => expanded', [group([
-          animate('1ms ease-in-out', style({
-              'visibility': 'visible'
-          })),
-          animate('600ms ease-in-out', style({
-              'max-height': '500px'
-          })),
-          animate('800ms ease-in-out', style({
-              'opacity': '1'
-          }))
-      ]
-      )])
-  ])
-]
+  animations: [SlideInOutAnimation]
 })
 export class RecurringTaskViewComponent implements OnInit {
 
