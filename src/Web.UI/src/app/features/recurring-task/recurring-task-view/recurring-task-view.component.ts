@@ -3,18 +3,53 @@ import { RecurringTaskService } from '../recurring-task.service';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { RecurringTaskListingDto, RecurrenceType } from '../recurring-task.dto';
+import { trigger, transition, style, animate, state, group } from '@angular/animations';
 
 @Component({
   selector: 'app-recurring-task-view',
   templateUrl: './recurring-task-view.component.html',
-  styleUrls: ['./recurring-task-view.component.scss']
+  styleUrls: ['./recurring-task-view.component.scss'],
+  animations: [
+    trigger('slideInOut', [
+      state('expanded', style({
+          'max-height': '500px', 'opacity': '1', 'visibility': 'visible'
+      })),
+      state('hidden', style({
+          'max-height': '0px', 'opacity': '0', 'visibility': 'hidden'
+      })),
+      transition('expanded => hidden', [group([
+          animate('400ms ease-in-out', style({
+              'opacity': '0'
+          })),
+          animate('600ms ease-in-out', style({
+              'max-height': '0px'
+          })),
+          animate('700ms ease-in-out', style({
+              'visibility': 'hidden'
+          }))
+      ]
+      )]),
+      transition('hidden => expanded', [group([
+          animate('1ms ease-in-out', style({
+              'visibility': 'visible'
+          })),
+          animate('600ms ease-in-out', style({
+              'max-height': '500px'
+          })),
+          animate('800ms ease-in-out', style({
+              'opacity': '1'
+          }))
+      ]
+      )])
+  ])
+]
 })
 export class RecurringTaskViewComponent implements OnInit {
 
   @Input() recurringTask: RecurringTaskListingDto
   constructor() { }
 
-  isExpanded: boolean = false;
+  animationState = 'hidden';
 
   recurrenceName = "Recurrence";
   recurrenceClass = "recurrence";
@@ -26,16 +61,7 @@ ngOnInit() {
 }
 
 toggleExpansion(): void {
-  this.isExpanded = !this.isExpanded;
-  this.panelClass = this.getPanelClass();
-}
-
-getPanelClass(): string {
-  let panelClass = 'recurring-task-panel';
-  if (!this.isExpanded){
-    panelClass = panelClass + ' hidden';
-  }
-  return panelClass;
+  this.animationState = this.animationState === 'expanded' ? 'hidden' : 'expanded';
 }
 
 populateRecurrenceText(): void {

@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-status-tile',
   templateUrl: './status-tile.component.html',
-  styleUrls: ['./status-tile.component.scss']
+  styleUrls: ['./status-tile.component.scss'],
 })
 export class StatusTileComponent implements OnInit {
   @Input() statusClass: string;
