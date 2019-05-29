@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { RecurringTaskListingDto, RecurrenceType } from '../recurring-task.dto';
 import { trigger, transition, style, animate, state, group } from '@angular/animations';
-import { SlideInOutAnimation } from '../../../shared/animations/slideinout';
+import { SlideInOutAnimation } from '../../../shared/animations/slideInOut';
 
 @Component({
   selector: 'app-recurring-task-view',

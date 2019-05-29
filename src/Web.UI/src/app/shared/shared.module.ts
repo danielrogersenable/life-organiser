@@ -5,7 +5,7 @@ import { MccColorPickerModule } from 'material-community-components';
 import { LoaderComponent } from './loader/loader.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StatusTileComponent } from './status-tile/status-tile.component';
-import { SlideInOutAnimation } from './animations/slideinout';
+import { SlideInOutAnimation } from './animations/animations';
 
 @NgModule({
     imports: [
@@ -15,8 +15,7 @@ import { SlideInOutAnimation } from './animations/slideinout';
             empty_color: 'transparent'
         }),
         ReactiveFormsModule,
-        FormsModule,
-        SlideInOutAnimation
+        FormsModule
     ],
     exports: [
         SharedMaterialModule, 
@@ -24,9 +23,8 @@ import { SlideInOutAnimation } from './animations/slideinout';
         LoaderComponent,
         StatusTileComponent,
         ReactiveFormsModule, 
-        FormsModule,
-        SlideInOutAnimation
+        FormsModule
     ],
-    declarations: [LoaderComponent, StatusTileComponent, SlideInOutAnimation]
+    declarations: [LoaderComponent, StatusTileComponent]
 })
 export class SharedModule {}
