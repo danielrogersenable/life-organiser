@@ -5,7 +5,6 @@ import { MccColorPickerModule } from 'material-community-components';
 import { LoaderComponent } from './loader/loader.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StatusTileComponent } from './status-tile/status-tile.component';
-import { SlideInOutAnimation } from './animations/animations';
 
 @NgModule({
     imports: [
