@@ -22,14 +22,40 @@ export class RecurringTaskViewComponent implements OnInit {
   recurrenceName = "Recurrence";
   recurrenceClass = "recurrence";
   recurrenceText: string;
-  panelClass: string = 'recurring-task-panel hidden';
+
+  typeName="Task type";
+  typeClass="type";
+  typeText: string;
+
+  taskTotalName="Total tasks scheduled";
+  taskTotalClass="total";
+  taskTotalText: string;
 
 ngOnInit() {
   this.populateRecurrenceText();
+  this.populateTypeText();
+  this.populateTaskTotalText();
 }
 
 toggleExpansion(): void {
   this.animationState = this.animationState === 'expanded' ? 'hidden' : 'expanded';
+}
+
+populateTaskTotalText(): void {
+  if (!this.recurringTask || !this.recurringTask.tasks){
+    this.taskTotalText = "0";
+  } else {
+    this.taskTotalText = this.recurringTask.tasks.length.toString();
+  }
+  console.log(this.taskTotalText);
+}
+
+populateTypeText(): void {
+  if (!this.recurringTask || !this.recurringTask.taskType){
+    this.typeText = "None";
+  } else {
+    this.typeText = this.recurringTask.taskType.name;
+  }
 }
 
 populateRecurrenceText(): void {

@@ -1,12 +1,21 @@
 <div *ngIf="recurringTask">
     <h3 (click)="toggleExpansion()">{{ recurringTask.name }}</h3>
     <div class="recurring-task-panel" [@slideInOut]="animationState">
-        <div>{{ recurringTask.name }}</div>
-        <div>{{ recurringTask.description }}</div>
-        <app-status-tile [(tileValue)]="recurrenceText" 
-        [(tileName)]="recurrenceName"
-        [(statusClass)]="recurrenceClass">
-        </app-status-tile>
+        <div class="status-container">
+            <app-status-tile [(tileValue)]="recurrenceText" 
+            [(tileName)]="recurrenceName"
+            [(statusClass)]="recurrenceClass">
+            </app-status-tile>
+            <app-status-tile [(tileValue)]="typeText" 
+            [(tileName)]="typeName"
+            [(statusClass)]="typeClass">
+            </app-status-tile>    
+            <app-status-tile [(tileValue)]="taskTotalText" 
+            [(tileName)]="taskTotalName"
+            [(statusClass)]="taskTotalClass">
+            </app-status-tile>           
+         </div>
+         <div class="task-description">{{ recurringTask.description }}</div>
     </div>
 </div>
   

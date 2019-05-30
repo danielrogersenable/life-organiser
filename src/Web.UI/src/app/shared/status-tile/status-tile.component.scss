@@ -68,5 +68,13 @@ $status-text-top: 42px;
         &.recurrence {
             background: url('../../../assets/icons/big-ben.svg');
         }
+
+        &.type {
+            background: url('../../../assets/icons/soccerball.svg');
+        }
+
+        &.total {
+            background: url('../../../assets/icons/bag-pound.svg');
+        }
     }
 }
