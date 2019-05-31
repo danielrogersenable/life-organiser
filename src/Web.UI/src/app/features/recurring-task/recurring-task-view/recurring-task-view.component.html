@@ -1,5 +1,5 @@
 <div *ngIf="recurringTask">
-    <h3 (click)="toggleExpansion()">{{ recurringTask.name }}</h3>
+    <h3 (click)="toggleExpansion()">{{ getRecurringTaskName() }}</h3>
     <div class="recurring-task-panel" [@slideInOut]="animationState">
         <div class="status-container">
             <app-status-tile [(tileValue)]="recurrenceText" 
@@ -9,13 +9,13 @@
             <app-status-tile [(tileValue)]="typeText" 
             [(tileName)]="typeName"
             [(statusClass)]="typeClass">
-            </app-status-tile>    
+            </app-status-tile>
             <app-status-tile [(tileValue)]="taskTotalText" 
             [(tileName)]="taskTotalName"
             [(statusClass)]="taskTotalClass">
-            </app-status-tile>           
+            </app-status-tile>
          </div>
-         <div class="task-description">{{ recurringTask.description }}</div>
+         <div class="task-description">{{ getRecurringTaskDescription() }}</div>
     </div>
 </div>
   

@@ -37,4 +37,9 @@ export class RecurringTaskListComponent implements OnInit, OnDestroy {
     .subscribe();
 }
 
+addRecurringTask(): void {
+  const recurringTask = new RecurringTaskListingDto();
+  this.recurringTasks.push(recurringTask);
+}
+
 }

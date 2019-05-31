@@ -1,0 +1,18 @@
+.content-box {
+    padding-top: 16px;
+}
+
+.right-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.header-bar{
+    position: relative;
+    top: 0;
+
+    > h2{
+        max-width: 60%;
+    }
+}

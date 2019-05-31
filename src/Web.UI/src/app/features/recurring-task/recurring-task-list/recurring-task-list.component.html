@@ -1,5 +1,8 @@
-<h2>Recurring tasks</h2>
-<div *ngIf="recurringTasks">
+<div class="header-bar">
+  <h2>Recurring tasks</h2>
+  <button class="btn btn-primary right-button" type="button" (click)="addRecurringTask()"> Add recurring task</button>
+</div
+><div class="content-box" *ngIf="recurringTasks">
   <div *ngFor="let task of recurringTasks">
       <app-recurring-task-view [(recurringTask)]="task"></app-recurring-task-view>
   </div>

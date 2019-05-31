@@ -41,6 +41,14 @@ toggleExpansion(): void {
   this.animationState = this.animationState === 'expanded' ? 'hidden' : 'expanded';
 }
 
+getRecurringTaskName(): string {
+  return this.recurringTask.name ? this.recurringTask.name :'Task name here';
+}
+
+getRecurringTaskDescription(): string {
+  return this.recurringTask.description ? this.recurringTask.description :'Write a description here';
+}
+
 populateTaskTotalText(): void {
   if (!this.recurringTask || !this.recurringTask.tasks){
     this.taskTotalText = "0";
@@ -100,6 +108,10 @@ populateRecurrenceText(): void {
         this.recurrenceText = `Every ${this.recurringTask.recurrenceInterval} years`;
       }
       break;
+    }
+    default:
+      {
+      this.recurrenceText = "Not set";
     }
   }
 }
