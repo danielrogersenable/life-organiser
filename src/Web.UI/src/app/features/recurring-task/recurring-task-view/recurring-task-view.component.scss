@@ -1,12 +1,39 @@
 @import 'variables.scss';
 
-h3 {
+$button-bar-width: 190px;
+
+.header-bar {
     border: 1px solid $color-primary;
     padding: 8px;
     border-radius: 8px;
-    cursor: pointer;
     background-color: $color-primary;
     color: $white;
+    position: relative;
+    top: 0;
+    width: 100%;
+
+    > h3{
+        cursor: pointer;
+        max-width: calc(100% - 190px);
+    }
+
+    .button-bar{
+        max-width: $button-bar-width;
+    }
+}
+
+.right-button {
+    width: 80px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.second-right-button {
+    width: 80px;
+    position: absolute;
+    right: 108px;
+    top: 10px;
 }
 
 .recurring-task-panel {

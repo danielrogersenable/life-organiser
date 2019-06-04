@@ -31,6 +31,8 @@ export class RecurringTaskViewComponent implements OnInit {
   taskTotalClass="total";
   taskTotalText: string;
 
+  isEditView: boolean = false;
+
 ngOnInit() {
   this.populateRecurrenceText();
   this.populateTypeText();
@@ -39,6 +41,23 @@ ngOnInit() {
 
 toggleExpansion(): void {
   this.animationState = this.animationState === 'expanded' ? 'hidden' : 'expanded';
+}
+
+toggleEditView(): void {
+  this.isEditView = !this.isEditView;
+  this.animationState = 'expanded';
+}
+
+editViewText(): string{
+  if (this.isEditView){
+    return 'Save';
+  }
+
+  return 'Edit';
+}
+
+delete(): void{
+  alert('deleted!');
 }
 
 getRecurringTaskName(): string {

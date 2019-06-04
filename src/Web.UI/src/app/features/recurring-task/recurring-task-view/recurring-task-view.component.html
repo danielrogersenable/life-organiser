@@ -1,5 +1,11 @@
 <div *ngIf="recurringTask">
-    <h3 (click)="toggleExpansion()">{{ getRecurringTaskName() }}</h3>
+    <div class="header-bar">
+        <h3 (click)="toggleExpansion()">{{ getRecurringTaskName() }}</h3>
+        <div class="button-bar">
+            <button class="btn btn-secondary right-button" type="button" (click)="toggleEditView()"> {{ editViewText() }}</button>        
+            <button class="btn btn-secondary second-right-button" type="button" (click)="delete()"> Delete</button>        
+        </div>
+    </div>
     <div class="recurring-task-panel" [@slideInOut]="animationState">
         <div class="status-container">
             <app-status-tile [(tileValue)]="recurrenceText" 
