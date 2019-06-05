@@ -16,4 +16,5 @@ export class RecurringTaskListingDto {
     taskRecurrenceType: RecurrenceType;
     tasks: TaskListingDto[];
     taskType: TaskTypeDto;
+    taskTypeId: number;
 }

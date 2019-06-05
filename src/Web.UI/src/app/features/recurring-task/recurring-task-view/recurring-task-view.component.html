@@ -20,8 +20,15 @@
             [(tileName)]="taskTotalName"
             [(statusClass)]="taskTotalClass">
             </app-status-tile>
-         </div>
-         <div class="task-description">{{ getRecurringTaskDescription() }}</div>
+        </div>
+        <div class="task-description">
+            <div *ngIf="isEditView">
+                {{ getRecurringTaskDescription() }}
+            </div>
+            <div *ngIf="!isEditView">
+                foo bar baz
+            </div>
+        </div>
     </div>
 </div>
   
